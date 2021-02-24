@@ -1,0 +1,570 @@
+{
+	"rics:DataTransfer": {
+		"rics:GeneratedBy": {
+			"@name": "Andrew Knight"
+		},
+		"rics:Currency": [
+			{
+				"@iso4217Code": "AUD",
+				"@isPrimaryCurrency": true
+			}
+		],
+		"rics:Property": [
+			{
+				"@primaryUse": "MixedUse",
+				"@reference": "1001",
+				"@description": "New 2 storey office block, warehouse, soft landscaping and paving.  Removal of existing buildings in completion",
+				"@isPrimaryProperty": true,
+				"rics:Address": {
+					"xal:AddressDetails": [
+						{
+							"xal:AddressLines": {
+								"xal:AddressLine": [
+									"Canberra",
+									"Australian Capital Territory",
+									"Australia"
+								]
+							}
+						}
+					]
+				}
+			}
+		],
+		"rics:CostedProjects": [
+			{
+				"@title": "New Offices and Warehouse",
+				"@projectType": "building",
+				"@costReportStatus": "pre-constructionForecast",
+				"@reportPriceBasis": "fixedUnitRates",
+				"@projectStatus": "initiationAndConceptPhase",
+				"@description": "New 2 storey office block, warehouse, soft landscaping and paving.  Removal of existing buildings in completion",
+				"rics:MetaData": {
+					"@reportStatus": "final",
+					"@reportRevisionNumber": "3",
+					"rics:ReportDate": {
+						"rics:Date": "2014-05-31"
+					}
+				},
+				"rics:Location": {
+					"xal:AddressDetails": [
+						{
+							"xal:AddressLines": {
+								"xal:AddressLine": [
+									"Canberra",
+									"Australian Capital Territory",
+									"Australia"
+								]
+							}
+						}
+					]
+				},
+				"rics:ConstructionPeriod": {
+					"rics:Length": {
+						"rics:Duration": "P15M"
+					},
+					"rics:DateFrom": {
+						"@definedBy": "startOfDemolitionAndSitePreparation"
+					},
+					"rics:DateTo": {
+						"@stateTo": "completionOfCommissioning"
+					}
+				},
+				"rics:Site": {
+					"@stateOfUse": "brownfield",
+					"@typeOfUse": "urban",
+					"@legalStatus": "freehold",
+					"@siteTopography": "principallyFlat",
+					"@groundConditions": "soft",
+					"@accessProblems": "average",
+					"@extremeClimaticConditions": "easy",
+					"@environmentalConstraints": "easy"
+				},
+				"rics:Procurement": {
+					"@funding": "private",
+					"@pricingMethod": "lumpSumStipulatedPrice",
+					"@modeOfProcurement": "designBidBuild",
+					"@isJointVentureForeignConstructor": false,
+					"@predominantSourceOfConstructors": "local"
+				},
+				"rics:Buildings": [
+					{
+						"@title": "Office and Warehouse",
+						"rics:ProjectCode": {
+							"rics:ClassificationStandard": [
+								{
+									"@code": "01.04.02 (Commercial offices - Suburban/Regional B Grade",
+									"@standard": "Building Code of Australia"
+								}
+							]
+						},
+						"rics:Costs": [
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "demolitionSitePreparationAndFormation",
+								"@costCode": "1.01",
+								"@costSubCode": "050",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Demolition of existing buildings",
+								"@isNotApplicable": false,
+								"rics:Total": 600000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "demolitionSitePreparationAndFormation",
+								"@costCode": "1.01",
+								"@costSubCode": "060",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Site surface clearance",
+								"@isNotApplicable": false,
+								"rics:Total": 300000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "demolitionSitePreparationAndFormation",
+								"@costCode": "1.01",
+								"@costSubCode": "080",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Site formation",
+								"@isNotApplicable": false,
+								"rics:Total": 320000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "substructure",
+								"@costCode": "1.02",
+								"@costSubCode": "020",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Foundations up to top of lowest floor slab",
+								"@isNotApplicable": false,
+								"rics:Total": 1086000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "structure",
+								"@costCode": "1.03",
+								"@costSubCode": "030.010",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Structural wall and columns",
+								"@isNotApplicable": false,
+								"rics:Total": 285000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "structure",
+								"@costCode": "1.03",
+								"@costSubCode": "030.020",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Upper floors and beams",
+								"@isNotApplicable": false,
+								"rics:Total": 951000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "structure",
+								"@costCode": "1.03",
+								"@costSubCode": "030.030",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Roof beams and slabs",
+								"@isNotApplicable": false,
+								"rics:Total": 1056000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "structure",
+								"@costCode": "1.03",
+								"@costSubCode": "030.040",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Staircases",
+								"@isNotApplicable": false,
+								"rics:Total": 72000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "020.010",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Non-structural external walls",
+								"@isNotApplicable": false,
+								"rics:Total": 1957500
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "020.050",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "External doors",
+								"@isNotApplicable": false,
+								"rics:Total": 108800
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "030.010",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Roof finishes",
+								"@isNotApplicable": false,
+								"rics:Total": 560000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "040.010",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Non-structural internal walls and partitions",
+								"@isNotApplicable": false,
+								"rics:Total": 658700
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "040.060",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Internal doors",
+								"@isNotApplicable": false,
+								"rics:Total": 141000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "040.070",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Internal windows",
+								"@isNotApplicable": false,
+								"rics:Total": 131000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "050",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Fittings and sundries",
+								"@isNotApplicable": false,
+								"rics:Total": 180000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "060.010",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Floor finishes",
+								"@isNotApplicable": false,
+								"rics:Total": 501000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "060.020",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Internal wall finishes",
+								"@isNotApplicable": false,
+								"rics:Total": 258300
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "060.030",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Ceiling finishes",
+								"@isNotApplicable": false,
+								"rics:Total": 380700
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "architecturalWorks-NonStructuralWorks",
+								"@costCode": "1.04",
+								"@costSubCode": "070",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Builder's work in connection with services",
+								"@isNotApplicable": false,
+								"rics:Total": 181500
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "servicesAndEquipment",
+								"@costCode": "1.05",
+								"@costSubCode": "010.080",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Air handling and distribution system",
+								"@isNotApplicable": false,
+								"rics:Total": 2273500
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "servicesAndEquipment",
+								"@costCode": "1.05",
+								"@costSubCode": "020",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Electrical services",
+								"@isNotApplicable": false,
+								"rics:Total": 1553000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "servicesAndEquipment",
+								"@costCode": "1.05",
+								"@costSubCode": "040.010",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Communications",
+								"@isNotApplicable": false,
+								"rics:Total": 728000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "servicesAndEquipment",
+								"@costCode": "1.05",
+								"@costSubCode": "050",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Water supply and above ground drainage",
+								"@isNotApplicable": false,
+								"rics:Total": 788700
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "servicesAndEquipment",
+								"@costCode": "1.05",
+								"@costSubCode": "080",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Fire services",
+								"@isNotApplicable": false,
+								"rics:Total": 266700
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "servicesAndEquipment",
+								"@costCode": "1.05",
+								"@costSubCode": "100",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Movement systems",
+								"@isNotApplicable": false,
+								"rics:Total": 247000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "servicesAndEquipment",
+								"@costCode": "1.05",
+								"@costSubCode": "250",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Other specialist services",
+								"@isNotApplicable": false,
+								"rics:Total": 267500
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "surfaceAndUndergroundDrainage",
+								"@costCode": "1.06",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Surface and underground drainage",
+								"@isNotApplicable": false,
+								"rics:Total": 165000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "externalAndAncillaryWorks",
+								"@costCode": "1.07",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "External and ancillary works",
+								"@isNotApplicable": false,
+								"rics:Total": 1138000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "preliminariesConstructors-SiteOverheads-GeneralRequirements",
+								"@costCode": "1.08",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Preliminaries, Contractor's site overheads, general requirements",
+								"@isNotApplicable": false,
+								"rics:Total": 2653000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "riskAllowances",
+								"@costCode": "1.09",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Risk Allowances",
+								"@isNotApplicable": false,
+								"rics:Total": 2438000
+							},
+							{
+								"@costCategory": "capitalConstructionCosts",
+								"@costGroup": "taxesAndLevies",
+								"@costCode": "1.10",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": true,
+								"@description": "Taxes and Levies",
+								"@isNotApplicable": false,
+								"rics:Total": 0
+							},
+							{
+								"@costCategory": "associatedCapitalCosts",
+								"@costGroup": "workAndUtilitiesOffsite",
+								"@costCode": "2.01",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Work and utilities off-site",
+								"@isNotApplicable": false,
+								"rics:Total": 290000
+							},
+							{
+								"@costCategory": "associatedCapitalCosts",
+								"@costGroup": "postCompletionLooseFurnitureFittingsAndEquipment",
+								"@costCode": "2.02",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Post-completion loose furniture, fittings and equipment",
+								"@isNotApplicable": false,
+								"rics:Total": 2605600
+							},
+							{
+								"@costCategory": "associatedCapitalCosts",
+								"@costGroup": "constructionRelatedConsultantsAndSupervision",
+								"@costCode": "2.03",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Construction-related consultancies and supervision",
+								"@isNotApplicable": false,
+								"rics:Total": 1380300
+							},
+							{
+								"@costCategory": "associatedCapitalCosts",
+								"@costGroup": "riskAllowances",
+								"@costCode": "2.04",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Risk Allowances",
+								"@isNotApplicable": false,
+								"rics:Total": 177000
+							},
+							{
+								"@costCategory": "siteAcquisitionAndClientsOtherCosts",
+								"@costGroup": "siteAcquisition",
+								"@costCode": "3.01",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": true,
+								"@description": "Site acquisition",
+								"@isNotApplicable": false,
+								"rics:Total": 0
+							},
+							{
+								"@costCategory": "siteAcquisitionAndClientsOtherCosts",
+								"@costGroup": "administrativeFinanceLegalAndMarketingExpenses",
+								"@costCode": "3.02",
+								"@isCivilEngineeringWorks": false,
+								"@isExcluded": false,
+								"@description": "Administrative, finance, legal and marketing expenses",
+								"@isNotApplicable": false,
+								"rics:Total": 671850
+							}
+						],
+						"rics:Works": {
+							"@function": "commercial",
+							"@nature": "newBuild",
+							"@grade": "mediumQuality",
+							"@designLifeInYears": 40,
+							"rics:EnvironmentalGrade": [
+								{
+									"@grade": "Four Star",
+									"@status": "targeted",
+									"@standard": "NABERS (National Australian Built Environment Rating System)"
+								}
+							],
+							"rics:DesignFeatures": {
+								"@structure": "steel",
+								"@externalWalls": "Tilt-up (precast) concrete panels",
+								"@environmentalControl": "airConditioning",
+								"@prefabricationDegree": "upTo50%"
+							},
+							"rics:Complexity": {
+								"@shapeOnPlan": "squareRectangularOrSimilar",
+								"@design": "simple",
+								"@methodOfWorking": "Existing buildings on site will remain operational during the construction. Staff will move to new buildings. Old buildings demolished on completion of new 40 to 50 years"
+							},
+							"rics:AverageHeightToSeaLevel": {
+								"@unitOfMeasurement": "MTR",
+								"@location": "above",
+								"$": 577
+							},
+							"rics:Dimensions": {
+								"@unitOfMeasurement": "MTR",
+								"@description": "Metres",
+								"rics:Width": 37.640,
+								"rics:Length": 64.85,
+								"rics:Height": 6.20
+							},
+							"rics:StoreyInformation": [
+								{
+									"@storeyCountAboveGround": 3,
+									"@storeyCountBelowGround": 0,
+									"rics:StoreyHeight": [
+										{
+											"@unitOfMeasurement": "MTR",
+											"@id": "0",
+											"$": 3
+										}
+									],
+									"rics:TypicalStoreyHeight": {
+										"@unitOfMeasurement": "MTR",
+										"$": 3
+									}
+								}
+							]
+						},
+						"rics:Quantities": {
+							"rics:SiteArea": {
+								"@unitOfMeasurement": "MTK",
+								"$": 50000
+							},
+							"rics:CoveredAreaOnPlan": {
+								"@unitOfMeasurement": "MTK",
+								"$": 7550
+							},
+							"rics:InternalFloorAreaAsIpms2": {
+								"@unitOfMeasurement": "MTK",
+								"$": 4770
+							}
+						}
+					}
+				]
+			}
+		]
+	}
+}

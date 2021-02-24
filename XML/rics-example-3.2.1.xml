@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rics:DataTransfer xmlns:rics="urn:xsdschema:rics:3.2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xsi:schemaLocation="urn:xsdschema:rics:3.2.1 rics-3.2.1.xsd">
+	<rics:GeneratedBy name="Andrew Knight">
+		<rics:LegalEntity name="RICS"/>
+	</rics:GeneratedBy>
+	<rics:MetaData>
+		<rics:PreparedFor description="Example data for test and development purposes">
+		</rics:PreparedFor>
+	</rics:MetaData>
+	<rics:Currency iso4217Code="GBP" isPrimaryCurrency="true"/>
+	<rics:Currency iso4217Code="USD" isPrimaryCurrency="false" exchangeRateToPrimary="1.3383">
+		<rics:ExchangeRateDate>
+			<rics:Date>2020-11-23</rics:Date>
+		</rics:ExchangeRateDate>
+	</rics:Currency>
+	<rics:Property name="The Stockyard" primaryUse="office" purpose="administration" type="building" description="CBD multi-tenanted offices" isPrimaryProperty="true">
+		<rics:GUID name="UPRN" id="200001025758"/>
+		<rics:GUID name="TOID" id="osgb1000000285742"/>
+		<rics:Address>
+			<ifc:IfcPostalAddress Country="United Kingdom" PostalCode="EC4 3ST" Town="London">
+				<ifc:AddressLines>
+					<ifc:IfcLabel-wrapper>10-50 City Row</ifc:IfcLabel-wrapper>
+				</ifc:AddressLines>
+			</ifc:IfcPostalAddress>
+		</rics:Address>
+	</rics:Property>
+	<rics:Premises description="Summary of scope of The Stockyard">
+		<rics:Area primaryUse="office">
+			<rics:AreaUnits unitOfMeasurement="FTK">150000</rics:AreaUnits>
+			<rics:FunctionalUnits function="noOfDesks">2000</rics:FunctionalUnits>
+			<rics:SecondaryUse>dataCentre</rics:SecondaryUse>
+		</rics:Area>
+		<rics:Space primaryUse="office">
+			<rics:Spaces description="Data centre and archive" isAirConditioned="true" type="basement" primaryUse="dataCentre">
+				<rics:Floors id="-2" label="Basement"/>
+			</rics:Spaces>
+			<rics:Spaces description="Staff cafe" isAirConditioned="true" type="basement" primaryUse="restaurant">
+				<rics:Floors id="-1" label="Lower Ground"/>
+			</rics:Spaces>
+			<rics:Spaces description="reception and meeting rooms" isAirConditioned="true" type="workspace" primaryUse="office">
+				<rics:Floors id="0" label="Ground Floor"/>
+			</rics:Spaces>
+			<rics:Spaces description="offices" isAirConditioned="true" type="workspace" primaryUse="office">
+				<rics:Floors id="1" label="First Floor"/>
+				<rics:Floors id="2" label="Second Floor"/>
+				<rics:Floors id="3" label="Third Floor"/>
+				<rics:Floors id="4" label="Fourth Floor"/>
+			</rics:Spaces>
+		</rics:Space>
+	</rics:Premises>
+	<rics:Participants isAnti-MoneyLaunderingChecked="true">
+		<rics:LegalEntity name="City Agents" legalStatus="ltd">
+		</rics:LegalEntity>
+		<rics:Role>agent</rics:Role>
+		<rics:Role>managementCompany</rics:Role>
+	</rics:Participants>
+	<rics:Participants isAnti-MoneyLaunderingChecked="false">
+		<rics:LegalEntity name="Commercial Property Private Funds" legalStatus="plc">
+		</rics:LegalEntity>
+		<rics:Role>lender</rics:Role>
+		<rics:ActingFor>owner</rics:ActingFor>
+	</rics:Participants>
+	<rics:Tenure class="absolute" isDisputed="false" isUnregistered="false" isUnknownOwnership="false" tenure="freehold">
+		<rics:RightsHolders class="absolute" tenure="freehold">
+			<rics:LegalEntity name="London City Property Holdings">
+			</rics:LegalEntity>
+		</rics:RightsHolders>
+		<rics:Charges description="Secured loan from commercial lender" type="fixedCharge">
+			<rics:Chargee name="Commercial Property Private Funds"/>
+			<rics:Amount iso4217Code="GBP">10000000</rics:Amount>
+		</rics:Charges>
+	</rics:Tenure>
+	<rics:Tenure tenure="leasehold">
+		<rics:Length>
+			<rics:Duration>P25Y</rics:Duration>
+		</rics:Length>
+		<rics:Remaining>
+			<rics:Duration>P23Y</rics:Duration>
+		</rics:Remaining>
+		<rics:Restrictions>No manufacturing, agricultural or mineral extraction activites permitted</rics:Restrictions>
+	</rics:Tenure>
+	<rics:RightsHolders class="absolute" tenure="leasehold">
+		<rics:LegalEntity name="CBD Office Properties" isSpecialPurposeVehicle="true">
+		</rics:LegalEntity>
+	</rics:RightsHolders>
+	<rics:TenureAgreements agreement="active" isCurrent="true" isInCovenantBreach="true" isInArrears="true" isGuarantorRequired="true" isSecured="true" tenure="leasehold">
+		<rics:AbstractionDate>
+			<rics:Date>2020-11-01</rics:Date>
+		</rics:AbstractionDate>
+		<rics:Registered>
+			<rics:Date>2018-01-01</rics:Date>
+		</rics:Registered>
+		<rics:Assignor>
+			<rics:LegalEntity name="London City Property Holdings"/>
+		</rics:Assignor>
+		<rics:Assignee>
+			<rics:LegalEntity name="CBD Office Properties"/>
+		</rics:Assignee>
+		<rics:Premises>
+			<rics:Area>
+				<rics:AreaUnits unitOfMeasurement="FTK">150000</rics:AreaUnits>
+			</rics:Area>
+		</rics:Premises>
+		<rics:Length startDate="2018-01-01" endDate="2042-12-31">
+			<rics:Duration>P25Y</rics:Duration>
+		</rics:Length>
+		<rics:JurisdictionalLegislation legislation="Landlord and Tenant 1954 Act">
+			<rics:Jurisdiction>
+				<rics:Country ISO-Alpha-3-Code="GBR"/>
+				<rics:Locality>England and Wales</rics:Locality>
+			</rics:Jurisdiction>
+		</rics:JurisdictionalLegislation>
+		<rics:Renewal isOption="true">
+			<rics:Notice>
+				<rics:Duration>P6M</rics:Duration>
+			</rics:Notice>
+			<rics:Length>
+				<rics:Duration>P5Y</rics:Duration>
+			</rics:Length>
+		</rics:Renewal>
+		<rics:Breaks isOption="true" operableBy="assignee">
+			<rics:Notice>
+				<rics:Duration>P3M</rics:Duration>
+			</rics:Notice>
+			<rics:BreakDates>
+				<rics:Year>2023</rics:Year>
+			</rics:BreakDates>
+			<rics:BreakDates>
+				<rics:Year>2028</rics:Year>
+			</rics:BreakDates>
+			<rics:BreakDates>
+				<rics:Year>2033</rics:Year>
+			</rics:BreakDates>
+			<rics:BreakDates>
+				<rics:Year>2038</rics:Year>
+			</rics:BreakDates>
+		</rics:Breaks>
+		<rics:Deposit isRequired="true" isInterestAccrued="true" isTaxIncluded="true" period="quarter" isHeldUntilTermination="true">
+			<rics:Value>4200000</rics:Value>
+			<rics:Length>
+				<rics:Duration>P1Y</rics:Duration>
+			</rics:Length>
+			<rics:IsHeldForAllObligations>true</rics:IsHeldForAllObligations>
+		</rics:Deposit>
+		<rics:Guarantees isCurrent="true">
+			<rics:Guarantors name="CBD Holding Co"/>
+			<rics:IsHeldForAllObligations>true</rics:IsHeldForAllObligations>
+			<rics:Value>5000000</rics:Value>
+		</rics:Guarantees>
+		<rics:RentPayable isGroundRent="false" isInAdvance="true" isTaxChargeable="true" perPeriodRent="month" perPeriodRentPayment="quarter" turnoverRentType="baseRentPlusTopUp" perPeriodTurnoverRent="quarter" perPeriodTurnoverRentPayment="annum" turnoverReportingFrequency="month">
+			<rics:TurnoverRentRate>5.5</rics:TurnoverRentRate>
+			<rics:Value>1400000</rics:Value>
+			<rics:Rate perPeriod="annum" measurementStandard="COMP6" measurementBasis="GIA" unitOfMeasurement="FTK">
+				<rics:Value>112</rics:Value>
+			</rics:Rate>
+			<rics:PaymentDates>--01-01</rics:PaymentDates>
+			<rics:PaymentDates>--04-01</rics:PaymentDates>
+			<rics:PaymentDates>--07-01</rics:PaymentDates>
+			<rics:PaymentDates>--10-01</rics:PaymentDates>
+		</rics:RentPayable>
+		<rics:RentFree isRentFree="true">
+			<rics:Length>
+				<rics:BaseDate>
+					<rics:Date>2018-01-01</rics:Date>
+				</rics:BaseDate>
+				<rics:Duration>P1Y</rics:Duration>
+			</rics:Length>
+		</rics:RentFree>
+		<rics:Incentives isPresent="true">
+			<rics:Details description="Fit out contribution">
+				<rics:Value>100000</rics:Value>
+			</rics:Details>
+		</rics:Incentives>
+		<rics:Premium isPresent="true" isReverse="true">
+			<rics:Amount>250000</rics:Amount>
+		</rics:Premium>
+		<rics:RentReviews isReviewable="true" isUpwardsOnly="true" isCollar="true" rentReviewBasis="benchmark" benchmarkRate="CPI">
+			<rics:Frequency>
+				<rics:Duration>P3Y</rics:Duration>
+			</rics:Frequency>
+			<rics:Spread>
+				<rics:AsBasisPoints>50</rics:AsBasisPoints>
+			</rics:Spread>
+			<rics:Floor>
+				<rics:AsBasisPoints>125</rics:AsBasisPoints>
+			</rics:Floor>
+			<rics:Cap>
+				<rics:AsBasisPoints>300</rics:AsBasisPoints>
+			</rics:Cap>
+		</rics:RentReviews>
+		<rics:RentChanges isRentChangeable="true">
+			<rics:Frequency>
+				<rics:Duration>P5Y</rics:Duration>
+			</rics:Frequency>
+			<rics:IndexationRate>
+				<rics:AsPercentage>15</rics:AsPercentage>
+			</rics:IndexationRate>
+			<rics:ChangeDate>
+				<rics:ChangeDate>
+					<rics:Date>2020-01-01</rics:Date>
+				</rics:ChangeDate>
+				<rics:NewRent>200000</rics:NewRent>
+				<rics:Period>
+					<rics:Duration>P3Y</rics:Duration>
+				</rics:Period>
+			</rics:ChangeDate>
+		</rics:RentChanges>
+		<rics:Alienation isPermitted="true">
+			<rics:Rights right="subleasePart">
+				<rics:IsConsentRequired>true</rics:IsConsentRequired>
+			</rics:Rights>
+			<rics:Rights right="subSublease">
+				<rics:IsProhibited>true</rics:IsProhibited>
+			</rics:Rights>
+		</rics:Alienation>
+		<rics:ServiceCharges perPeriod="quarter" isInAdvance="false">
+			<rics:Estimated>12500</rics:Estimated>
+			<rics:Breakdown class="sinkingFund">
+				<rics:Estimated>1000</rics:Estimated>
+			</rics:Breakdown>
+			<rics:Breakdown class="hardServices">
+				<rics:Estimated>2500</rics:Estimated>
+			</rics:Breakdown>
+			<rics:Breakdown class="softServices">
+				<rics:Estimated>7500</rics:Estimated>
+			</rics:Breakdown>
+			<rics:Breakdown class="management">
+				<rics:Estimated>1500</rics:Estimated>
+			</rics:Breakdown>
+		</rics:ServiceCharges>
+		<rics:Fees type="legal">
+			<rics:Actual>15000</rics:Actual>
+			<rics:Estimated>15000</rics:Estimated>
+		</rics:Fees>
+		<rics:Fees type="other" description="disbursements">
+			<rics:Actual>1000</rics:Actual>
+			<rics:Estimated>1000</rics:Estimated>
+		</rics:Fees>
+	</rics:TenureAgreements>
+	<rics:LoanAgreements agreement="active" debtType="senior" facilityType="term" purpose="investment" isAmortising="false" isGuarantorRequired="false" isCurrent="true" isInArrears="true" isInCovenantBreach="true">
+		<rics:Agreed>
+			<rics:Date>2015-05-31</rics:Date>
+		</rics:Agreed>
+		<rics:Borrower name="London City Property Holdings"/>
+		<rics:Lender name="London City Property Holdings"/>
+		<rics:Length>
+			<rics:BaseDate>
+				<rics:Date>2015-07-01</rics:Date>
+			</rics:BaseDate>
+			<rics:Duration>P7Y</rics:Duration>
+		</rics:Length>
+		<rics:Remaining>
+			<rics:Duration>P2Y</rics:Duration>
+		</rics:Remaining>
+		<rics:RiskWeighting>100</rics:RiskWeighting>
+		<rics:InitialLoanToValue>50</rics:InitialLoanToValue>
+		<rics:LoanToValueHistory>
+			<rics:ReviewDate>
+				<rics:Date>2016-07-01</rics:Date>
+			</rics:ReviewDate>
+			<rics:Value>49</rics:Value>
+		</rics:LoanToValueHistory>
+		<rics:LoanToValueHistory>
+			<rics:ReviewDate>
+				<rics:Date>2017-07-01</rics:Date>
+			</rics:ReviewDate>
+			<rics:Value>48</rics:Value>
+		</rics:LoanToValueHistory>
+		<rics:LoanToValueHistory>
+			<rics:ReviewDate>
+				<rics:Date>2018-07-01</rics:Date>
+			</rics:ReviewDate>
+			<rics:Value>47</rics:Value>
+		</rics:LoanToValueHistory>
+		<rics:LoanToValueHistory>
+			<rics:ReviewDate>
+				<rics:Date>2019-07-01</rics:Date>
+			</rics:ReviewDate>
+			<rics:Value>46</rics:Value>
+		</rics:LoanToValueHistory>
+		<rics:LoanToValueHistory>
+			<rics:ReviewDate>
+				<rics:Date>2020-07-01</rics:Date>
+			</rics:ReviewDate>
+			<rics:Value>70</rics:Value>
+		</rics:LoanToValueHistory>
+		<rics:Fees type="approval">
+			<rics:Amount iso4217Code="GBP">90000</rics:Amount>
+			<rics:LoanPercentage>
+				<rics:AsBasisPoints>90</rics:AsBasisPoints>
+			</rics:LoanPercentage>
+		</rics:Fees>
+		<rics:Covenants covenant="LTV" type="financial" isInBreach="true" isWaived="true">
+			<rics:ReviewDateSchedule>
+				<rics:ReviewDate>
+					<rics:Date>2016-07-01</rics:Date>
+				</rics:ReviewDate>
+				<rics:ReviewDate>
+					<rics:Date>2017-07-01</rics:Date>
+				</rics:ReviewDate>
+				<rics:ReviewDate>
+					<rics:Date>2018-07-01</rics:Date>
+				</rics:ReviewDate>
+				<rics:ReviewDate>
+					<rics:Date>2019-07-01</rics:Date>
+				</rics:ReviewDate>
+				<rics:ReviewDate>
+					<rics:Date>2020-07-01</rics:Date>
+				</rics:ReviewDate>
+				<rics:ReviewDate>
+					<rics:Date>2021-07-01</rics:Date>
+				</rics:ReviewDate>
+			</rics:ReviewDateSchedule>
+			<rics:TestDateSchedule>
+				<rics:TestDate>
+					<rics:Date>2016-06-01</rics:Date>
+				</rics:TestDate>
+				<rics:TestDate>
+					<rics:Date>2017-06-01</rics:Date>
+				</rics:TestDate>
+				<rics:TestDate>
+					<rics:Date>2018-06-01</rics:Date>
+				</rics:TestDate>
+				<rics:TestDate>
+					<rics:Date>2019-06-01</rics:Date>
+				</rics:TestDate>
+				<rics:TestDate>
+					<rics:Date>2020-06-01</rics:Date>
+				</rics:TestDate>
+				<rics:TestDate>
+					<rics:Date>2021-06-01</rics:Date>
+				</rics:TestDate>
+			</rics:TestDateSchedule>
+			<rics:FinancialCovenant metric="loanToValue" trigger="above">
+				<rics:FinancialCovenantThreshold>
+					<rics:Percentage>
+						<rics:AsPercentage>65</rics:AsPercentage>
+					</rics:Percentage>
+				</rics:FinancialCovenantThreshold>
+				<rics:FinancialCovenantHistory isInBreach="false">
+					<rics:ReviewDate>
+						<rics:Date>2016-07-01</rics:Date>
+					</rics:ReviewDate>
+					<rics:TestDate>
+						<rics:Date>2016-06-01</rics:Date>
+					</rics:TestDate>
+					<rics:FinancialCovenantValue>
+						<rics:Percentage>
+							<rics:AsPercentage>49</rics:AsPercentage>
+						</rics:Percentage>
+					</rics:FinancialCovenantValue>
+				</rics:FinancialCovenantHistory>
+				<rics:FinancialCovenantHistory isInBreach="false">
+					<rics:ReviewDate>
+						<rics:Date>2017-07-01</rics:Date>
+					</rics:ReviewDate>
+					<rics:TestDate>
+						<rics:Date>2017-06-01</rics:Date>
+					</rics:TestDate>
+					<rics:FinancialCovenantValue>
+						<rics:Percentage>
+							<rics:AsPercentage>48</rics:AsPercentage>
+						</rics:Percentage>
+					</rics:FinancialCovenantValue>
+				</rics:FinancialCovenantHistory>
+				<rics:FinancialCovenantHistory isInBreach="false">
+					<rics:ReviewDate>
+						<rics:Date>2018-07-01</rics:Date>
+					</rics:ReviewDate>
+					<rics:TestDate>
+						<rics:Date>2018-06-01</rics:Date>
+					</rics:TestDate>
+					<rics:FinancialCovenantValue>
+						<rics:Percentage>
+							<rics:AsPercentage>48</rics:AsPercentage>
+						</rics:Percentage>
+					</rics:FinancialCovenantValue>
+				</rics:FinancialCovenantHistory>
+				<rics:FinancialCovenantHistory isInBreach="false">
+					<rics:ReviewDate>
+						<rics:Date>2019-07-01</rics:Date>
+					</rics:ReviewDate>
+					<rics:TestDate>
+						<rics:Date>2019-06-01</rics:Date>
+					</rics:TestDate>
+					<rics:FinancialCovenantValue>
+						<rics:Percentage>
+							<rics:AsPercentage>48</rics:AsPercentage>
+						</rics:Percentage>
+					</rics:FinancialCovenantValue>
+				</rics:FinancialCovenantHistory>
+				<rics:FinancialCovenantHistory isInBreach="true">
+					<rics:ReviewDate>
+						<rics:Date>2020-07-01</rics:Date>
+					</rics:ReviewDate>
+					<rics:TestDate>
+						<rics:Date>2020-06-01</rics:Date>
+					</rics:TestDate>
+					<rics:FinancialCovenantValue>
+						<rics:Percentage>
+							<rics:AsPercentage>70</rics:AsPercentage>
+						</rics:Percentage>
+					</rics:FinancialCovenantValue>
+				</rics:FinancialCovenantHistory>
+			</rics:FinancialCovenant>
+		</rics:Covenants>
+		<rics:Facility iso4217Code="GBP">6300000</rics:Facility>
+		<rics:DrawnDown iso4217Code="GBP">6300000</rics:DrawnDown>
+		<rics:DrawDownSchedule>
+			<rics:DrawDownDate>
+				<rics:Date>2015-07-01</rics:Date>
+			</rics:DrawDownDate>
+			<rics:Amount iso4217Code="GBP">1300000</rics:Amount>
+		</rics:DrawDownSchedule>
+		<rics:DrawDownSchedule>
+			<rics:DrawDownDate>
+				<rics:Date>2015-10-01</rics:Date>
+			</rics:DrawDownDate>
+			<rics:Amount iso4217Code="GBP">5000000</rics:Amount>
+		</rics:DrawDownSchedule>
+		<rics:InterestRate benchmarkRate="LIBOR" rateType="floating" isRateFloor="true" isRateCap="false">
+			<rics:Rate>
+				<rics:AsBasisPoints>240</rics:AsBasisPoints>
+			</rics:Rate>
+			<rics:BenchmarkRate>
+				<rics:AsBasisPoints>150</rics:AsBasisPoints>
+			</rics:BenchmarkRate>
+			<rics:BenchmarkRateDate>
+				<rics:Date>2015-07-01</rics:Date>
+			</rics:BenchmarkRateDate>
+			<rics:Spread>
+				<rics:AsBasisPoints>90</rics:AsBasisPoints>
+			</rics:Spread>
+		</rics:InterestRate>
+		<rics:InterestRateSchedule>
+			<rics:Frequency>
+				<rics:Duration>P1Y</rics:Duration>
+			</rics:Frequency>
+		</rics:InterestRateSchedule>
+		<rics:InterestRateChanges>
+			<rics:ChangeDate>
+				<rics:Date>2016-07-01</rics:Date>
+			</rics:ChangeDate>
+			<rics:InterestRate benchmarkRate="LIBOR">
+				<rics:Rate>
+					<rics:AsBasisPoints>230</rics:AsBasisPoints>
+				</rics:Rate>
+				<rics:BenchmarkRate>
+					<rics:AsBasisPoints>80</rics:AsBasisPoints>
+				</rics:BenchmarkRate>
+			</rics:InterestRate>
+		</rics:InterestRateChanges>
+		<rics:InterestRateChanges>
+			<rics:ChangeDate>
+				<rics:Date>2017-07-01</rics:Date>
+			</rics:ChangeDate>
+			<rics:InterestRate benchmarkRate="LIBOR">
+				<rics:Rate>
+					<rics:AsBasisPoints>220</rics:AsBasisPoints>
+				</rics:Rate>
+				<rics:BenchmarkRate>
+					<rics:AsBasisPoints>70</rics:AsBasisPoints>
+				</rics:BenchmarkRate>
+			</rics:InterestRate>
+		</rics:InterestRateChanges>
+		<rics:InterestRateChanges>
+			<rics:ChangeDate>
+				<rics:Date>2018-07-01</rics:Date>
+			</rics:ChangeDate>
+			<rics:InterestRate benchmarkRate="LIBOR">
+				<rics:Rate>
+					<rics:AsBasisPoints>210</rics:AsBasisPoints>
+				</rics:Rate>
+				<rics:BenchmarkRate>
+					<rics:AsBasisPoints>60</rics:AsBasisPoints>
+				</rics:BenchmarkRate>
+			</rics:InterestRate>
+		</rics:InterestRateChanges>
+		<rics:InterestRateChanges>
+			<rics:ChangeDate>
+				<rics:Date>2019-07-01</rics:Date>
+			</rics:ChangeDate>
+			<rics:InterestRate benchmarkRate="LIBOR">
+				<rics:Rate>
+					<rics:AsBasisPoints>200</rics:AsBasisPoints>
+				</rics:Rate>
+				<rics:BenchmarkRate>
+					<rics:AsBasisPoints>50</rics:AsBasisPoints>
+				</rics:BenchmarkRate>
+			</rics:InterestRate>
+		</rics:InterestRateChanges>
+		<rics:InterestRateChanges>
+			<rics:ChangeDate>
+				<rics:Date>2020-07-01</rics:Date>
+			</rics:ChangeDate>
+			<rics:InterestRate benchmarkRate="LIBOR">
+				<rics:Rate>
+					<rics:AsBasisPoints>190</rics:AsBasisPoints>
+				</rics:Rate>
+				<rics:BenchmarkRate>
+					<rics:AsBasisPoints>40</rics:AsBasisPoints>
+				</rics:BenchmarkRate>
+			</rics:InterestRate>
+		</rics:InterestRateChanges>
+		<rics:InterestRateHedge>
+			<rics:LoanPercentage>50</rics:LoanPercentage>
+		</rics:InterestRateHedge>
+		<rics:InterestAccrued iso4217Code="GBP">812700</rics:InterestAccrued>
+		<rics:Payments iso4217Code="GBP">693000</rics:Payments>
+		<rics:PrincipalRepaid iso4217Code="GBP">0</rics:PrincipalRepaid>
+		<rics:InterestPaid iso4217Code="GBP">693000</rics:InterestPaid>
+		<rics:PaymentHistory>
+			<rics:Interest iso4217Code="GBP">151200</rics:Interest>
+			<rics:PaymentDate>
+				<rics:Date>2015-07-01</rics:Date>
+			</rics:PaymentDate>
+		</rics:PaymentHistory>
+		<rics:PaymentHistory>
+			<rics:Interest iso4217Code="GBP">144900</rics:Interest>
+			<rics:PaymentDate>
+				<rics:Date>2016-07-01</rics:Date>
+			</rics:PaymentDate>
+		</rics:PaymentHistory>
+		<rics:PaymentHistory>
+			<rics:Interest iso4217Code="GBP">138600</rics:Interest>
+			<rics:PaymentDate>
+				<rics:Date>2017-07-01</rics:Date>
+			</rics:PaymentDate>
+		</rics:PaymentHistory>
+		<rics:PaymentHistory>
+			<rics:Interest iso4217Code="GBP">132300</rics:Interest>
+			<rics:PaymentDate>
+				<rics:Date>2018-07-01</rics:Date>
+			</rics:PaymentDate>
+		</rics:PaymentHistory>
+		<rics:PaymentHistory>
+			<rics:Interest iso4217Code="GBP">126000</rics:Interest>
+			<rics:PaymentDate>
+				<rics:Date>2019-07-01</rics:Date>
+			</rics:PaymentDate>
+		</rics:PaymentHistory>
+		<rics:Arrears iso4217Code="GBP">119700</rics:Arrears>
+		<rics:InterestArrears iso4217Code="GBP">119700</rics:InterestArrears>
+		<rics:ArrearsAnalysis ageFrom="P180D" ageTo="P270D">
+			<rics:Interest iso4217Code="GBP">119700</rics:Interest>
+		</rics:ArrearsAnalysis>
+	</rics:LoanAgreements>
+	<rics:Planning description="Roof Terrace" proposal="Converted roof to terrace with access, balconies and seating areas" reference="HOT/234/6790" status="consulation" type="fullPlanningConsent">
+		<rics:StatusDate>
+			<rics:Date>2020-11-01</rics:Date>
+		</rics:StatusDate>
+		<rics:StatusHistory status="validated">
+			<rics:StatusDate>
+				<rics:Date>2020-09-01</rics:Date>
+			</rics:StatusDate>
+		</rics:StatusHistory>
+		<rics:StatusHistory status="submitted">
+			<rics:StatusDate>
+				<rics:Date>2020-07-01</rics:Date>
+			</rics:StatusDate>
+		</rics:StatusHistory>
+	</rics:Planning>
+	<rics:Area>
+		<rics:LandArea>
+			<rics:Dimensions>
+				<rics:Area unitOfMeasurement="HAR">0.25</rics:Area>
+			</rics:Dimensions>
+		</rics:LandArea>
+	</rics:Area>
+	<rics:Use>
+		<rics:LegalLandUse>
+			<rics:Jurisdiction>
+				<rics:Subnational>England and Wales</rics:Subnational>
+			</rics:Jurisdiction>
+			<rics:JurisdictionalLegislation legislation="Town and Country Planning (Use Classes) Order 1987">
+			</rics:JurisdictionalLegislation>
+			<rics:Classes>classE(c)(i)</rics:Classes>
+			<rics:Classes>classE(c)(ii)</rics:Classes>
+			<rics:Classes>classE(c)(iii)</rics:Classes>
+			<rics:Classes>classE(g)(i)</rics:Classes>
+		</rics:LegalLandUse>
+		<rics:Protections type="listed" grade="Grade II*">
+		</rics:Protections>
+		<rics:Protections type="conservationArea">
+		</rics:Protections>
+		<rics:Protections type="article4Direction">
+		</rics:Protections>
+	</rics:Use>
+	<rics:Services>
+		<rics:RoadAccess description="New City Road" access="via rear" status="adopted">
+			<rics:GUID name="USRN" status="inUse" id="35504290"/>
+			<rics:RoadFrontageLength unitOfMeasurement="MTR">70</rics:RoadFrontageLength>
+		</rics:RoadAccess>
+		<rics:Mobile serviceStatus="available">
+			<rics:Coverage technologyGeneration="4G">
+				<rics:Summary enhancedData="good" data="good" voice="good"/>
+				<rics:Indoor data="good" enhancedData="someProblems" voice="noSignal"/>
+				<rics:Outdoor data="good" enhancedData="good" voice="good"/>
+			</rics:Coverage>
+			<rics:Coverage technologyGeneration="5G">
+				<rics:Summary enhancedData="noSignal" data="noSignal" voice="noSignal"/>
+				<rics:Indoor data="noSignal" enhancedData="noSignal" voice="noSignal"/>
+				<rics:Outdoor data="noSignal" enhancedData="noSignal" voice="noSignal"/>
+			</rics:Coverage>
+			<rics:DataSpeeds unitOfMeasurement="D36" technologyGeneration="4G">
+				<rics:AverageUploadSpeed>5</rics:AverageUploadSpeed>
+				<rics:AverageDownloadSpeed>8</rics:AverageDownloadSpeed>
+			</rics:DataSpeeds>
+		</rics:Mobile>
+		<rics:Internet serviceStatus="awaitingProvision">
+			<rics:DataSpeeds connection="FTTP" unitOfMeasurement="B68">
+				<rics:AverageUploadSpeed>10</rics:AverageUploadSpeed>
+				<rics:AverageDownloadSpeed>10</rics:AverageDownloadSpeed>
+			</rics:DataSpeeds>
+		</rics:Internet>
+		<rics:Parking availableSpaces="36" availableSpacesInside="30" availableSpacesOutside="6" availableArrangements="allocatedSpaces">
+		</rics:Parking>
+	</rics:Services>
+	<rics:Sustainability>
+		<rics:Environmental category="pollution">
+			<rics:SubCategory description="particulates" category="airQuality" score="poor">
+				<rics:Probability>60</rics:Probability>
+			</rics:SubCategory>
+		</rics:Environmental>
+		<rics:Natural category="seaLevelRise" score="long term risk"/>
+		<rics:Economic category="stable"/>
+	</rics:Sustainability>
+	<rics:Amenities isPublic="false" isDiscounted="true" type="cafe" description="Lower Ground Staff Cafe" location="internal">
+	</rics:Amenities>
+	<rics:Amenities isPublic="true" type="massTransit" description="Barbican Tube" location="local">
+		<rics:Distance unitOfMeasurement="MTR">150</rics:Distance>
+		<rics:TravelTime modeOfTransport="walking">
+			<rics:Time unitOfMeasurement="MIN">5</rics:Time>
+		</rics:TravelTime>
+	</rics:Amenities>
+	<rics:Amenities isPublic="true" type="airport" description="Heathrow" location="regional">
+		<rics:Distance unitOfMeasurement="SMI">20</rics:Distance>
+		<rics:TravelTime modeOfTransport="publicTransport">
+			<rics:Time unitOfMeasurement="MIN">60</rics:Time>
+		</rics:TravelTime>
+	</rics:Amenities>
+	<rics:Amenities isPublic="true" type="park" description="Barbican Gardens" location="local">
+		<rics:Distance unitOfMeasurement="MTR">50</rics:Distance>
+		<rics:TravelTime modeOfTransport="walking">
+			<rics:Time unitOfMeasurement="MIN">2</rics:Time>
+		</rics:TravelTime>
+	</rics:Amenities>
+	<rics:Buildings description="Prime 5 story office block" fitOutStatus="complete" isDilapidated="false" noOfFloors="5" noOfLifts="2" primaryUse="commercial" qualityOfBuilding="excellent" typeOfBuilding="office" compassPointDirection="S">
+		<rics:BuiltAge>
+			<rics:Year>1990</rics:Year>
+		</rics:BuiltAge>
+		<rics:ConvertedAge>
+			<rics:Year>2017</rics:Year>
+		</rics:ConvertedAge>
+		<rics:Dimensions>
+			<rics:Height unitOfMeasurement="MTR">24</rics:Height>
+		</rics:Dimensions>
+		<rics:StoreyInformation storeyCountAboveGround="5" storeyCountBelowGround="2">
+			<rics:StoreyHeight id="0" label="Ground Floor" unitOfMeasurement="MTR">5</rics:StoreyHeight>
+			<rics:StoreyHeight id="1" label="First Floor" unitOfMeasurement="MTR">5</rics:StoreyHeight>
+			<rics:StoreyHeight id="2" label="Second Floor" unitOfMeasurement="MTR">5</rics:StoreyHeight>
+			<rics:StoreyHeight id="3" label="Third Floor" unitOfMeasurement="MTR">5</rics:StoreyHeight>
+			<rics:StoreyHeight id="4" label="Fourth Floor" unitOfMeasurement="MTR">4</rics:StoreyHeight>
+			<rics:TypicalStoreyHeight unitOfMeasurement="MTR">5</rics:TypicalStoreyHeight>
+		</rics:StoreyInformation>
+		<rics:SpaceSummary countOf="1" type="basement"/>
+		<rics:RoomSummary countOf="1" type="kitchen"/>
+		<rics:RoomSummary countOf="1" type="dining"/>
+		<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS2">
+			<rics:MeasurementValue unitOfMeasurement="FTK">150000</rics:MeasurementValue>
+		</rics:Measurement>
+		<rics:ConstructionType type="brickAndBlock"/>
+		<rics:ConstructionType type="frame"/>
+		<rics:ConstructionMaterials material="steel"/>
+		<rics:ConstructionMaterials material="block"/>
+		<rics:Heating isGas="true" isSolar="true"/>
+		<rics:HVAC type="central" isRecirculating="false" isFiltered="true">
+			<rics:Capacity unitOfMeasurement="BTU">5000000</rics:Capacity>
+			<rics:CleanAirDeliveryRate unitOfMeasurement="2L">90000</rics:CleanAirDeliveryRate>
+		</rics:HVAC>
+	</rics:Buildings>
+	<rics:Floors id="-1" label="Lower Ground" noOfLifts="1" primaryUse="restaurant">
+		<rics:Rooms name="cafe" primaryUse="restaurant">
+			<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS2">
+				<rics:MeasurementValue unitOfMeasurement="FTK">4500</rics:MeasurementValue>
+			</rics:Measurement>
+		</rics:Rooms>
+		<rics:Rooms name="kitchen" primaryUse="restaurant">
+			<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS2">
+				<rics:MeasurementValue unitOfMeasurement="FTK">500</rics:MeasurementValue>
+			</rics:Measurement>
+		</rics:Rooms>
+		<rics:Rooms name="archive" primaryUse="commercial">
+			<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS2">
+				<rics:MeasurementValue unitOfMeasurement="FTK">9000</rics:MeasurementValue>
+			</rics:Measurement>
+		</rics:Rooms>
+		<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS2">
+			<rics:MeasurementValue unitOfMeasurement="FTK">25000</rics:MeasurementValue>
+		</rics:Measurement>
+		<rics:MeasuredComponents componentArea="F" componentUsage="private" description="cafe">
+			<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS2">
+				<rics:MeasurementValue unitOfMeasurement="FTK">5000</rics:MeasurementValue>
+			</rics:Measurement>
+		</rics:MeasuredComponents>
+	</rics:Floors>
+	<rics:Inspections description="Technical Due Diligence">
+		<rics:Purpose>condition</rics:Purpose>
+		<rics:Purpose>valuation</rics:Purpose>
+		<rics:InspectionDates weatherConditionsDuring="dry">
+			<rics:InspectionDate>
+				<rics:Date>2017-11-01</rics:Date>
+			</rics:InspectionDate>
+		</rics:InspectionDates>
+		<rics:OverallOpinion description="Property in good condition and valuation in line with lending critera"/>
+		<rics:Limitations description="Only partial access to some roof spaces"/>
+		<rics:Location description="Well situated in central business district with easy access to public transport and other amenities"/>
+		<rics:Amenities description="Tube station, shops, restaurants, bars etc. all within easy reach with onsite cafe in the lower ground floor for staff"/>
+		<rics:Objects description="lift gear" access="Via service hatch" accessLocation="In roof space above lift on tope floor" category="mechanical" class="equipment" condition="good" countOf="1" group="lift" isIncludedInInspection="true" subGroup="passenger lift">
+			<rics:Issue>Equipment nearing the end of its design life so replacement should be budgeted for</rics:Issue>
+			<rics:Risk>Use of life outside of design life risks equipment failiure in use</rics:Risk>
+			<rics:Remedy>Overhall or full replacement</rics:Remedy>
+			<rics:FurtherActions>Get specialist supplier to review potential extension to design life and quote for either major overhall or replacement - cost indicated in survey is for guidance only</rics:FurtherActions>
+			<rics:Urgency>
+				<rics:UrgencyDate>
+					<rics:DateAsText>Next three months</rics:DateAsText>
+				</rics:UrgencyDate>
+			</rics:Urgency>
+			<rics:DesignLife>
+				<rics:Original>
+					<rics:Duration>P20Y</rics:Duration>
+				</rics:Original>
+				<rics:Remaining>
+					<rics:Duration>P2Y</rics:Duration>
+				</rics:Remaining>
+			</rics:DesignLife>
+			<rics:ReplacementCost iso4217Code="GBP">30000</rics:ReplacementCost>
+		</rics:Objects>
+	</rics:Inspections>
+	<rics:Valuations>
+		<rics:MetaData>
+			<rics:InstructionPurpose>commercialSecuredLending</rics:InstructionPurpose>
+			<rics:ReportDate>
+				<rics:Date>2020-02-11</rics:Date>
+			</rics:ReportDate>
+		</rics:MetaData>
+		<rics:ValuationDate>
+			<rics:Date>2020-01-02</rics:Date>
+		</rics:ValuationDate>
+		<rics:Valuation premiseOfValue="currentExistingUse">
+			<rics:BasisOfValue>marketValue</rics:BasisOfValue>
+			<rics:SpecialAssumptions>Vacant Possession</rics:SpecialAssumptions>
+			<rics:CapitalValue>
+				<rics:Value>8990000</rics:Value>
+				<rics:ReinstatementCost>
+					<rics:Value>1280000</rics:Value>
+					<rics:CostDate>
+						<rics:Date>2020-01-02</rics:Date>
+					</rics:CostDate>
+				</rics:ReinstatementCost>
+			</rics:CapitalValue>
+			<rics:Approach approach="market">
+				<rics:Methodology methodology="comparableTransactions"/>
+			</rics:Approach>
+		</rics:Valuation>
+		<rics:Valuation premiseOfValue="currentExistingUse">
+			<rics:BasisOfValue>marketValue</rics:BasisOfValue>
+			<rics:CapitalValue>
+				<rics:Value>11900000</rics:Value>
+				<rics:ReinstatementCost>
+					<rics:Value>1280000</rics:Value>
+					<rics:CostDate>
+						<rics:Date>2020-01-02</rics:Date>
+					</rics:CostDate>
+				</rics:ReinstatementCost>
+			</rics:CapitalValue>
+			<rics:Approach approach="income">
+				<rics:Methodology methodology="discountedCashFlow"/>
+			</rics:Approach>
+		</rics:Valuation>
+	</rics:Valuations>
+	<rics:Insurance isInsured="true" perPeriod="annum">
+		<rics:Premium iso4217Code="GBP">10000</rics:Premium>
+		<rics:InsuredRisks>terrorism</rics:InsuredRisks>
+		<rics:TotalCover iso4217Code="GBP">500000</rics:TotalCover>
+		<rics:Coverage scope="buildings">
+			<rics:Cover iso4217Code="GBP">250000</rics:Cover>
+		</rics:Coverage>
+		<rics:Coverage scope="contents">
+			<rics:Cover iso4217Code="GBP">100000</rics:Cover>
+		</rics:Coverage>
+		<rics:Coverage scope="indemnity">
+			<rics:Cover iso4217Code="GBP">150000</rics:Cover>
+		</rics:Coverage>
+		<rics:Certificates category="insurance">
+			<rics:StartDate>
+				<rics:Date>2020-07-01</rics:Date>
+			</rics:StartDate>
+			<rics:EndDate>
+				<rics:Date>2021-06-30</rics:Date>
+			</rics:EndDate>
+		</rics:Certificates>
+	</rics:Insurance>
+	<rics:Certificates category="energyEfficiency" standard="BREEAM" gradeLevelRating="Excellent" score="75">
+		<rics:IssueDate>
+			<rics:Date>2019-04-01</rics:Date>
+		</rics:IssueDate>
+	</rics:Certificates>
+	<rics:WorksAlterationsChanges isIncomplete="false" scope="fitout" description="refit for current tenant" type="refit">
+		<rics:Length>
+			<rics:BaseDate>
+				<rics:Date>2018-09-30</rics:Date>
+			</rics:BaseDate>
+			<rics:Duration>P6M</rics:Duration>
+		</rics:Length>
+		<rics:ConsentApproval obtained="notRequired">
+		</rics:ConsentApproval>
+	</rics:WorksAlterationsChanges>
+	<rics:Targets>
+		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+			<rics:Decimal>95.0</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2018</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+			<rics:Decimal>92.6</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2019</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+			<rics:Decimal>90.8</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2020</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+			<rics:Decimal>89.4</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2021</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+			<rics:Decimal>88.1</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2022</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide"  unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+			<rics:Decimal>86.6</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2023</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+			<rics:Decimal>84.8</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2024</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2/m²/yr">
+			<rics:Decimal>82.6</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2025</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>216.80</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2018</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>210.50</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2019</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>204.4</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2020</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>198.50</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2021</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>192.7</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2022</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>187.1</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2023</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>181.70</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2024</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>176.40</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2025</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Target>
+	</rics:Targets>
+	<rics:Indicators>
+		<rics:Indicator framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+			<rics:Decimal>96.2</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2018</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Indicator>
+		<rics:Indicator framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+			<rics:Decimal>93.1</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2019</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Indicator>
+		<rics:Indicator framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+			<rics:Decimal>90.6</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2020</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Indicator>
+		<rics:Indicator framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>220.9</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2018</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Indicator>
+		<rics:Indicator framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>212.7</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2019</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Indicator>
+		<rics:Indicator framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+			<rics:Decimal>203.9</rics:Decimal>
+			<rics:Period>
+				<rics:BaseDate>
+					<rics:Year>2020</rics:Year>
+				</rics:BaseDate>
+			</rics:Period>
+		</rics:Indicator>
+	</rics:Indicators>
+</rics:DataTransfer>
