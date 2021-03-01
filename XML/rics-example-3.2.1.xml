@@ -817,7 +817,7 @@
 		</rics:ConsentApproval>
 	</rics:WorksAlterationsChanges>
 	<rics:Targets>
-		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
 			<rics:Decimal>95.0</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -825,7 +825,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
 			<rics:Decimal>92.6</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -833,7 +833,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
 			<rics:Decimal>90.8</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -841,7 +841,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
 			<rics:Decimal>89.4</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -849,7 +849,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
 			<rics:Decimal>88.1</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -857,7 +857,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide"  unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide"  unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
 			<rics:Decimal>86.6</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -865,7 +865,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
 			<rics:Decimal>84.8</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -873,7 +873,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2/m²/yr">
 			<rics:Decimal>82.6</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -881,7 +881,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>216.80</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -889,7 +889,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>210.50</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -897,7 +897,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>204.4</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -905,7 +905,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>198.50</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -913,7 +913,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>192.7</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -921,7 +921,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>187.1</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -929,7 +929,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>181.70</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -937,7 +937,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Target>
-		<rics:Target framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>176.40</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -947,7 +947,7 @@
 		</rics:Target>
 	</rics:Targets>
 	<rics:Indicators>
-		<rics:Indicator framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+		<rics:Indicator isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
 			<rics:Decimal>96.2</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -955,7 +955,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Indicator>
-		<rics:Indicator framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+		<rics:Indicator isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
 			<rics:Decimal>93.1</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -963,7 +963,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Indicator>
-		<rics:Indicator framework="CRREM" category="wholeBuildingGHGIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
+		<rics:Indicator isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">
 			<rics:Decimal>90.6</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -971,7 +971,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Indicator>
-		<rics:Indicator framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Indicator isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>220.9</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -979,7 +979,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Indicator>
-		<rics:Indicator framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Indicator isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>212.7</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>
@@ -987,7 +987,7 @@
 				</rics:BaseDate>
 			</rics:Period>
 		</rics:Indicator>
-		<rics:Indicator framework="CRREM" category="wholeBuildingEnergyIntensityPathway" type="emissions" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
+		<rics:Indicator isCurrent="true" framework="CRREM"  category="wholeBuildingEnergyIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KWH" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kWh/m²/yr">
 			<rics:Decimal>203.9</rics:Decimal>
 			<rics:Period>
 				<rics:BaseDate>

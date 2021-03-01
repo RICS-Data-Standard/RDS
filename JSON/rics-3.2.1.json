@@ -9552,6 +9552,61 @@
 				}
 			]
 		},
+		"rics:ComplexMeasurementSourceEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"energy",
+						"fuels",
+						"electricity",
+						"districtHeating",
+						"districtCooling",
+						"fugitive",
+						"all",
+						"unknown",
+						"other"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:ComplexMeasurementStatusEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"estimated",
+						"final",
+						"unknown",
+						"other"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:ComplexMeasurementSubTypeEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"total",
+						"consumption",
+						"netEnergy",
+						"waste",
+						"unknown",
+						"other"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
 		"rics:ComplexMeasurementType": {
 			"additionalProperties": false,
 			"properties": {
@@ -9567,8 +9622,23 @@
 				"@framework": {
 					"$ref": "#/definitions/rics:TargetFrameworkEnum"
 				},
+				"@isCurrent": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@item": {
 					"$ref": "#/definitions/rics:ComplexMeasurementItemEnum"
+				},
+				"@purpose": {
+					"$ref": "#/definitions/rics:MeasurementPurposeEnum"
+				},
+				"@source": {
+					"$ref": "#/definitions/rics:ComplexMeasurementSourceEnum"
+				},
+				"@status": {
+					"$ref": "#/definitions/rics:ComplexMeasurementStatusEnum"
+				},
+				"@subType": {
+					"$ref": "#/definitions/rics:ComplexMeasurementSubTypeEnum"
 				},
 				"@timeUnitOfMeasurement": {
 					"$ref": "#/definitions/rics:UnitOfMeasurementEnum"
@@ -9581,6 +9651,9 @@
 				},
 				"@valueAsText": {
 					"$ref": "#/definitions/xs:string"
+				},
+				"rics:Accuracy": {
+					"$ref": "#/definitions/rics:AccuracyType"
 				},
 				"rics:BuildingComplexes": {
 					"anyOf": [
@@ -9637,6 +9710,25 @@
 						}
 					]
 				},
+				"rics:MeasuredBy": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:PropertyParticipantType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:PropertyParticipantType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:MeasurementDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:MeasurementDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				},
 				"rics:Monetary": {
 					"$ref": "#/definitions/rics:SimpleMonetaryType"
 				},
@@ -9659,8 +9751,27 @@
 				"rics:Period": {
 					"$ref": "#/definitions/rics:DurationType"
 				},
+				"rics:ProcuredBy": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:PropertyParticipantType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:PropertyParticipantType"
+							},
+							"type": "array"
+						}
+					]
+				},
 				"rics:Ratio": {
 					"$ref": "#/definitions/rics:SimplePercentageType"
+				},
+				"rics:ReportedDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:ReportedDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
 				},
 				"rics:Rooms": {
 					"anyOf": [
@@ -9701,6 +9812,9 @@
 						}
 					]
 				},
+				"rics:Valid": {
+					"$ref": "#/definitions/rics:DurationType"
+				},
 				"rics:Zones": {
 					"anyOf": [
 						{
@@ -9721,15 +9835,16 @@
 			"anyOf": [
 				{
 					"enum": [
-						"energy",
-						"emissions",
-						"waste",
+						"absolute",
+						"intensity",
 						"openingWidth",
 						"openingDepth",
 						"openingHeight",
 						"fittedWidth",
 						"fittedDepth",
-						"fittedHeight"
+						"fittedHeight",
+						"unknown",
+						"other"
 					],
 					"type": "string"
 				},
@@ -20819,17 +20934,52 @@
 			],
 			"type": "string"
 		},
-		"rics:KnownComplexMeasurementTypeEnum": {
+		"rics:KnownComplexMeasurementSourceEnum": {
 			"enum": [
 				"energy",
-				"emissions",
+				"fuels",
+				"electricity",
+				"districtHeating",
+				"districtCooling",
+				"fugitive",
+				"all",
+				"unknown",
+				"other"
+			],
+			"type": "string"
+		},
+		"rics:KnownComplexMeasurementStatusEnum": {
+			"enum": [
+				"estimated",
+				"final",
+				"unknown",
+				"other"
+			],
+			"type": "string"
+		},
+		"rics:KnownComplexMeasurementSubTypeEnum": {
+			"enum": [
+				"total",
+				"consumption",
+				"netEnergy",
 				"waste",
+				"unknown",
+				"other"
+			],
+			"type": "string"
+		},
+		"rics:KnownComplexMeasurementTypeEnum": {
+			"enum": [
+				"absolute",
+				"intensity",
 				"openingWidth",
 				"openingDepth",
 				"openingHeight",
 				"fittedWidth",
 				"fittedDepth",
-				"fittedHeight"
+				"fittedHeight",
+				"unknown",
+				"other"
 			],
 			"type": "string"
 		},
@@ -23556,6 +23706,17 @@
 				"maxHeight",
 				"avgHeight",
 				"minHeight"
+			],
+			"type": "string"
+		},
+		"rics:KnownMeasurementPurposeEnum": {
+			"enum": [
+				"financialReporting",
+				"maintenance",
+				"operations",
+				"estimating",
+				"unknown",
+				"other"
 			],
 			"type": "string"
 		},
@@ -32654,6 +32815,24 @@
 						"maxHeight",
 						"avgHeight",
 						"minHeight"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:MeasurementPurposeEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"financialReporting",
+						"maintenance",
+						"operations",
+						"estimating",
+						"unknown",
+						"other"
 					],
 					"type": "string"
 				},
@@ -58352,7 +58531,6 @@
 			"type": "string"
 		}
 	},
-	"description": "JSON Schema generated by XMLSpy v2021 (http://www.altova.com)",
 	"properties": {
 		"@xmlns:ifc": {
 			"default": "http://www.buildingsmart-tech.org/ifc/IFC4x1/final"

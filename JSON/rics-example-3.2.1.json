@@ -1615,9 +1615,11 @@
 			{
 				"rics:Target": [
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1631,9 +1633,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1647,9 +1651,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1663,9 +1669,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1679,9 +1687,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1695,9 +1705,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1711,9 +1723,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1727,9 +1741,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1743,9 +1759,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1759,9 +1777,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1775,9 +1795,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1791,9 +1813,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1807,9 +1831,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1823,9 +1849,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1839,9 +1867,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1855,9 +1885,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1877,9 +1909,11 @@
 			{
 				"rics:Indicator": [
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1893,9 +1927,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1909,9 +1945,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingGHGIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KGM",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1925,9 +1963,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1941,9 +1981,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
@@ -1957,9 +1999,11 @@
 						}
 					},
 					{
+						"@isCurrent": true,
 						"@framework": "CRREM",
 						"@category": "wholeBuildingEnergyIntensityPathway",
-						"@type": "emissions",
+						"@type": "intensity",
+						"@subType": "netEnergy",
 						"@item": "carbonDioxide",
 						"@unitOfMeasurement": "KWH",
 						"@denominatorUnitOfMeasurement": "MTK",
