@@ -910,8 +910,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Demolition, site preparation and formation",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.01",
+								"@costcode": "02.2.01",
 								"@costSubCode": "060.000",
 								"@description": "Allowance for traffic control, ",
 								"@isCivilEngineeringWorks": true,
@@ -927,8 +926,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Demolition, site preparation and formation",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.01",
+								"@costcode": "02.2.01",
 								"@costSubCode": "060.000",
 								"@description": "Water removal, pumps, fuel, filters, Allowance for water removal, pumps, fuel, filters",
 								"@isCivilEngineeringWorks": true,
@@ -1032,8 +1030,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "020.000",
 								"@description": "Excavation to abutments, allowance, Bulk excavation for removals and new construction, removal from site",
 								"@isCivilEngineeringWorks": true,
@@ -1049,8 +1046,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "020.000",
 								"@description": "Excavation to abutments, allowance, Shale bedrock excavation for new construction, removal from site",
 								"@isCivilEngineeringWorks": true,
@@ -1066,8 +1062,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "020.000",
 								"@description": "Excavation to pier pads in river bed, Bulk excavation for removals and new construction, removal from site",
 								"@isCivilEngineeringWorks": true,
@@ -1083,8 +1078,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "020.000",
 								"@description": "Excavation to pier pads in river bed, Rock excavation for removals and new construction, removal from site",
 								"@isCivilEngineeringWorks": true,
@@ -1126,8 +1120,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "050.000",
 								"@description": "Caissons to above, 14 piers per pad, 1800mm diameter, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -1143,8 +1136,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "050.000",
 								"@description": "Caissons to above, 14 piers per pad, 1800mm diameter, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -1160,8 +1152,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "050.000",
 								"@description": "Caissons to above, 14 piers per pad, 1800mm diameter, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -1177,8 +1168,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "050.000",
 								"@description": "Caissons to above, 14 piers per pad, 1800mm diameter, Steel liner",
 								"@isCivilEngineeringWorks": true,
@@ -1194,8 +1184,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "050.000",
 								"@description": "Caissons to above, 14 piers per pad, 1800mm diameter, Allowance for drilling",
 								"@isCivilEngineeringWorks": true,
@@ -1211,8 +1200,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "060.000",
 								"@description": "Backfill to abutments, allowance, Backfill with engineered fill, compacted",
 								"@isCivilEngineeringWorks": true,
@@ -1228,8 +1216,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "060.000",
 								"@description": "Backfill to abutments, allowance, Clear granular material at drains, etc.,",
 								"@isCivilEngineeringWorks": true,
@@ -1245,8 +1232,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "060.000",
 								"@description": "Backfill to pier pads in river bed, Backfill with rock material",
 								"@isCivilEngineeringWorks": true,
@@ -1262,8 +1248,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "070.000",
 								"@description": "Coffered dams to river bed at piers, Allowance for coffer dams",
 								"@isCivilEngineeringWorks": true,
@@ -1279,8 +1264,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -1296,8 +1280,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -1313,8 +1296,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -1330,8 +1312,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -1347,8 +1328,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -1364,8 +1344,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Screed",
 								"@isCivilEngineeringWorks": true,
@@ -1381,8 +1360,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wing walls, 475mm, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -1398,8 +1376,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wing walls, 475mm, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -1415,8 +1392,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wing walls, 475mm, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -1432,8 +1408,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wing walls, 475mm, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -1449,8 +1424,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "080.000",
 								"@description": "Abutment wing walls, 475mm, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -1466,8 +1440,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -1483,8 +1456,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -1500,8 +1472,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -1517,8 +1488,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -1534,8 +1504,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -1551,8 +1520,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Screed",
 								"@isCivilEngineeringWorks": true,
@@ -1568,8 +1536,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Abutment walls, bridge support, 360m2, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -1585,8 +1552,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Abutment walls, bridge support, 360m2, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -1602,8 +1568,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Abutment walls, bridge support, 360m2, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -1619,8 +1584,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Abutment walls, bridge support, 360m2, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -1636,8 +1600,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "090.000",
 								"@description": "Abutment walls, bridge support, 360m2, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -1666,8 +1629,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "110.000",
 								"@description": "Extra over to above for mass concrete working slab, 100mm thick, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -1683,8 +1645,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "110.000",
 								"@description": "Extra over to above for mass concrete working slab, 100mm thick, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -1700,8 +1661,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "110.000",
 								"@description": "Extra over to above for mass concrete working slab, 100mm thick, Rebar, not required",
 								"@isCivilEngineeringWorks": true,
@@ -1714,8 +1674,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "110.000",
 								"@description": "Extra over to above for mass concrete working slab, 100mm thick, Screed",
 								"@isCivilEngineeringWorks": true,
@@ -1731,8 +1690,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "110.000",
 								"@description": "Allowance for light pole base, as per drawing sheet 611, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -1748,8 +1706,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "110.000",
 								"@description": "Allowance for light pole base, as per drawing sheet 611, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -1765,8 +1722,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "110.000",
 								"@description": "Allowance for light pole base, as per drawing sheet 611, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -1782,8 +1738,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "110.000",
 								"@description": "Allowance for light pole base, as per drawing sheet 611, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -1799,8 +1754,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "110.000",
 								"@description": "Allowance for light pole base, as per drawing sheet 611, Screed",
 								"@isCivilEngineeringWorks": true,
@@ -1816,8 +1770,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Substructure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.02",
+								"@costcode": "02.2.02",
 								"@costSubCode": "110.000",
 								"@description": "Allowance for light pole base, as per drawing sheet 611, Allowance for cast-in lighting mount",
 								"@isCivilEngineeringWorks": true,
@@ -1843,8 +1796,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Piers, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -1860,8 +1812,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Piers, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -1877,8 +1828,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Piers, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -1894,8 +1844,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Piers, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -1911,8 +1860,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Piers, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -1928,8 +1876,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Abutment walls, pier section, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -1945,8 +1892,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Abutment walls, pier section, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -1962,8 +1908,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Abutment walls, pier section, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -1979,8 +1924,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Abutment walls, pier section, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -1996,8 +1940,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Abutment walls, pier section, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -2013,8 +1956,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "010.000",
 								"@description": "Abutment walls, pier section, Screed",
 								"@isCivilEngineeringWorks": true,
@@ -2044,8 +1986,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "030.000",
 								"@description": "250mm concrete deck, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -2061,8 +2002,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "030.000",
 								"@description": "250mm concrete deck, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -2078,8 +2018,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "030.000",
 								"@description": "250mm concrete deck, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -2095,8 +2034,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "030.000",
 								"@description": "250mm concrete deck, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -2112,8 +2050,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "030.000",
 								"@description": "250mm concrete deck, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -2129,8 +2066,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "030.000",
 								"@description": "250mm concrete deck, Screed/cure",
 								"@isCivilEngineeringWorks": true,
@@ -2146,8 +2082,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "040.000",
 								"@description": "Bearings, 1800 x 1800mm, Fixed",
 								"@isCivilEngineeringWorks": true,
@@ -2160,8 +2095,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "040.000",
 								"@description": "Bearings, 1800 x 1800mm, Uni-directional",
 								"@isCivilEngineeringWorks": true,
@@ -2174,8 +2108,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "040.000",
 								"@description": "Bearings, 1800 x 1800mm, Multi-directional",
 								"@isCivilEngineeringWorks": true,
@@ -2188,8 +2121,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "040.000",
 								"@description": "Bearings, 1800 x 1800mm, Allowance for materials for destructive testing",
 								"@isCivilEngineeringWorks": true,
@@ -2202,8 +2134,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "040.000",
 								"@description": "5mm elastomer at approach slab, ",
 								"@isCivilEngineeringWorks": true,
@@ -2245,8 +2176,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "070.000",
 								"@description": "Overpass finishes, 90mm asphalt topping",
 								"@isCivilEngineeringWorks": true,
@@ -2262,8 +2192,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "070.000",
 								"@description": "Overpass finishes, Waterproof membrane",
 								"@isCivilEngineeringWorks": true,
@@ -2279,8 +2208,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "070.000",
 								"@description": "Overpass finishes, Form and gill grooves",
 								"@isCivilEngineeringWorks": true,
@@ -2296,8 +2224,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "070.000",
 								"@description": "Overpass finishes, Allowance for demarkation, lines, symbols, etc.,",
 								"@isCivilEngineeringWorks": true,
@@ -2313,8 +2240,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "070.000",
 								"@description": "Approach slab finishes, 90mm asphalt topping",
 								"@isCivilEngineeringWorks": true,
@@ -2330,8 +2256,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "070.000",
 								"@description": "Approach slab finishes, Waterproof membrane",
 								"@isCivilEngineeringWorks": true,
@@ -2347,8 +2272,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "070.000",
 								"@description": "Approach slab finishes, Form and gill grooves",
 								"@isCivilEngineeringWorks": true,
@@ -2364,8 +2288,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "070.000",
 								"@description": "Approach slab finishes, Allowance for demarkation, lines, symbols, etc.,",
 								"@isCivilEngineeringWorks": true,
@@ -2381,8 +2304,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "070.000",
 								"@description": "Approach slab finishes, Allowance for saw cutting and joint compound",
 								"@isCivilEngineeringWorks": true,
@@ -2411,8 +2333,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "090.000",
 								"@description": "Expansion joints, ",
 								"@isCivilEngineeringWorks": true,
@@ -2428,8 +2349,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over falsework, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -2445,8 +2365,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over falsework, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -2462,8 +2381,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over falsework, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -2479,8 +2397,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over falsework, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -2496,8 +2413,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over falsework, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -2513,8 +2429,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over falsework, Screeded/cure",
 								"@isCivilEngineeringWorks": true,
@@ -2530,8 +2445,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over falsework, Falsework framing support",
 								"@isCivilEngineeringWorks": true,
@@ -2547,8 +2461,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over falsework, Allowance for post tensioning",
 								"@isCivilEngineeringWorks": true,
@@ -2564,8 +2477,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over form travellers, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -2581,8 +2493,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over form travellers, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -2598,8 +2509,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over form travellers, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -2615,8 +2525,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over form travellers, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -2632,8 +2541,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over form travellers, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -2649,8 +2557,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over form travellers, Screeded/cure",
 								"@isCivilEngineeringWorks": true,
@@ -2666,8 +2573,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over form travellers, Falsework framing support",
 								"@isCivilEngineeringWorks": true,
@@ -2683,8 +2589,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Box girder diaphragm sections over form travellers, Allowance for post tensioning",
 								"@isCivilEngineeringWorks": true,
@@ -2700,8 +2605,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "100.000",
 								"@description": "Allowance for sealant to interior surfaces, Interior surface area, confined space",
 								"@isCivilEngineeringWorks": true,
@@ -2730,8 +2634,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "120.000",
 								"@description": "Clevis pipe hanger with 25mm GI threaded rod, 1m high, ",
 								"@isCivilEngineeringWorks": true,
@@ -2744,8 +2647,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "130.000",
 								"@description": "150mm dia. perforated drain at abutments, ",
 								"@isCivilEngineeringWorks": true,
@@ -2761,8 +2663,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "130.000",
 								"@description": "Provide new deck drain, 1000x230mm (catch basin detail OPSD 3340.150), ",
 								"@isCivilEngineeringWorks": true,
@@ -2775,8 +2676,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "130.000",
 								"@description": "200mm ASTM-A53 GI down pipe, ",
 								"@isCivilEngineeringWorks": true,
@@ -2792,8 +2692,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "130.000",
 								"@description": "300mm dia. PVC collection pipe hung under bridge deck, ",
 								"@isCivilEngineeringWorks": true,
@@ -2809,8 +2708,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "130.000",
 								"@description": "300mm dia. cleanout, ",
 								"@isCivilEngineeringWorks": true,
@@ -2823,8 +2721,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Structure",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.03",
+								"@costcode": "02.2.03",
 								"@costSubCode": "130.000",
 								"@description": "300mm dia. pipe expansion joint, ",
 								"@isCivilEngineeringWorks": true,
@@ -2928,8 +2825,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Barrier wall, Concrete supply",
 								"@isCivilEngineeringWorks": true,
@@ -2945,8 +2841,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Barrier wall, Concrete placement",
 								"@isCivilEngineeringWorks": true,
@@ -2962,8 +2857,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Barrier wall, Rebar",
 								"@isCivilEngineeringWorks": true,
@@ -2979,8 +2873,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Barrier wall, Rebar, stainless steel",
 								"@isCivilEngineeringWorks": true,
@@ -2996,8 +2889,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Barrier wall, Formwork",
 								"@isCivilEngineeringWorks": true,
@@ -3013,8 +2905,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Barrier wall, Screed",
 								"@isCivilEngineeringWorks": true,
@@ -3030,8 +2921,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Barrier wall, Control joints",
 								"@isCivilEngineeringWorks": true,
@@ -3047,8 +2937,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Barrier wall, Expansion joints",
 								"@isCivilEngineeringWorks": true,
@@ -3061,8 +2950,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Sound barrier wall, mounted on barrier wall, Paraglass",
 								"@isCivilEngineeringWorks": true,
@@ -3078,8 +2966,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Sound barrier wall, mounted on barrier wall, Non-Paraglass",
 								"@isCivilEngineeringWorks": true,
@@ -3095,8 +2982,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Sound barrier wall, mounted on barrier wall, Galvanized steel framing system",
 								"@isCivilEngineeringWorks": true,
@@ -3112,8 +2998,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Sound barrier wall, mounted on barrier wall, Clips and anchors",
 								"@isCivilEngineeringWorks": true,
@@ -3129,8 +3014,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Sound barrier wall, mounted on barrier wall, Anchors",
 								"@isCivilEngineeringWorks": true,
@@ -3143,8 +3027,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Non-structural works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.04",
+								"@costcode": "02.2.04",
 								"@costSubCode": "070.000",
 								"@description": "Sound barrier wall, mounted on barrier wall, Installation",
 								"@isCivilEngineeringWorks": true,
@@ -3212,8 +3095,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Services and equipment",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.05",
+								"@costcode": "02.2.05",
 								"@costSubCode": "020.000",
 								"@description": "Electrical work, Pick up from storage and re-install ex. pole mounted heritage light fixture",
 								"@isCivilEngineeringWorks": true,
@@ -3226,8 +3108,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Services and equipment",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.05",
+								"@costcode": "02.2.05",
 								"@costSubCode": "020.000",
 								"@description": "Electrical work, Concrete base for above",
 								"@isCivilEngineeringWorks": true,
@@ -3240,8 +3121,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Services and equipment",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.05",
+								"@costcode": "02.2.05",
 								"@costSubCode": "020.000",
 								"@description": "Electrical work, Embedded 1x50mm + 1x75mm RPVC duct in barrier walls, 538m",
 								"@isCivilEngineeringWorks": true,
@@ -3254,8 +3134,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Services and equipment",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.05",
+								"@costcode": "02.2.05",
 								"@costSubCode": "020.000",
 								"@description": "Electrical work, Extend embedded 1x50mm + 1x75mm RPVC ducts up to next handhole",
 								"@isCivilEngineeringWorks": true,
@@ -3268,8 +3147,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Services and equipment",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.05",
+								"@costcode": "02.2.05",
 								"@costSubCode": "020.000",
 								"@description": "Electrical work, Electrical misc. - drawings, manuals, permits, fees and inspection, mobilization etc.",
 								"@isCivilEngineeringWorks": true,
@@ -3516,8 +3394,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "External and ancillary works",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.07",
+								"@costcode": "02.2.07",
 								"@costSubCode": "040.000",
 								"@description": "Allowance for hydronic seeding and shrub planting, ",
 								"@isCivilEngineeringWorks": true,
@@ -3543,8 +3420,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Preliminaries | Constructors’ site overheads | general requirements",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.08",
+								"@costcode": "02.2.08",
 								"@costSubCode": "000.000",
 								"@isCivilEngineeringWorks": true,
 								"@isExcluded": false,
@@ -3556,8 +3432,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Preliminaries | Constructors’ site overheads | general requirements",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.08",
+								"@costcode": "02.2.08",
 								"@costSubCode": "010.000",
 								"@description": "Administrative Requirements (6%), ",
 								"@isCivilEngineeringWorks": true,
@@ -3570,8 +3445,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Preliminaries | Constructors’ site overheads | general requirements",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.08",
+								"@costcode": "02.2.08",
 								"@costSubCode": "020.000",
 								"@description": "Allowance for clearing shrubs and planting adjacement to abutements, ",
 								"@isCivilEngineeringWorks": true,
@@ -3623,8 +3497,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Preliminaries | Constructors’ site overheads | general requirements",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.08",
+								"@costcode": "02.2.08",
 								"@costSubCode": "060.000",
 								"@description": "Temporary Facilities and Controls (4%), ",
 								"@isCivilEngineeringWorks": true,
@@ -3637,8 +3510,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Preliminaries | Constructors’ site overheads | general requirements",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.08",
+								"@costcode": "02.2.08",
 								"@costSubCode": "060.000",
 								"@description": "Procedural Requirements (10%), ",
 								"@isCivilEngineeringWorks": true,
@@ -3742,8 +3614,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Risk Allowances",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.09",
+								"@costcode": "02.2.09",
 								"@costSubCode": "010.000",
 								"@description": "Design and Pricing Contingency (2%), ",
 								"@isCivilEngineeringWorks": true,
@@ -3756,8 +3627,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Risk Allowances",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.09",
+								"@costcode": "02.2.09",
 								"@costSubCode": "020.000",
 								"@description": "Construction Contingency (10%), ",
 								"@isCivilEngineeringWorks": true,
@@ -3770,8 +3640,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Risk Allowances",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.09",
+								"@costcode": "02.2.09",
 								"@costSubCode": "030.000",
 								"@description": "Escalation Contingency (5.5%), ",
 								"@isCivilEngineeringWorks": true,
@@ -3784,8 +3653,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Risk Allowances",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.09",
+								"@costcode": "02.2.09",
 								"@costSubCode": "030.000",
 								"@description": "Bidding Requirements Conditions (4%), ",
 								"@isCivilEngineeringWorks": true,
@@ -3811,8 +3679,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Taxes and Levies",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.10",
+								"@costcode": "02.2.10",
 								"@costSubCode": "000.000",
 								"@isCivilEngineeringWorks": true,
 								"@isExcluded": false,
@@ -3850,8 +3717,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Work and utilities off-site (including related risk allowances, taxes and levies)",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.11",
+								"@costcode": "02.2.11",
 								"@costSubCode": "000.000",
 								"@isCivilEngineeringWorks": true,
 								"@isExcluded": false,
@@ -3967,8 +3833,7 @@
 							{
 								"@costCategory": " Construction Costs",
 								"@costGroup": "Post-completion loose furniture, fittings and equipment (including related risk allowances, taxes and levies)",
-								"@costSubGroup": "0",
-								"@costCode": "02.2.12",
+								"@costcode": "02.2.12",
 								"@costSubCode": "000.000",
 								"@isCivilEngineeringWorks": true,
 								"@isExcluded": false,
