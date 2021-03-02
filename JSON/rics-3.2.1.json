@@ -11817,6 +11817,9 @@
 				"@costSubCode": {
 					"$ref": "#/definitions/xs:string"
 				},
+				"@costSubGroup": {
+					"$ref": "#/definitions/xs:string"
+				},
 				"@description": {
 					"$ref": "#/definitions/xs:string"
 				},
