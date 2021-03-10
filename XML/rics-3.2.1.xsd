@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Contact: RICS http://www.rics.org
 For help and support, enhancement requests, etc., please email: datastandards@rics.org
 Version: 3.2.1
-Last Updated: 9 March 2021
+Last Updated: 10 March 2021
 		</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType name="AboveBelowEnum">
@@ -220,7 +220,7 @@ Last Updated: 9 March 2021
 	<xs:complexType name="AnnotatedDocumentType">
 		<xs:sequence>
 			<xs:element name="GUID" type="GUIDType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="File" type="FileType" minOccurs="0"/>
+			<xs:element name="File" type="FileType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:choice>
 				<xs:element name="CreatedDate" type="DateChoiceType" minOccurs="0"/>
 				<xs:element name="CreatedDateRange" type="DateRangeChoiceType" minOccurs="0"/>
@@ -1710,6 +1710,11 @@ Last Updated: 9 March 2021
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="ExternalFileType">
+		<xs:attribute name="category" type="FileCategoryEnum"/>
+		<xs:attribute name="url" type="xs:string"/>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
 	<xs:simpleType name="FileCategoryEnum">
 		<xs:union memberTypes="KnownFileCategoryEnum xs:string"/>
 	</xs:simpleType>
@@ -1722,27 +1727,8 @@ Last Updated: 9 March 2021
 	<xs:complexType name="FileType">
 		<xs:sequence>
 			<xs:choice>
-				<xs:element name="InternalFile" minOccurs="0">
-					<xs:complexType>
-						<xs:simpleContent>
-							<xs:extension base="xs:string">
-								<xs:attribute name="category" type="FileCategoryEnum"/>
-								<xs:attribute name="format" type="FileFormatEnum"/>
-								<xs:attribute name="encoding" type="FileEncodingEnum"/>
-								<xs:attribute name="path" type="xs:string"/>
-								<xs:attribute name="url" type="xs:string"/>
-								<xs:anyAttribute namespace="##any" processContents="lax"/>
-							</xs:extension>
-						</xs:simpleContent>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="ExternalFile" minOccurs="0">
-					<xs:complexType>
-						<xs:attribute name="category" type="FileCategoryEnum"/>
-						<xs:attribute name="url" type="xs:string"/>
-						<xs:anyAttribute namespace="##any" processContents="lax"/>
-					</xs:complexType>
-				</xs:element>
+				<xs:element name="InternalFile" type="InternalFileType" minOccurs="0"/>
+				<xs:element name="ExternalFile" type="ExternalFileType" minOccurs="0"/>
 			</xs:choice>
 			<xs:choice>
 				<xs:element name="CreatedDate" type="DateChoiceType" minOccurs="0"/>
@@ -2292,6 +2278,18 @@ Last Updated: 9 March 2021
 			<xs:element name="ChangeDate" type="InterestRateChangeDateType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="specialUnusualProvisions" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="InternalFileType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="category" type="FileCategoryEnum"/>
+				<xs:attribute name="format" type="FileFormatEnum"/>
+				<xs:attribute name="encoding" type="FileEncodingEnum"/>
+				<xs:attribute name="path" type="xs:string"/>
+				<xs:attribute name="url" type="xs:string"/>
+				<xs:anyAttribute namespace="##any" processContents="lax"/>
+			</xs:extension>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:simpleType name="InternetConnectionEnum">
 		<xs:union memberTypes="KnownInternetConnectionEnum xs:string"/>
