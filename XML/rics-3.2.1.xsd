@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Contact: RICS http://www.rics.org
 For help and support, enhancement requests, etc., please email: datastandards@rics.org
 Version: 3.2.1
-Last Updated: 10 March 2021
+Last Updated: 21 March 2021
 		</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType name="AboveBelowEnum">
@@ -913,50 +913,53 @@ Last Updated: 10 March 2021
 		<xs:union memberTypes="KnownComplexMeasurementSubTypeEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="ComplexMeasurementType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element name="Decimal" type="SimpleDecimalType" minOccurs="0"/>
-				<xs:element name="Percentage" type="PercentageChoiceType" minOccurs="0"/>
-				<xs:element name="Ratio" type="SimplePercentageType" minOccurs="0"/>
-				<xs:element name="Monetary" type="SimpleMonetaryType" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="MeasurementDate" type="DateChoiceType" minOccurs="0"/>
-				<xs:element name="MeasurementDateRange" type="DateRangeChoiceType" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="ReportedDate" type="DateChoiceType" minOccurs="0"/>
-				<xs:element name="ReportedDateRange" type="DateRangeChoiceType" minOccurs="0"/>
-			</xs:choice>
-			<xs:element name="Period" type="DurationType" minOccurs="0"/>
-			<xs:element name="Valid" type="DurationType" minOccurs="0"/>
-			<xs:element name="Accuracy" type="AccuracyType" minOccurs="0"/>
-			<xs:element name="MeasuredBy" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ProcuredBy" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Sites" type="SiteType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="BuildingComplexes" type="BuildingComplexType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Buildings" type="BuildingElementType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="BuildingSections" type="BuildingSectionType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Zones" type="ZoneType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Floors" type="FloorType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Spaces" type="SpaceType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Rooms" type="RoomType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Object" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-		<xs:attribute name="isCurrent" type="xs:boolean"/>
-		<xs:attribute name="valueAsText" type="xs:string"/>
-		<xs:attribute name="unitOfMeasurement" type="UnitOfMeasurementEnum"/>
-		<xs:attribute name="denominatorUnitOfMeasurement" type="UnitOfMeasurementEnum"/>
-		<xs:attribute name="timeUnitOfMeasurement" type="UnitOfMeasurementEnum"/>
-		<xs:attribute name="framework" type="TargetFrameworkEnum"/>
-		<xs:attribute name="category" type="TargetCategoryEnum"/>
-		<xs:attribute name="type" type="ComplexMeasurementTypeEnum"/>
-		<xs:attribute name="subType" type="ComplexMeasurementSubTypeEnum"/>
-		<xs:attribute name="purpose" type="MeasurementPurposeEnum"/>
-		<xs:attribute name="source" type="ComplexMeasurementSourceEnum"/>
-		<xs:attribute name="status" type="ComplexMeasurementStatusEnum"/>
-		<xs:attribute name="item" type="ComplexMeasurementItemEnum"/>
-		<xs:attribute name="description" type="xs:string"/>
+		<xs:complexContent>
+			<xs:extension base="GenericContentType">
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="Decimal" type="SimpleDecimalType" minOccurs="0"/>
+						<xs:element name="Percentage" type="PercentageChoiceType" minOccurs="0"/>
+						<xs:element name="Ratio" type="SimplePercentageType" minOccurs="0"/>
+						<xs:element name="Monetary" type="SimpleMonetaryType" minOccurs="0"/>
+					</xs:choice>
+					<xs:choice>
+						<xs:element name="MeasurementDate" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="MeasurementDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+					<xs:choice>
+						<xs:element name="ReportedDate" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="ReportedDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+					<xs:element name="Period" type="DurationType" minOccurs="0"/>
+					<xs:element name="Valid" type="DurationType" minOccurs="0"/>
+					<xs:element name="Accuracy" type="AccuracyType" minOccurs="0"/>
+					<xs:element name="MeasuredBy" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ProcuredBy" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Sites" type="SiteType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="BuildingComplexes" type="BuildingComplexType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Buildings" type="BuildingElementType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="BuildingSections" type="BuildingSectionType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Zones" type="ZoneType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Floors" type="FloorType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Spaces" type="SpaceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Rooms" type="RoomType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Object" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="isCurrent" type="xs:boolean"/>
+				<xs:attribute name="valueAsText" type="xs:string"/>
+				<xs:attribute name="unitOfMeasurement" type="UnitOfMeasurementEnum"/>
+				<xs:attribute name="denominatorUnitOfMeasurement" type="UnitOfMeasurementEnum"/>
+				<xs:attribute name="timeUnitOfMeasurement" type="UnitOfMeasurementEnum"/>
+				<xs:attribute name="framework" type="TargetFrameworkEnum"/>
+				<xs:attribute name="category" type="TargetCategoryEnum"/>
+				<xs:attribute name="type" type="ComplexMeasurementTypeEnum"/>
+				<xs:attribute name="subType" type="ComplexMeasurementSubTypeEnum"/>
+				<xs:attribute name="purpose" type="MeasurementPurposeEnum"/>
+				<xs:attribute name="source" type="ComplexMeasurementSourceEnum"/>
+				<xs:attribute name="status" type="ComplexMeasurementStatusEnum"/>
+				<xs:attribute name="item" type="ComplexMeasurementItemEnum"/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:simpleType name="ComplexMeasurementTypeEnum">
 		<xs:union memberTypes="KnownComplexMeasurementTypeEnum xs:string"/>
@@ -34205,6 +34208,7 @@ Last Updated: 10 March 2021
 		</xs:sequence>
 		<xs:attribute name="perPeriod" type="PerPeriodEnum"/>
 	</xs:complexType>
+	<xs:element name="PropertyLogbook" substitutionGroup="DataTransfer"/>
 	<xs:complexType name="PropertyMeasurementType">
 		<xs:complexContent>
 			<xs:extension base="PropertyContentType">
@@ -34260,6 +34264,7 @@ Last Updated: 10 March 2021
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="PropertyPassport" substitutionGroup="DataTransfer"/>
 	<xs:complexType name="PropertyProfitType">
 		<xs:sequence>
 			<xs:element name="Value" type="SimpleMonetaryType" minOccurs="0"/>
