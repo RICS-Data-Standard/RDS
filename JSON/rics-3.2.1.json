@@ -100,6 +100,12 @@
 				}
 			]
 		},
+		".rics:BuildingLogbook": {
+			"$ref": "#/definitions/rics:DataTransfer"
+		},
+		".rics:BuildingPassport": {
+			"$ref": "#/definitions/rics:DataTransfer"
+		},
 		".rics:DataTransfer": {
 			"$ref": "#/definitions/rics:DataTransfer"
 		},
@@ -9641,6 +9647,9 @@
 				"rics:Accuracy": {
 					"$ref": "#/definitions/rics:AccuracyType"
 				},
+				"rics:ActiveBetween": {
+					"$ref": "#/definitions/rics:DurationType"
+				},
 				"rics:BuildingComplexes": {
 					"anyOf": [
 						{
@@ -9717,6 +9726,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:GUIDType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:InformationSources": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:InformationSourceType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:InformationSourceType"
 							},
 							"type": "array"
 						}
@@ -9810,6 +9832,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:PropertyParticipantType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Property": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:PropertyType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:PropertyType"
 							},
 							"type": "array"
 						}
@@ -13591,6 +13626,9 @@
 				"rics:DateTime": {
 					"$ref": "#/definitions/xs:dateTime"
 				},
+				"rics:Time": {
+					"$ref": "#/definitions/xs:time"
+				},
 				"rics:Year": {
 					"$ref": "#/definitions/xs:gYear"
 				},
@@ -13612,6 +13650,9 @@
 				"rics:FromDateTime": {
 					"$ref": "#/definitions/xs:dateTime"
 				},
+				"rics:FromTime": {
+					"$ref": "#/definitions/xs:time"
+				},
 				"rics:FromYear": {
 					"$ref": "#/definitions/xs:gYear"
 				},
@@ -13626,6 +13667,9 @@
 				},
 				"rics:ToDateTime": {
 					"$ref": "#/definitions/xs:dateTime"
+				},
+				"rics:ToTime": {
+					"$ref": "#/definitions/xs:time"
 				},
 				"rics:ToYear": {
 					"$ref": "#/definitions/xs:gYear"
@@ -13952,38 +13996,11 @@
 		"rics:DurationType": {
 			"additionalProperties": false,
 			"properties": {
-				"@endDate": {
-					"$ref": "#/definitions/xs:date"
-				},
-				"@endDateTime": {
-					"$ref": "#/definitions/xs:dateTime"
-				},
-				"@endTime": {
-					"$ref": "#/definitions/xs:date"
-				},
-				"@endYear": {
-					"$ref": "#/definitions/xs:gYear"
-				},
-				"@endYearMonth": {
-					"$ref": "#/definitions/xs:gYearMonth"
-				},
-				"@startDate": {
-					"$ref": "#/definitions/xs:date"
-				},
-				"@startDateTime": {
-					"$ref": "#/definitions/xs:dateTime"
-				},
-				"@startTime": {
-					"$ref": "#/definitions/xs:time"
-				},
-				"@startYear": {
-					"$ref": "#/definitions/xs:gYear"
-				},
-				"@startYearMonth": {
-					"$ref": "#/definitions/xs:gYearMonth"
-				},
 				"rics:BaseDate": {
 					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:DateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
 				},
 				"rics:Duration": {
 					"$ref": "#/definitions/xs:duration"
@@ -58659,7 +58676,7 @@
 			"type": "string"
 		}
 	},
-	"description": "RICS Data Standard.  This is a JSON schema for the RICS Data Standard incorporating ICMS, ILMS, IPMS and IVS using address formats from buildingSMART IFC and Oasis xAL. Copyright(c) 2017, 2018, 2019, 2020, 2021 RICS [http://www.rics.org] Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  Contact: RICS http://www.rics.org  For help and support, enhancement requests, etc., please email: datastandards@rics.org  Version: 3.2.1 Last Updated: 21 March 2021",
+	"description": "RICS Data Standard.  This is a JSON schema for the RICS Data Standard incorporating ICMS, ILMS, IPMS and IVS using address formats from buildingSMART IFC and Oasis xAL. Copyright(c) 2017, 2018, 2019, 2020, 2021 RICS [http://www.rics.org] Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  Contact: RICS http://www.rics.org  For help and support, enhancement requests, etc., please email: datastandards@rics.org  Version: 3.2.1 Last Updated: 23 March 2021",
 	"properties": {
 		"@xmlns:ifc": {
 			"default": "http://www.buildingsmart-tech.org/ifc/IFC4x1/final"
@@ -58684,6 +58701,12 @@
 		},
 		"ifc:IfcPostalAddress": {
 			"$ref": "#/definitions/.ifc:IfcPostalAddress"
+		},
+		"rics:BuildingLogbook": {
+			"$ref": "#/definitions/.rics:BuildingLogbook"
+		},
+		"rics:BuildingPassport": {
+			"$ref": "#/definitions/.rics:BuildingPassport"
 		},
 		"rics:DataTransfer": {
 			"$ref": "#/definitions/.rics:DataTransfer"

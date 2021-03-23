@@ -288,9 +288,11 @@
 					]
 				},
 				"rics:Length": {
-					"@startDate": "2018-01-01",
-					"@endDate": "2042-12-31",
-					"rics:Duration": "P25Y"
+					"rics:Duration": "P25Y",
+					"rics:DateRange": {
+						"rics:FromDate": "2018-01-01",
+						"rics:ToDate": "2042-12-31"
+					}
 				},
 				"rics:JurisdictionalLegislation": [
 					{
