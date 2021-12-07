@@ -101,8 +101,12 @@
 				<rics:AreaUnits unitOfMeasurement="FTK">150000</rics:AreaUnits>
 			</rics:Area>
 		</rics:Premises>
-		<rics:Length startDate="2018-01-01" endDate="2042-12-31">
+		<rics:Length>
 			<rics:Duration>P25Y</rics:Duration>
+			<rics:DateRange>
+				<rics:FromDate>2018-01-01</rics:FromDate>
+				<rics:ToDate>2042-12-31</rics:ToDate>
+			</rics:DateRange>
 		</rics:Length>
 		<rics:JurisdictionalLegislation legislation="Landlord and Tenant 1954 Act">
 			<rics:Jurisdiction>
