@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:xsdschema:rics:3.2.1" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" targetNamespace="urn:xsdschema:rics:3.2.1" elementFormDefault="qualified" version="3.2.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:xsdschema:rics:3.3.0" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" targetNamespace="urn:xsdschema:rics:3.3.0" elementFormDefault="qualified" version="3.3.0">
 	<xs:import namespace="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" schemaLocation="IFC4x1.xsd"/>
 	<xs:import namespace="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" schemaLocation="xAL-2.0.xsd"/>
 	<xs:annotation>
-		<xs:documentation xml:lang="en">RICS Data Standard
-This is an XML schema (XSD) for the RICS Data Standard incorporating ICMS, ILMS, IPMS and IVS using address formats from buildingSMART IFC and Oasis xAL.
-Copyright(c) 2017, 2018, 2019, 2020, 2021 RICS [http://www.rics.org]
+		<xs:documentation xml:lang="en">RICS Data Standard (RDS)
+This is an XML schema (XSD) for the RICS Data Standard (RDS) incorporating ICMS, ILMS, IPMS, and IVS using address formats from buildingSMART IFC, and Oasis xAL.
+Copyright(c) 2017-2022 RICS [http://www.rics.org]
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 Contact: RICS http://www.rics.org
 For help and support, enhancement requests, etc., please email: datastandards@rics.org
-Version: 3.2.1
-Last Updated: 10 March 2021
+Version: 3.3.0
+Last Updated: 7 January 2022
 		</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType name="AboveBelowEnum">
@@ -227,12 +227,15 @@ Last Updated: 10 March 2021
 			</xs:choice>
 			<xs:element name="Text" type="TextType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Keywords" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Topics" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Coordinates" type="CoordinateType" minOccurs="0"/>
 			<xs:element name="SignedBy" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="WitnessedBy" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
+		<xs:attribute name="isMissing" type="xs:boolean"/>
 		<xs:attribute name="description" type="xs:string"/>
 		<xs:attribute name="title" type="xs:string"/>
+		<xs:attribute name="class" type="xs:string"/>
 		<xs:attribute name="type" type="AnnotatedDocumentTypeEnum"/>
 		<xs:attribute name="version" type="xs:string"/>
 	</xs:complexType>
@@ -422,7 +425,7 @@ Last Updated: 10 March 2021
 	</xs:complexType>
 	<xs:complexType name="BridgeDesignFeaturesType">
 		<xs:sequence>
-			<xs:element name="Materials" type="MaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Materials" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ObstacleCrossed" type="BridgeObstacleCrossedEnum" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="support" type="BridgeSupportEnum"/>
@@ -434,23 +437,6 @@ Last Updated: 10 March 2021
 			<xs:element name="MaximumHeightAboveLowestLandWater" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="MinimumClearanceHeight" type="SimpleMeasurementType" minOccurs="0"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:simpleType name="BridgeFunctionalUnitsEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="vehiclesPerHour"/>
-			<xs:enumeration value="litresPerHour"/>
-			<xs:enumeration value="gallonsPerHour"/>
-			<xs:enumeration value="tonnesPerHour"/>
-			<xs:enumeration value="tonsPerHour"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="BridgeFunctionalUnitsType">
-		<xs:complexContent>
-			<xs:extension base="SimpleMeasurementType">
-				<xs:attribute name="function" type="CapacityFunctionalEnum"/>
-				<xs:attribute name="units" type="BridgeFunctionalUnitsEnum"/>
-			</xs:extension>
-		</xs:complexContent>
 	</xs:complexType>
 	<xs:simpleType name="BridgeFunctionEnum">
 		<xs:union memberTypes="KnownBridgeFunctionEnum xs:string"/>
@@ -469,7 +455,7 @@ Last Updated: 10 March 2021
 		<xs:sequence>
 			<xs:element name="DeckLength" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="SurfaceAreaOfDeck" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="BridgeFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="BridgeSupportEnum">
@@ -535,12 +521,14 @@ Last Updated: 10 March 2021
 		<xs:union memberTypes="KnownHotelGradeEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="BuildingFunctionalUnitsType">
-		<xs:complexContent>
+		<xs:simpleContent>
 			<xs:extension base="SimpleMeasurementType">
 				<xs:attribute name="function" type="BuildingFunctionalEnum"/>
 			</xs:extension>
-		</xs:complexContent>
+		</xs:simpleContent>
 	</xs:complexType>
+	<xs:element name="BuildingLogbook" substitutionGroup="DataTransfer"/>
+	<xs:element name="BuildingPassport" substitutionGroup="DataTransfer"/>
 	<xs:simpleType name="BuildingPrefabricatedWorkEnum">
 		<xs:union memberTypes="KnownBuildingPrefabricatedWorkEnum xs:string"/>
 	</xs:simpleType>
@@ -594,18 +582,14 @@ Last Updated: 10 March 2021
 					<xs:element name="Ownership" type="PropertyRightsHolderType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Occupation" type="PropertyOccupationType" minOccurs="0"/>
 					<xs:element name="StructureAuthorisedUnauthorised" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:choice>
-						<xs:element name="BuiltAge" type="DateChoiceType" minOccurs="0"/>
-						<xs:element name="BuiltAgeRange" type="DateRangeChoiceType" minOccurs="0"/>
-					</xs:choice>
-					<xs:choice>
-						<xs:element name="ExtendedAge" type="DateChoiceType" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ExtendedAgeRange" type="DateRangeChoiceType" minOccurs="0" maxOccurs="unbounded"/>
-					</xs:choice>
-					<xs:choice>
-						<xs:element name="ConvertedAge" type="DateChoiceType" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="ConvertedAgeRange" type="DateRangeChoiceType" minOccurs="0" maxOccurs="unbounded"/>
-					</xs:choice>
+					<xs:element name="BuiltAge" type="DateChoiceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="BuiltAgeRange" type="DateRangeChoiceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ExtendedAge" type="DateChoiceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ExtendedAgeRange" type="DateRangeChoiceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ConvertedAge" type="DateChoiceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ConvertedAgeRange" type="DateRangeChoiceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="RefittedAge" type="DateChoiceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="RefittedAgeRange" type="DateRangeChoiceType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Dimensions" type="DimensionType" minOccurs="0"/>
 					<xs:element name="StoreyInformation" type="StoreyInformationType" minOccurs="0"/>
 					<xs:element name="Zones" type="ZoneType" minOccurs="0" maxOccurs="unbounded"/>
@@ -622,6 +606,7 @@ Last Updated: 10 March 2021
 					<xs:element name="SecondaryUse" type="PropertyUseEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Objects" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="PercentageLandOccupiedByBuilding" type="SimplePercentageType" minOccurs="0"/>
 					<xs:element name="AncillaryHardSurfaceArea" type="SimpleMeasurementType" minOccurs="0"/>
@@ -671,6 +656,7 @@ Last Updated: 10 March 2021
 			<xs:element name="AverageHeightToSeaLevel" type="SeaLevelHeightType" minOccurs="0"/>
 			<xs:element name="Dimensions" type="DimensionType" minOccurs="0"/>
 			<xs:element name="StoreyInformation" type="StoreyInformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AreaExternalElevations" type="SimpleMeasurementType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="function" type="PropertyUseEnum"/>
 		<xs:attribute name="nature" type="BuildNatureEnum"/>
@@ -687,38 +673,25 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="expansionOfExisting"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="CapacityFunctionalEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="capacity"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="CapacityFunctionalUnitsEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="litresPerHour"/>
-			<xs:enumeration value="gallonsPerHour"/>
-			<xs:enumeration value="tonnesPerHour"/>
-			<xs:enumeration value="tonsPerHour"/>
-			<xs:enumeration value="vehiclesPerHour"/>
-			<xs:enumeration value="m3PerHour"/>
-			<xs:enumeration value="ft3PerHour"/>
-			<xs:enumeration value="litresPerDay"/>
-			<xs:enumeration value="gallonsPerDay"/>
-			<xs:enumeration value="tonnesPerDay"/>
-			<xs:enumeration value="tonsPerDay"/>
-			<xs:enumeration value="m3PerDay"/>
-			<xs:enumeration value="ft3PerDay"/>
-			<xs:enumeration value="barrelsPerDay"/>
-			<xs:enumeration value="megaWatts"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="CapacityFunctionalUnitsType">
+	<xs:complexType name="CarbonEmissionsType">
 		<xs:complexContent>
-			<xs:extension base="SimpleMeasurementType">
-				<xs:attribute name="function" type="CapacityFunctionalEnum"/>
-				<xs:attribute name="units" type="CapacityFunctionalUnitsEnum"/>
+			<xs:extension base="GenericContentType">
+				<xs:sequence>
+					<xs:element name="ActualQuantities" type="PercentageChoiceType" minOccurs="0"/>
+					<xs:element name="AssessmentTools" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="MaterialQuantitySources" type="MaterialQuantitySourceEnum" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="EmissionFactorSources" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="OperationalEnergySources" type="OperationalEnergySourceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="OnSiteEnergyGenerationAndStorageFacilities" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="boundary" type="CarbonReportingBoundaryEnum"/>
+				<xs:attribute name="assessmentProcess" type="xs:string"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:simpleType name="CarbonReportingBoundaryEnum">
+		<xs:union memberTypes="KnownCarbonReportingBoundaryEnum xs:string"/>
+	</xs:simpleType>
 	<xs:simpleType name="CardinalDirectionEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="N"/>
@@ -806,26 +779,24 @@ Last Updated: 10 March 2021
 	<xs:complexType name="ChemicalPlantDesignFeaturesType">
 		<xs:sequence>
 			<xs:element name="PrincipalProcesses" type="ChemicalPlantProcessEnum" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="PrincipalReactorMaterial" type="ReactorMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PrincipalReactorMaterial" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Infrastructure" type="InfrastructureEnum" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
+		<xs:attribute name="wasteHandling" type="WasteHandlingEnum"/>
+		<xs:attribute name="reinstatement" type="ReinstatementEnum"/>
 	</xs:complexType>
 	<xs:simpleType name="ChemicalPlantEnergySourceEnum">
 		<xs:union memberTypes="KnownChemicalPlantEnergySourceEnum xs:string"/>
 	</xs:simpleType>
-	<xs:simpleType name="ChemicalPlantFunctionalEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="outputOfProduct"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:complexType name="ChemicalPlantFunctionalUnitsType">
-		<xs:complexContent>
+		<xs:simpleContent>
 			<xs:extension base="SimpleMeasurementType">
-				<xs:attribute name="function" type="ChemicalPlantFunctionalEnum"/>
-				<xs:attribute name="units" type="CapacityFunctionalUnitsEnum"/>
+				<xs:attribute name="function" type="FunctionalEnum"/>
+				<xs:attribute name="units" type="FunctionalUnitsEnum"/>
 				<xs:attribute name="product" type="ChemicalPlantProductEnum"/>
 				<xs:attribute name="type" type="ChemicalPlantProductTypeEnum"/>
 			</xs:extension>
-		</xs:complexContent>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="ChemicalPlantFunctionType">
 		<xs:attribute name="product" type="ChemicalPlantProductEnum"/>
@@ -913,50 +884,56 @@ Last Updated: 10 March 2021
 		<xs:union memberTypes="KnownComplexMeasurementSubTypeEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="ComplexMeasurementType">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element name="Decimal" type="SimpleDecimalType" minOccurs="0"/>
-				<xs:element name="Percentage" type="PercentageChoiceType" minOccurs="0"/>
-				<xs:element name="Ratio" type="SimplePercentageType" minOccurs="0"/>
-				<xs:element name="Monetary" type="SimpleMonetaryType" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="MeasurementDate" type="DateChoiceType" minOccurs="0"/>
-				<xs:element name="MeasurementDateRange" type="DateRangeChoiceType" minOccurs="0"/>
-			</xs:choice>
-			<xs:choice>
-				<xs:element name="ReportedDate" type="DateChoiceType" minOccurs="0"/>
-				<xs:element name="ReportedDateRange" type="DateRangeChoiceType" minOccurs="0"/>
-			</xs:choice>
-			<xs:element name="Period" type="DurationType" minOccurs="0"/>
-			<xs:element name="Valid" type="DurationType" minOccurs="0"/>
-			<xs:element name="Accuracy" type="AccuracyType" minOccurs="0"/>
-			<xs:element name="MeasuredBy" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ProcuredBy" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Sites" type="SiteType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="BuildingComplexes" type="BuildingComplexType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Buildings" type="BuildingElementType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="BuildingSections" type="BuildingSectionType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Zones" type="ZoneType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Floors" type="FloorType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Spaces" type="SpaceType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Rooms" type="RoomType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Object" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-		<xs:attribute name="isCurrent" type="xs:boolean"/>
-		<xs:attribute name="valueAsText" type="xs:string"/>
-		<xs:attribute name="unitOfMeasurement" type="UnitOfMeasurementEnum"/>
-		<xs:attribute name="denominatorUnitOfMeasurement" type="UnitOfMeasurementEnum"/>
-		<xs:attribute name="timeUnitOfMeasurement" type="UnitOfMeasurementEnum"/>
-		<xs:attribute name="framework" type="TargetFrameworkEnum"/>
-		<xs:attribute name="category" type="TargetCategoryEnum"/>
-		<xs:attribute name="type" type="ComplexMeasurementTypeEnum"/>
-		<xs:attribute name="subType" type="ComplexMeasurementSubTypeEnum"/>
-		<xs:attribute name="purpose" type="MeasurementPurposeEnum"/>
-		<xs:attribute name="source" type="ComplexMeasurementSourceEnum"/>
-		<xs:attribute name="status" type="ComplexMeasurementStatusEnum"/>
-		<xs:attribute name="item" type="ComplexMeasurementItemEnum"/>
-		<xs:attribute name="description" type="xs:string"/>
+		<xs:complexContent>
+			<xs:extension base="PropertyContentType">
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="Decimal" type="SimpleDecimalType" minOccurs="0"/>
+						<xs:element name="Percentage" type="PercentageChoiceType" minOccurs="0"/>
+						<xs:element name="Ratio" type="SimplePercentageType" minOccurs="0"/>
+						<xs:element name="Monetary" type="SimpleMonetaryType" minOccurs="0"/>
+					</xs:choice>
+					<xs:choice>
+						<xs:element name="MeasurementDate" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="MeasurementDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+					<xs:choice>
+						<xs:element name="ReportedDate" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="ReportedDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+					<xs:element name="Period" type="DurationType" minOccurs="0"/>
+					<xs:element name="Valid" type="DurationType" minOccurs="0"/>
+					<xs:element name="Accuracy" type="AccuracyType" minOccurs="0"/>
+					<xs:element name="MeasuredBy" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ProcuredBy" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Location" type="ObjectLocationEnum" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Coordinates" type="CoordinateType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Sites" type="SiteType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="BuildingComplexes" type="BuildingComplexType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Buildings" type="BuildingElementType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="BuildingSections" type="BuildingSectionType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Zones" type="ZoneType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Floors" type="FloorType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Spaces" type="SpaceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Rooms" type="RoomType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Object" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Sensor" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="isCurrent" type="xs:boolean"/>
+				<xs:attribute name="valueAsText" type="xs:string"/>
+				<xs:attribute name="unitOfMeasurement" type="UnitOfMeasurementEnum"/>
+				<xs:attribute name="denominatorUnitOfMeasurement" type="UnitOfMeasurementEnum"/>
+				<xs:attribute name="timeUnitOfMeasurement" type="UnitOfMeasurementEnum"/>
+				<xs:attribute name="framework" type="TargetFrameworkEnum"/>
+				<xs:attribute name="category" type="TargetCategoryEnum"/>
+				<xs:attribute name="type" type="ComplexMeasurementTypeEnum"/>
+				<xs:attribute name="subType" type="ComplexMeasurementSubTypeEnum"/>
+				<xs:attribute name="purpose" type="MeasurementPurposeEnum"/>
+				<xs:attribute name="source" type="ComplexMeasurementSourceEnum"/>
+				<xs:attribute name="status" type="ComplexMeasurementStatusEnum"/>
+				<xs:attribute name="item" type="ComplexMeasurementItemEnum"/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:simpleType name="ComplexMeasurementTypeEnum">
 		<xs:union memberTypes="KnownComplexMeasurementTypeEnum xs:string"/>
@@ -1070,6 +1047,9 @@ Last Updated: 10 March 2021
 	<xs:simpleType name="ConstructionTypeEnum">
 		<xs:union memberTypes="KnownConstructionTypeEnum xs:string"/>
 	</xs:simpleType>
+	<xs:simpleType name="ContaminatedSedimentDredgingEnum">
+		<xs:union memberTypes="KnownContaminatedSedimentDredgingEnum xs:string"/>
+	</xs:simpleType>
 	<xs:simpleType name="CoordinateNameEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="latitude"/>
@@ -1114,12 +1094,6 @@ Last Updated: 10 March 2021
 		<xs:attribute name="prefix" type="xs:string"/>
 		<xs:attribute name="unitOfMeasurement" type="UnitOfMeasurementEnum"/>
 	</xs:complexType>
-	<xs:simpleType name="CostCategoryEnum">
-		<xs:union memberTypes="KnownCostCategoryEnum xs:string"/>
-	</xs:simpleType>
-	<xs:simpleType name="CostCodeEnum">
-		<xs:union memberTypes="KnownCostCodeEnum xs:string"/>
-	</xs:simpleType>
 	<xs:complexType name="CostedProjectType">
 		<xs:complexContent>
 			<xs:extension base="PropertyContentType">
@@ -1127,14 +1101,21 @@ Last Updated: 10 March 2021
 					<xs:element name="ProjectCode" type="ProjectCodeType" minOccurs="0"/>
 					<xs:element name="SubProject" type="ProjectType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="title" type="xs:string"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:simpleType name="CostGroupEnum">
-		<xs:union memberTypes="KnownCostGroupEnum xs:string"/>
+	<xs:simpleType name="CostEmissionCategoryEnum">
+		<xs:union memberTypes="KnownCostEmissionCategoryEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="CostEmissionCodeEnum">
+		<xs:union memberTypes="KnownCostEmissionCodeEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="CostEmissionGroupEnum">
+		<xs:union memberTypes="KnownCostEmissionGroupEnum xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="CostReportStatusEnum">
 		<xs:restriction base="xs:string">
@@ -1142,6 +1123,7 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="atTender"/>
 			<xs:enumeration value="duringConstruction"/>
 			<xs:enumeration value="actualCostsOfConstructionPost-completion"/>
+			<xs:enumeration value="actualCostsAnd/OrCarbonEmissionsOfConstructionPost-completion"/>
 			<xs:enumeration value="renewalForecastDuringUse"/>
 			<xs:enumeration value="endOfLifeForecast"/>
 		</xs:restriction>
@@ -1155,11 +1137,11 @@ Last Updated: 10 March 2021
 					<xs:element name="Total" type="SimpleMonetaryType" minOccurs="0"/>
 					<xs:element name="Objects" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
-				<xs:attribute name="costCategory" type="CostCategoryEnum"/>
-				<xs:attribute name="costGroup" type="CostGroupEnum"/>
-				<xs:attribute name="costSubGroup" type="xs:string"/>
-				<xs:attribute name="costCode" type="CostCodeEnum"/>
-				<xs:attribute name="costSubCode" type="xs:string"/>
+				<xs:attribute name="category" type="CostEmissionCategoryEnum"/>
+				<xs:attribute name="group" type="CostEmissionGroupEnum"/>
+				<xs:attribute name="subgroup" type="xs:string"/>
+				<xs:attribute name="code" type="CostEmissionCodeEnum"/>
+				<xs:attribute name="subcode" type="xs:string"/>
 				<xs:attribute name="isCivilEngineeringWorks" type="xs:boolean" default="false"/>
 				<xs:attribute name="isExcluded" type="xs:boolean" default="false"/>
 				<xs:attribute name="isNotApplicable" type="xs:boolean" default="false"/>
@@ -1234,18 +1216,18 @@ Last Updated: 10 March 2021
 		<xs:union memberTypes="KnownDamAndReservoirCoreEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="DamAndReservoirCoreType">
-		<xs:complexContent>
+		<xs:simpleContent>
 			<xs:extension base="SimpleMeasurementType">
 				<xs:attribute name="type" type="DamAndReservoirCoreEnum"/>
 			</xs:extension>
-		</xs:complexContent>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="DamAndReservoirDesignFeaturesType">
 		<xs:sequence>
 			<xs:element name="Core" type="DamAndReservoirCoreType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Facing" type="DamAndReservoirFacingType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Infrastructure" type="DamAndReservoirInfrastructureEnum" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Materials" type="DamAndReservoirMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Infrastructure" type="InfrastructureEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Materials" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="structure" type="DamAndReservoirStructureEnum"/>
 		<xs:attribute name="location" type="DamAndReservoirLocationEnum"/>
@@ -1263,39 +1245,14 @@ Last Updated: 10 March 2021
 		<xs:union memberTypes="KnownDamAndReservoirFacingEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="DamAndReservoirFacingType">
-		<xs:complexContent>
+		<xs:simpleContent>
 			<xs:extension base="SimpleMeasurementType">
 				<xs:attribute name="type" type="DamAndReservoirFacingEnum"/>
 			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:simpleType name="DamAndReservoirFunctionalEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="reservoirCapacity"/>
-			<xs:enumeration value="powerGenerationCapacity"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="DamAndReservoirFunctionalUnitsEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="millionm3"/>
-			<xs:enumeration value="millionCubicYards"/>
-			<xs:enumeration value="megaWatts"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="DamAndReservoirFunctionalUnitsType">
-		<xs:complexContent>
-			<xs:extension base="SimpleMeasurementType">
-				<xs:attribute name="function" type="DamAndReservoirFunctionalEnum"/>
-				<xs:attribute name="units" type="DamAndReservoirFunctionalUnitsEnum"/>
-			</xs:extension>
-		</xs:complexContent>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:simpleType name="DamAndReservoirFunctionEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="freshWater"/>
-			<xs:enumeration value="wasteWater"/>
-			<xs:enumeration value="seaWater"/>
-		</xs:restriction>
+		<xs:union memberTypes="KnownDamAndReservoirFunctionEnum xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="DamAndReservoirGeotechnicalEnum">
 		<xs:restriction base="xs:string">
@@ -1304,16 +1261,6 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="slopeDesign"/>
 			<xs:enumeration value="thicknessOfDamWall"/>
 			<xs:enumeration value="saddleDam"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="DamAndReservoirInfrastructureEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="accessRoads"/>
-			<xs:enumeration value="hydro-electricPlant"/>
-			<xs:enumeration value="siteWorks"/>
-			<xs:enumeration value="powerSupply"/>
-			<xs:enumeration value="waterSupply"/>
-			<xs:enumeration value="pipelines"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="DamAndReservoirLayersType">
@@ -1325,16 +1272,13 @@ Last Updated: 10 March 2021
 	<xs:simpleType name="DamAndReservoirLocationEnum">
 		<xs:union memberTypes="KnownDamAndReservoirLocationEnum xs:string"/>
 	</xs:simpleType>
-	<xs:simpleType name="DamAndReservoirMaterialEnum">
-		<xs:union memberTypes="KnownDamAndReservoirMaterialEnum xs:string"/>
-	</xs:simpleType>
 	<xs:simpleType name="DamAndReservoirPurposeEnum">
 		<xs:union memberTypes="KnownDamAndReservoirPurposeEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="DamAndReservoirQuantitiesType">
 		<xs:sequence>
 			<xs:element name="SiteArea" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="DamAndReservoirFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="DamAndReservoirStructureEnum">
@@ -1384,8 +1328,8 @@ Last Updated: 10 March 2021
 		</xs:sequence>
 		<xs:attribute name="unitOfMeasurement" type="UnitOfMeasurementEnum"/>
 	</xs:complexType>
-	<xs:element name="DataTransfer" type="DataTransfer"/>
-	<xs:complexType name="DataTransfer">
+	<xs:element name="DataTransfer" type="DataTransferType"/>
+	<xs:complexType name="DataTransferType">
 		<xs:complexContent>
 			<xs:extension base="GenericContentType">
 				<xs:sequence>
@@ -1436,6 +1380,7 @@ Last Updated: 10 March 2021
 	</xs:complexType>
 	<xs:complexType name="DateChoiceType">
 		<xs:choice>
+			<xs:element name="Time" type="xs:time" minOccurs="0"/>
 			<xs:element name="DateTime" type="xs:dateTime" minOccurs="0"/>
 			<xs:element name="Date" type="xs:date" minOccurs="0"/>
 			<xs:element name="YearMonth" type="xs:gYearMonth" minOccurs="0"/>
@@ -1445,6 +1390,10 @@ Last Updated: 10 March 2021
 	</xs:complexType>
 	<xs:complexType name="DateRangeChoiceType">
 		<xs:choice>
+			<xs:sequence>
+				<xs:element name="FromTime" type="xs:time" minOccurs="0"/>
+				<xs:element name="ToTime" type="xs:time" minOccurs="0"/>
+			</xs:sequence>
 			<xs:sequence>
 				<xs:element name="FromDateTime" type="xs:dateTime" minOccurs="0"/>
 				<xs:element name="ToDateTime" type="xs:dateTime" minOccurs="0"/>
@@ -1573,17 +1522,8 @@ Last Updated: 10 March 2021
 				<xs:element name="Duration" type="xs:duration" minOccurs="0"/>
 				<xs:element name="DurationAsText" type="xs:string" minOccurs="0"/>
 			</xs:choice>
+			<xs:element name="DateRange" type="DateRangeChoiceType" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="startYear" type="xs:gYear"/>
-		<xs:attribute name="startYearMonth" type="xs:gYearMonth"/>
-		<xs:attribute name="startDate" type="xs:date"/>
-		<xs:attribute name="startDateTime" type="xs:dateTime"/>
-		<xs:attribute name="startTime" type="xs:time"/>
-		<xs:attribute name="endYear" type="xs:gYear"/>
-		<xs:attribute name="endYearMonth" type="xs:gYearMonth"/>
-		<xs:attribute name="endDate" type="xs:date"/>
-		<xs:attribute name="endDateTime" type="xs:dateTime"/>
-		<xs:attribute name="endTime" type="xs:date"/>
 	</xs:complexType>
 	<xs:simpleType name="EconomicCategoryEnum">
 		<xs:union memberTypes="KnownEconomicCategoryEnum xs:string"/>
@@ -1611,6 +1551,26 @@ Last Updated: 10 March 2021
 	<xs:simpleType name="ElectricitySourceEnum">
 		<xs:union memberTypes="KnownElectricitySourceEnum xs:string"/>
 	</xs:simpleType>
+	<xs:complexType name="EmissionsType">
+		<xs:complexContent>
+			<xs:extension base="GenericContentType">
+				<xs:sequence>
+					<xs:element name="Target" type="ComplexMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Forecast" type="ComplexMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Actual" type="ComplexMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Objects" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="category" type="CostEmissionCategoryEnum"/>
+				<xs:attribute name="group" type="CostEmissionGroupEnum"/>
+				<xs:attribute name="subgroup" type="xs:string"/>
+				<xs:attribute name="code" type="CostEmissionCodeEnum"/>
+				<xs:attribute name="subcode" type="xs:string"/>
+				<xs:attribute name="isCivilEngineeringWorks" type="xs:boolean" default="false"/>
+				<xs:attribute name="isExcluded" type="xs:boolean" default="false"/>
+				<xs:attribute name="isNotApplicable" type="xs:boolean" default="false"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="EnergyEfficiencyType">
 		<xs:sequence>
 			<xs:element name="Insulation" type="GenericContentType" minOccurs="0"/>
@@ -1629,9 +1589,12 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="airConditioning"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="EnvironmentalGradeEnum">
+		<xs:union memberTypes="KnownEnvironmentalGradeEnum xs:string"/>
+	</xs:simpleType>
 	<xs:complexType name="EnvironmentalGradeType">
 		<xs:attribute name="standard" type="xs:string"/>
-		<xs:attribute name="grade" type="xs:string"/>
+		<xs:attribute name="grade" type="EnvironmentalGradeEnum"/>
 		<xs:attribute name="score" type="xs:string"/>
 		<xs:attribute name="status" type="GradeStatusEnum"/>
 	</xs:complexType>
@@ -1809,6 +1772,7 @@ Last Updated: 10 March 2021
 					<xs:element name="HVAC" type="HVACType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Objects" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="id" type="xs:string"/>
@@ -1822,6 +1786,27 @@ Last Updated: 10 March 2021
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:simpleType name="FoundationsEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="shallow"/>
+			<xs:enumeration value="deep"/>
+			<xs:enumeration value="gravityBased"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FunctionalEnum">
+		<xs:union memberTypes="KnownFunctionalEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="FunctionalUnitsEnum">
+		<xs:union memberTypes="KnownFunctionalEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="FunctionalUnitsType">
+		<xs:simpleContent>
+			<xs:extension base="SimpleMeasurementType">
+				<xs:attribute name="function" type="FunctionalEnum"/>
+				<xs:attribute name="units" type="FunctionalUnitsEnum"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
 	<xs:simpleType name="FundingEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="private"/>
@@ -1834,9 +1819,6 @@ Last Updated: 10 March 2021
 	</xs:simpleType>
 	<xs:simpleType name="GenderEnum">
 		<xs:union memberTypes="KnownGenderEnum xs:string"/>
-	</xs:simpleType>
-	<xs:simpleType name="GeneratorContainmentMaterialEnum">
-		<xs:union memberTypes="KnownGeneratorContainmentMaterialEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="GenericContentType">
 		<xs:sequence>
@@ -1961,9 +1943,6 @@ Last Updated: 10 March 2021
 		<xs:attribute name="includedAreaCategory" type="SeparateAreaCategoryEnum"/>
 		<xs:attribute name="description" type="xs:string"/>
 	</xs:complexType>
-	<xs:simpleType name="IncomeCodeEnum">
-		<xs:union memberTypes="KnownCostCodeEnum xs:string"/>
-	</xs:simpleType>
 	<xs:complexType name="IncomeType">
 		<xs:complexContent>
 			<xs:extension base="GenericContentType">
@@ -1973,10 +1952,11 @@ Last Updated: 10 March 2021
 					<xs:element name="Total" type="SimpleMonetaryType" minOccurs="0"/>
 					<xs:element name="Objects" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
-				<xs:attribute name="incomeCategory" type="xs:string"/>
-				<xs:attribute name="incomeGroup" type="xs:string"/>
-				<xs:attribute name="incomeCode" type="IncomeCodeEnum"/>
-				<xs:attribute name="incomeSubCode" type="xs:string"/>
+				<xs:attribute name="category" type="xs:string"/>
+				<xs:attribute name="group" type="xs:string"/>
+				<xs:attribute name="subgroup" type="xs:string"/>
+				<xs:attribute name="code" type="xs:string"/>
+				<xs:attribute name="subcode" type="xs:string"/>
 				<xs:attribute name="isCivilEngineeringWorks" type="xs:boolean"/>
 				<xs:attribute name="isExcluded" type="xs:boolean"/>
 				<xs:attribute name="isNotApplicable" type="xs:boolean"/>
@@ -2002,6 +1982,9 @@ Last Updated: 10 March 2021
 		<xs:attribute name="name" type="xs:string"/>
 		<xs:attribute name="department" type="xs:string"/>
 	</xs:complexType>
+	<xs:simpleType name="InformationLevelEnum">
+		<xs:union memberTypes="KnownInformationLevelEnum xs:string"/>
+	</xs:simpleType>
 	<xs:simpleType name="InformationNatureEnum">
 		<xs:union memberTypes="KnownInformationNatureEnum xs:string"/>
 	</xs:simpleType>
@@ -2050,6 +2033,7 @@ Last Updated: 10 March 2021
 					<xs:element name="Sources" type="InformationEntityType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Ownership" type="InformationOwnershipEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Owners" type="InformationEntityType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="CopyrightHolders" type="InformationEntityType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="InstructionPurpose" type="InstructionPurposeEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Methodology" type="MethodologyEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Assumptions" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
@@ -2067,6 +2051,7 @@ Last Updated: 10 March 2021
 				<xs:attribute name="isAssured" type="xs:boolean"/>
 				<xs:attribute name="quality" type="InformationQualityEnum"/>
 				<xs:attribute name="basis" type="InformationBasisEnum"/>
+				<xs:attribute name="level" type="InformationLevelEnum"/>
 				<xs:attribute name="nature" type="InformationNatureEnum"/>
 				<xs:attribute name="type" type="InformationTypeEnum"/>
 			</xs:extension>
@@ -2074,6 +2059,9 @@ Last Updated: 10 March 2021
 	</xs:complexType>
 	<xs:simpleType name="InformationTypeEnum">
 		<xs:union memberTypes="KnownInformationTypeEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="InfrastructureEnum">
+		<xs:union memberTypes="KnownInfrastructureEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="InitialWorksDetailType">
 		<xs:sequence>
@@ -2492,6 +2480,10 @@ Last Updated: 10 March 2021
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="LIBOR"/>
 			<xs:enumeration value="SONIA"/>
+			<xs:enumeration value="SOFR"/>
+			<xs:enumeration value="AMERIBOR"/>
+			<xs:enumeration value="IBYI"/>
+			<xs:enumeration value="BSBY"/>
 			<xs:enumeration value="€STR"/>
 			<xs:enumeration value="SARON"/>
 			<xs:enumeration value="TONA"/>
@@ -2542,7 +2534,7 @@ Last Updated: 10 March 2021
 	<xs:simpleType name="KnownBridgeObstacleCrossedEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="riverAndCanal"/>
-			<xs:enumeration value="roadsAndMotorways"/>
+			<xs:enumeration value="roads"/>
 			<xs:enumeration value="railways"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -2567,6 +2559,7 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="noOfStudents"/>
 			<xs:enumeration value="noOfPassengers"/>
 			<xs:enumeration value="noOfBoardingGates"/>
+			<xs:enumeration value="productionCapacity"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownBuildingPrefabricatedWorkEnum">
@@ -2675,6 +2668,14 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="temporaryBuilding"/>
 			<xs:enumeration value="theatre"/>
 			<xs:enumeration value="trainStation"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownCarbonReportingBoundaryEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Products (EN 15978 stages A1-A3)"/>
+			<xs:enumeration value="Construction (EN 15978 stages A4-A5)"/>
+			<xs:enumeration value="Up front carbon (EN 15978 stages A1-A5)"/>
+			<xs:enumeration value="Embodied carbon (EN 15978 stages A0-A5, B1-B5, C1-C4)"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownCertificateCategoryEnum">
@@ -2943,6 +2944,14 @@ Last Updated: 10 March 2021
 	</xs:simpleType>
 	<xs:simpleType name="KnownConstructionMaterialEnum">
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="steel"/>
+			<xs:enumeration value="concrete"/>
+			<xs:enumeration value="reinforcedConcrete"/>
+			<xs:enumeration value="mildSteel"/>
+			<xs:enumeration value="stainlessSteel"/>
+			<xs:enumeration value="castIron"/>
+			<xs:enumeration value="precastConcrete"/>
+			<xs:enumeration value="uPVC"/>
 			<xs:enumeration value="brick"/>
 			<xs:enumeration value="block"/>
 			<xs:enumeration value="thatch"/>
@@ -2951,12 +2960,36 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="bamboo"/>
 			<xs:enumeration value="ceramic"/>
 			<xs:enumeration value="rock"/>
+			<xs:enumeration value="armourRock"/>
+			<xs:enumeration value="pontoons"/>
 			<xs:enumeration value="stone"/>
 			<xs:enumeration value="fabric"/>
 			<xs:enumeration value="ice"/>
 			<xs:enumeration value="plastic"/>
+			<xs:enumeration value="rubber"/>
 			<xs:enumeration value="plaster"/>
 			<xs:enumeration value="paint"/>
+			<xs:enumeration value="rockFill"/>
+			<xs:enumeration value="earthFill"/>
+			<xs:enumeration value="clay"/>
+			<xs:enumeration value="asphalt"/>
+			<xs:enumeration value="blockPaving"/>
+			<xs:enumeration value="cementTreatedBase"/>
+			<xs:enumeration value="naturalStone"/>
+			<xs:enumeration value="stoneOrGranularFill"/>
+			<xs:enumeration value="granularFill"/>
+			<xs:enumeration value="concreteArmour"/>
+			<xs:enumeration value="GRP"/>
+			<xs:enumeration value="granite"/>
+			<xs:enumeration value="limestone"/>
+			<xs:enumeration value="bentoniteSlurry"/>
+			<xs:enumeration value="polymerMud"/>
+			<xs:enumeration value="greenLandscaping"/>
+			<xs:enumeration value="naturalMaterials"/>
+			<xs:enumeration value="advancedMaterials"/>
+			<xs:enumeration value="mainlySoil"/>
+			<xs:enumeration value="mainlyPaved"/>
+			<xs:enumeration value="mainlyPlanted"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownConstructionToStateEnum">
@@ -2970,12 +3003,20 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="brickAndBlock"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownContaminatedSedimentDredgingEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="reuse"/>
+			<xs:enumeration value="soilDisposal"/>
+			<xs:enumeration value="landDisposal"/>
+			<xs:enumeration value="dumpAtSea"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownCoordinateReferenceSystemEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="WGS84UTM"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="KnownCostCategoryEnum">
+	<xs:simpleType name="KnownCostEmissionCategoryEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="capitalConstructionCosts">
 				<xs:annotation>
@@ -3024,7 +3065,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="KnownCostCodeEnum">
+	<xs:simpleType name="KnownCostEmissionCodeEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="1.01">
 				<xs:annotation>
@@ -3363,7 +3404,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="01.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Buildings - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Buildings - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="01.6.04">
@@ -3643,7 +3684,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="02.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Roads, runways and motorways - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Roads, runways and motorways - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="02.6.04">
@@ -3923,7 +3964,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="03.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Railways - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Railways - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="03.6.04">
@@ -4203,7 +4244,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="04.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Bridges - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Bridges - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="04.6.04">
@@ -4483,7 +4524,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="05.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Tunnels - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Tunnels - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="05.6.04">
@@ -4763,7 +4804,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="06.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Waste water treatment works - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Waste water treatment works - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="06.6.04">
@@ -5043,7 +5084,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="07.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Water treatment works - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Water treatment works - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="07.6.04">
@@ -5323,7 +5364,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="08.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Pipelines - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Pipelines - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="08.6.04">
@@ -5603,7 +5644,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="09.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Wells and boreholes - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Wells and boreholes - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="09.6.04">
@@ -5883,7 +5924,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="10.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Power-generating plants - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Power-generating plants - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="10.6.04">
@@ -6163,7 +6204,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="11.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Chemical plants - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Chemical plants - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="11.6.04">
@@ -6443,7 +6484,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="12.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Refineries - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Refineries - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="12.6.04">
@@ -6723,7 +6764,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="13.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Dams and reservoirs - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Dams and reservoirs - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="13.6.04">
@@ -7003,7 +7044,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="14.6.03">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">ICMS 2 - Mines and quarries - End of Life Costs - Demolition and reclaimation</xs:documentation>
+					<xs:documentation xml:lang="en">ICMS 2 - Mines and quarries - End of Life Costs - Demolition and reclamation</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="14.6.04">
@@ -7028,7 +7069,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="KnownCostGroupEnum">
+	<xs:simpleType name="KnownCostEmissionGroupEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="administrativeFinanceLegalAndMarketingExpenses"/>
 			<xs:enumeration value="architecturalWorks-NonStructuralWorks"/>
@@ -7036,7 +7077,7 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="constructionRelatedConsultantsAndSupervision"/>
 			<xs:enumeration value="constructors-SiteOverheads-GeneralRequirements"/>
 			<xs:enumeration value="decommissioningAndDecontamination"/>
-			<xs:enumeration value="demolitionReclaimationAndSalvage"/>
+			<xs:enumeration value="demolitionReclamationAndSalvage"/>
 			<xs:enumeration value="demolitionSitePreparationAndFormation"/>
 			<xs:enumeration value="disposalInspection"/>
 			<xs:enumeration value="externalAndAncillaryWorks"/>
@@ -8008,21 +8049,17 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="clay"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownDamAndReservoirFunctionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="freshWater"/>
+			<xs:enumeration value="wasteWater"/>
+			<xs:enumeration value="seaWater"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownDamAndReservoirLocationEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="aboveGround"/>
 			<xs:enumeration value="underground"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="KnownDamAndReservoirMaterialEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="rockFill"/>
-			<xs:enumeration value="earthFill"/>
-			<xs:enumeration value="concrete"/>
-			<xs:enumeration value="timber"/>
-			<xs:enumeration value="steel"/>
-			<xs:enumeration value="clay"/>
-			<xs:enumeration value="rock"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownDamAndReservoirPurposeEnum">
@@ -8031,7 +8068,7 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="waterSupply"/>
 			<xs:enumeration value="stablisationOfWaterFlow"/>
 			<xs:enumeration value="floodPrevention"/>
-			<xs:enumeration value="landReclaimation"/>
+			<xs:enumeration value="landReclamation"/>
 			<xs:enumeration value="irrigation"/>
 			<xs:enumeration value="waterDiversion"/>
 			<xs:enumeration value="navigation"/>
@@ -8109,6 +8146,11 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="climateChange"/>
 			<xs:enumeration value="healthAndSafety"/>
 			<xs:enumeration value="crime"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownEnvironmentalGradeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ISO14001"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownFileCategoryEnum">
@@ -8197,6 +8239,65 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="turnkey"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownFunctionalEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="capacity"/>
+			<xs:enumeration value="production"/>
+			<xs:enumeration value="outputOfProduct"/>
+			<xs:enumeration value="reservoirCapacity"/>
+			<xs:enumeration value="powerGenerationCapacity"/>
+			<xs:enumeration value="oreExtraction"/>
+			<xs:enumeration value="throughputOfProduct"/>
+			<xs:enumeration value="weightOfTraffic"/>
+			<xs:enumeration value="passengerJourneys"/>
+			<xs:enumeration value="inputOfCrudeOil"/>
+			<xs:enumeration value="outputOfProducts"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownFunctionalUnitsEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="litresPerHour"/>
+			<xs:enumeration value="gallonsPerHour"/>
+			<xs:enumeration value="tonnesPerHour"/>
+			<xs:enumeration value="tonsPerHour"/>
+			<xs:enumeration value="vehiclesPerHour"/>
+			<xs:enumeration value="passengersPerHour"/>
+			<xs:enumeration value="shipsPerHour"/>
+			<xs:enumeration value="m3PerHour"/>
+			<xs:enumeration value="ft3PerHour"/>
+			<xs:enumeration value="barrelsPerHour"/>
+			<xs:enumeration value="litresPerDay"/>
+			<xs:enumeration value="gallonsPerDay"/>
+			<xs:enumeration value="tonnesPerDay"/>
+			<xs:enumeration value="tonsPerDay"/>
+			<xs:enumeration value="vehiclesPerDay"/>
+			<xs:enumeration value="passengersPerDay"/>
+			<xs:enumeration value="shipsPerDay"/>
+			<xs:enumeration value="m3PerDay"/>
+			<xs:enumeration value="ft3PerDay"/>
+			<xs:enumeration value="barrelsPerDay"/>
+			<xs:enumeration value="litresPerYear"/>
+			<xs:enumeration value="gallonsPerYear"/>
+			<xs:enumeration value="tonnesPerYear"/>
+			<xs:enumeration value="tonsPerYear"/>
+			<xs:enumeration value="vehiclesPerYear"/>
+			<xs:enumeration value="passengersPerYear"/>
+			<xs:enumeration value="shipsPerYear"/>
+			<xs:enumeration value="m3PerYear"/>
+			<xs:enumeration value="ft3PerYear"/>
+			<xs:enumeration value="barrelsPerYear"/>
+			<xs:enumeration value="megaWatts"/>
+			<xs:enumeration value="megaWattHours"/>
+			<xs:enumeration value="mTonnesPerYear"/>
+			<xs:enumeration value="mTonsPerYear"/>
+			<xs:enumeration value="millionJourneysPerYear"/>
+			<xs:enumeration value="millionm3"/>
+			<xs:enumeration value="millionCubicYards"/>
+			<xs:enumeration value="megaLitresPerDay"/>
+			<xs:enumeration value="millionGallonsPerDay"/>
+			<xs:enumeration value="BTU"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownFurnishedStatusEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="furnished"/>
@@ -8209,12 +8310,6 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="female"/>
 			<xs:enumeration value="other"/>
 			<xs:enumeration value="notStated"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="KnownGeneratorContainmentMaterialEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="steel"/>
-			<xs:enumeration value="concrete"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownGuaranteeTypeEnum">
@@ -8232,9 +8327,11 @@ Last Updated: 10 March 2021
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="TOID"/>
 			<xs:enumeration value="UPRN"/>
+			<xs:enumeration value="UARN"/>
 			<xs:enumeration value="USRN"/>
 			<xs:enumeration value="MPAN"/>
 			<xs:enumeration value="MPRN"/>
+			<xs:enumeration value="UPI"/>
 			<xs:enumeration value="SiteId"/>
 			<xs:enumeration value="BuildingId"/>
 			<xs:enumeration value="FloorId"/>
@@ -8285,17 +8382,19 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="unknown"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="KnownIncomeCodeEnum">
-		<xs:restriction base="xs:string"/>
-	</xs:simpleType>
-	<xs:simpleType name="KnownIncomeSubCodeEnum">
-		<xs:restriction base="xs:string"/>
-	</xs:simpleType>
 	<xs:simpleType name="KnownInformationBasisEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="landRegistry"/>
 			<xs:enumeration value="independentSurveyReport"/>
 			<xs:enumeration value="independentValuation"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownInformationLevelEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="asserted"/>
+			<xs:enumeration value="documented"/>
+			<xs:enumeration value="digital"/>
+			<xs:enumeration value="verifiedDigital"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownInformationNatureEnum">
@@ -8348,6 +8447,60 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="titleReport"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownInfrastructureEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="accessRoads"/>
+			<xs:enumeration value="airstrips"/>
+			<xs:enumeration value="portFacilities"/>
+			<xs:enumeration value="siteWorks"/>
+			<xs:enumeration value="powerStation"/>
+			<xs:enumeration value="powerSupply"/>
+			<xs:enumeration value="powerLine"/>
+			<xs:enumeration value="powerLines"/>
+			<xs:enumeration value="hydro-electricPlant"/>
+			<xs:enumeration value="waterSupply"/>
+			<xs:enumeration value="desalinationPlant"/>
+			<xs:enumeration value="pipelines"/>
+			<xs:enumeration value="fuelStorage"/>
+			<xs:enumeration value="solidWasteDisposal"/>
+			<xs:enumeration value="communications"/>
+			<xs:enumeration value="railroad"/>
+			<xs:enumeration value="railroads"/>
+			<xs:enumeration value="slurryPipeline"/>
+			<xs:enumeration value="river"/>
+			<xs:enumeration value="campFacilities"/>
+			<xs:enumeration value="workshopFacilities"/>
+			<xs:enumeration value="administration"/>
+			<xs:enumeration value="township"/>
+			<xs:enumeration value="containerCranes"/>
+			<xs:enumeration value="mobileHarbourCranes"/>
+			<xs:enumeration value="railMountedGantryCranes"/>
+			<xs:enumeration value="rubberTireGantryCranes"/>
+			<xs:enumeration value="reachstackers"/>
+			<xs:enumeration value="dockyardCranes"/>
+			<xs:enumeration value="reeferRacks"/>
+			<xs:enumeration value="refrigeratedContainerRacks"/>
+			<xs:enumeration value="marineFurniture"/>
+			<xs:enumeration value="quaysidePowerSupply"/>
+			<xs:enumeration value="wasteCompounds"/>
+			<xs:enumeration value="wasteCompound"/>
+			<xs:enumeration value="wastewaterTreatmentSystem"/>
+			<xs:enumeration value="wastewaterTreatmentSystems"/>
+			<xs:enumeration value="railTracks"/>
+			<xs:enumeration value="gantryCranes"/>
+			<xs:enumeration value="straddleCarriers"/>
+			<xs:enumeration value="stackerReeferStorageAreas"/>
+			<xs:enumeration value="stackerrefrigeratedContainerStorageAreas"/>
+			<xs:enumeration value="portainers"/>
+			<xs:enumeration value="storageSilos"/>
+			<xs:enumeration value="cargoPipelines"/>
+			<xs:enumeration value="customDepots"/>
+			<xs:enumeration value="portSecurityFacilities"/>
+			<xs:enumeration value="conveyors"/>
+			<xs:enumeration value="accommodation"/>
+			<xs:enumeration value="communicationsLockWaterBasins"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownInspectionPurposeEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="construction"/>
@@ -8362,6 +8515,8 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="energyPerformance"/>
 			<xs:enumeration value="healthAndSafety"/>
 			<xs:enumeration value="snagging"/>
+			<xs:enumeration value="insurance"/>
+			<xs:enumeration value="lossAdjustment"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownInstructionPurposeEnum">
@@ -10017,7 +10172,7 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 			<xs:enumeration value="DJI">
 				<xs:annotation>
-					<xs:documentation xml:lang="en">Djibouti-DJI-262 </xs:documentation>
+					<xs:documentation xml:lang="en">Djibouti-DJI-262</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="DMA">
@@ -12209,6 +12364,7 @@ Last Updated: 10 March 2021
 	<xs:simpleType name="KnownLandCharacteristicEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="conservationArea"/>
+			<xs:enumeration value="greenBelt"/>
 			<xs:enumeration value="nationalPark"/>
 			<xs:enumeration value="UNESCOWorldHeritage"/>
 			<xs:enumeration value="monunmentProtection"/>
@@ -12216,6 +12372,8 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="archaeologicalSite"/>
 			<xs:enumeration value="siteOfSpecialScientificInterest"/>
 			<xs:enumeration value="areaOfSpecialScientificInterest"/>
+			<xs:enumeration value="nitrateZone"/>
+			<xs:enumeration value="phosphateZone"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownLandCoverClassificationEnum">
@@ -12231,6 +12389,25 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="bog"/>
 			<xs:enumeration value="savanna"/>
 			<xs:enumeration value="desert"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownLandFormationAndReclamationFunctionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="districtLandBank"/>
+			<xs:enumeration value="countryPark"/>
+			<xs:enumeration value="ruralPark"/>
+			<xs:enumeration value="openPlaza"/>
+			<xs:enumeration value="parkingLot"/>
+			<xs:enumeration value="air-field"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownLandFormationAndReclamationPositionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="allOnExistingLand"/>
+			<xs:enumeration value="allReclaimed"/>
+			<xs:enumeration value="mainlyOnLand"/>
+			<xs:enumeration value="mainlyReclaimed"/>
+			<xs:enumeration value="elevatedAboveWater"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownLandServiceStatusEnum">
@@ -12434,13 +12611,13 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="environmental"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="KnownMaterialEnum">
+	<xs:simpleType name="KnownMaterialQuantitySourceEnum">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="naturalMaterials"/>
-			<xs:enumeration value="wood"/>
-			<xs:enumeration value="concrete"/>
-			<xs:enumeration value="steel"/>
-			<xs:enumeration value="advancedMaterials"/>
+			<xs:enumeration value="materialsDeliveryRecords"/>
+			<xs:enumeration value="BIMModels"/>
+			<xs:enumeration value="billsOfQuantities(BoQ)"/>
+			<xs:enumeration value="costPlans"/>
+			<xs:enumeration value="estimationsFromConsultant'sDrawings"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownMeasurementBasisEnum">
@@ -12522,6 +12699,16 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="websiteScraping"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownMineAndQuarryFunctionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="diamond"/>
+			<xs:enumeration value="preciousMetal"/>
+			<xs:enumeration value="baseMetal"/>
+			<xs:enumeration value="naturalSolidInorganicMaterial"/>
+			<xs:enumeration value="organicMaterial"/>
+			<xs:enumeration value="hydrocarbon"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownMineAndQuarryMetallurgicalProcessEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="beneficiation"/>
@@ -12529,13 +12716,6 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="solventExtraction"/>
 			<xs:enumeration value="smelter"/>
 			<xs:enumeration value="wasteHandlingAndStorage"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="KnownMineAndQuarryReclaimationEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="salvage"/>
-			<xs:enumeration value="rehabilitationOfLand"/>
-			<xs:enumeration value="pollutionMonitoring"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownMobileGenerationEnum">
@@ -12610,6 +12790,42 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="temperatureFall"/>
 			<xs:enumeration value="heat"/>
 			<xs:enumeration value="cold"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownNearshoreWorkConstructionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="sheetPileWalls"/>
+			<xs:enumeration value="gravityQuayWalls"/>
+			<xs:enumeration value="receivingPlatforms"/>
+			<xs:enumeration value="pileSupported"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownNearshoreWorkFunctionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="quay"/>
+			<xs:enumeration value="wharf"/>
+			<xs:enumeration value="pier"/>
+			<xs:enumeration value="jetty"/>
+			<xs:enumeration value="stormBarrier"/>
+			<xs:enumeration value="rubbleMoundBreakwater"/>
+			<xs:enumeration value="floatingBreakwater"/>
+			<xs:enumeration value="marina"/>
+			<xs:enumeration value="slipway"/>
+			<xs:enumeration value="dryDock"/>
+			<xs:enumeration value="dolphin"/>
+			<xs:enumeration value="dredging"/>
+			<xs:enumeration value="revetment"/>
+			<xs:enumeration value="aidsToNavigation"/>
+			<xs:enumeration value="dyke"/>
+			<xs:enumeration value="turningBasin"/>
+			<xs:enumeration value="accessChannels"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownNearshoreWorkPositionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="nearShore"/>
+			<xs:enumeration value="harbour"/>
+			<xs:enumeration value="estuary"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownNotificationTypeEnum">
@@ -12693,6 +12909,50 @@ Last Updated: 10 March 2021
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="occupied"/>
 			<xs:enumeration value="vacant"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownOffshoreStructureConstructionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="tubularPiles"/>
+			<xs:enumeration value="sheetPiles"/>
+			<xs:enumeration value="rockfill"/>
+			<xs:enumeration value="granularFill"/>
+			<xs:enumeration value="armour"/>
+			<xs:enumeration value="anchorsAndChains"/>
+			<xs:enumeration value="floatingPontoons"/>
+			<xs:enumeration value="flexibleAnchors"/>
+			<xs:enumeration value="boxCaissons"/>
+			<xs:enumeration value="fixedPlatforms"/>
+			<xs:enumeration value="compliantTowers"/>
+			<xs:enumeration value="tensionLegPlatforms"/>
+			<xs:enumeration value="seastarPlatforms"/>
+			<xs:enumeration value="gravity-basedStructures"/>
+			<xs:enumeration value="mobileOffshoreDrillingUnits"/>
+			<xs:enumeration value="floatingProductionStorageAndOffloading"/>
+			<xs:enumeration value="mobileOffshoreProductionUnits"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownOffshoreStructureFunctionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="quay"/>
+			<xs:enumeration value="wharf"/>
+			<xs:enumeration value="pier"/>
+			<xs:enumeration value="jetty"/>
+			<xs:enumeration value="rubbleMoundBreakwater"/>
+			<xs:enumeration value="floatingBreakwater"/>
+			<xs:enumeration value="dredging"/>
+			<xs:enumeration value="revetment"/>
+			<xs:enumeration value="aidsToNavigation"/>
+			<xs:enumeration value="offshoreUpstream"/>
+			<xs:enumeration value="offshoreMidstream"/>
+			<xs:enumeration value="windFarm"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownOffshoreStructurePositionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="shallow-water"/>
+			<xs:enumeration value="deep"/>
+			<xs:enumeration value="gravityBased"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownOmniClassCategoryEnum">
@@ -17494,6 +17754,15 @@ Last Updated: 10 March 2021
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownOperationalEnergySourceEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="gridElectricity"/>
+			<xs:enumeration value="onSiteGas"/>
+			<xs:enumeration value="onSiteOil"/>
+			<xs:enumeration value="onSiteRenewableElecricity"/>
+			<xs:enumeration value="onSiteRenewableHeat"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownOwnershipStatusEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ownerOccupied"/>
@@ -17529,12 +17798,11 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="hour"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="KnownPipelineMaterialEnum">
+	<xs:simpleType name="KnownPipelineFunctionEnum">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="steel"/>
-			<xs:enumeration value="castIron"/>
-			<xs:enumeration value="precastConcrete"/>
-			<xs:enumeration value="uPVC"/>
+			<xs:enumeration value="liquid"/>
+			<xs:enumeration value="gas"/>
+			<xs:enumeration value="powder"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownPlanningStatusEnum">
@@ -17580,6 +17848,68 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="conflict"/>
 			<xs:enumeration value="governmentStability"/>
 			<xs:enumeration value="policyChange"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownPortConstructionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="sheetPileWalls"/>
+			<xs:enumeration value="gravityQuayWalls"/>
+			<xs:enumeration value="receivingPlatforms"/>
+			<xs:enumeration value="pileSupported"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownPortFunctionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="quay"/>
+			<xs:enumeration value="wharf"/>
+			<xs:enumeration value="pier"/>
+			<xs:enumeration value="jetty"/>
+			<xs:enumeration value="rubbleMoundBreakwater"/>
+			<xs:enumeration value="floatingBreakwater"/>
+			<xs:enumeration value="marina"/>
+			<xs:enumeration value="slipway"/>
+			<xs:enumeration value="dryDock"/>
+			<xs:enumeration value="dolphin"/>
+			<xs:enumeration value="dredgingAndDisposal"/>
+			<xs:enumeration value="revetment"/>
+			<xs:enumeration value="aidsToNavigation"/>
+			<xs:enumeration value="stackingAndStorageYard"/>
+			<xs:enumeration value="warehouse"/>
+			<xs:enumeration value="passengerGangway"/>
+			<xs:enumeration value="ferryPontoon"/>
+			<xs:enumeration value="ferryTerminal"/>
+			<xs:enumeration value="ro-roRamp"/>
+			<xs:enumeration value="landRemoval"/>
+			<xs:enumeration value="turningCircle"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownPortPermitLicenceEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="waterQualityMonitoring"/>
+			<xs:enumeration value="dumpAtSeaLicence"/>
+			<xs:enumeration value="wasteLicence"/>
+			<xs:enumeration value="planningPermission"/>
+			<xs:enumeration value="foreshoreLicence"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownPortPositionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="openSea"/>
+			<xs:enumeration value="harbour"/>
+			<xs:enumeration value="inlandWaterway"/>
+			<xs:enumeration value="estuary"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownPortSurfaceLoadEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ro-ro"/>
+			<xs:enumeration value="container"/>
+			<xs:enumeration value="dry-bulk"/>
+			<xs:enumeration value="liquidBulk"/>
+			<xs:enumeration value="breakbulk"/>
+			<xs:enumeration value="offshore"/>
+			<xs:enumeration value="fisheries"/>
+			<xs:enumeration value="leisure"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownPower-generatingCoolingSystemEnum">
@@ -17668,6 +17998,11 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="refineries"/>
 			<xs:enumeration value="damsAndReservoirs"/>
 			<xs:enumeration value="minesAndQuarries"/>
+			<xs:enumeration value="offshoreStructures"/>
+			<xs:enumeration value="nearshoreWorks"/>
+			<xs:enumeration value="ports"/>
+			<xs:enumeration value="waterwayWorks"/>
+			<xs:enumeration value="landFormationAndReclamation"/>
 			<xs:enumeration value="common"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -17833,6 +18168,8 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="planningCondition"/>
 			<xs:enumeration value="article4Direction"/>
 			<xs:enumeration value="listed"/>
+			<xs:enumeration value="greenBelt"/>
+			<xs:enumeration value="nationalPark"/>
 			<xs:enumeration value="preservation"/>
 			<xs:enumeration value="treePreservation"/>
 			<xs:enumeration value="lightObstruction"/>
@@ -17855,6 +18192,11 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="tram"/>
 			<xs:enumeration value="freight"/>
 			<xs:enumeration value="mixedTraffic"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownRailwayOperationalTelecommunicationsSystemEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="fixedTelephoneNetwork"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownRailwayPositionEnum">
@@ -17882,17 +18224,17 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="governance"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="KnownReactorMaterialEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="mildSteel"/>
-			<xs:enumeration value="stainlessSteel"/>
-			<xs:enumeration value="concrete"/>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:simpleType name="KnownRefineryFunctionEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="oil"/>
 			<xs:enumeration value="petrol"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownReinstatementEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="salvage"/>
+			<xs:enumeration value="rehabilitationOfLand"/>
+			<xs:enumeration value="pollutionMonitoring"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownRentReviewBasisEnum">
@@ -17930,6 +18272,26 @@ Last Updated: 10 March 2021
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="adopted"/>
 			<xs:enumeration value="unadopted"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownRoadRunwayAndMotorwayFunctionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="motorway"/>
+			<xs:enumeration value="highway"/>
+			<xs:enumeration value="freeway"/>
+			<xs:enumeration value="expressway"/>
+			<xs:enumeration value="road"/>
+			<xs:enumeration value="lane"/>
+			<xs:enumeration value="runway"/>
+			<xs:enumeration value="hardstanding"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownRoadRunwayAndMotorwayPositionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="atGrade"/>
+			<xs:enumeration value="inCutting"/>
+			<xs:enumeration value="onEmbankment"/>
+			<xs:enumeration value="elevated"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownRoomEnum">
@@ -18212,12 +18574,7 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="pHCorrection"/>
 			<xs:enumeration value="chemicalDosing"/>
 			<xs:enumeration value="chlorination"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="KnownTreatmentTankMaterialEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="steel"/>
-			<xs:enumeration value="concrete"/>
+			<xs:enumeration value="desalination"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownTunnelFunctionEnum">
@@ -32451,17 +32808,84 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="curtainWalling"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownWaterNatureEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="sea"/>
+			<xs:enumeration value="lake"/>
+			<xs:enumeration value="river"/>
+			<xs:enumeration value="salt"/>
+			<xs:enumeration value="fresh"/>
+			<xs:enumeration value="brackish"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownWaterwayWorkConstructionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="reinforcedConcrete"/>
+			<xs:enumeration value="steel"/>
+			<xs:enumeration value="timber"/>
+			<xs:enumeration value="block"/>
+			<xs:enumeration value="masonry"/>
+			<xs:enumeration value="PVC"/>
+			<xs:enumeration value="stone"/>
+			<xs:enumeration value="soilOrEarth"/>
+			<xs:enumeration value="armour"/>
+			<xs:enumeration value="glass"/>
+			<xs:enumeration value="pre-castConcreteSections"/>
+			<xs:enumeration value="sheetPiles"/>
+			<xs:enumeration value="cofferdam"/>
+			<xs:enumeration value="diaphragmWall"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownWaterwayWorkFunctionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="canal"/>
+			<xs:enumeration value="lock"/>
+			<xs:enumeration value="lockGate"/>
+			<xs:enumeration value="aqueduct"/>
+			<xs:enumeration value="weir"/>
+			<xs:enumeration value="diversionCanal"/>
+			<xs:enumeration value="dredgingAndDisposal"/>
+			<xs:enumeration value="artificalOpenChannel"/>
+			<xs:enumeration value="boxCulvert"/>
+			<xs:enumeration value="pipedCulvert"/>
+			<xs:enumeration value="inletGrillScreen"/>
+			<xs:enumeration value="gabion"/>
+			<xs:enumeration value="bund"/>
+			<xs:enumeration value="levee"/>
+			<xs:enumeration value="dyke"/>
+			<xs:enumeration value="embankment"/>
+			<xs:enumeration value="groyne"/>
+			<xs:enumeration value="rip-rap"/>
+			<xs:enumeration value="sheetPiledWall"/>
+			<xs:enumeration value="reinforcedConcreteRetainingWall"/>
+			<xs:enumeration value="diaphragmWall"/>
+			<xs:enumeration value="glassWall"/>
+			<xs:enumeration value="cofferdam"/>
+			<xs:enumeration value="floodBarrier"/>
+			<xs:enumeration value="demountableFloodBarrier"/>
+			<xs:enumeration value="inflatableFloodBarrier"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownWaterwayWorkPermitLicenceEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="wasteLicence"/>
+			<xs:enumeration value="planningPermission"/>
+			<xs:enumeration value="dumpAtSeaLicence"/>
+			<xs:enumeration value="waterQualityMonitoring"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownWaterwayWorkPositionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="river"/>
+			<xs:enumeration value="inlandWaterway"/>
+			<xs:enumeration value="estuary"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownWellAndBoreholeFunctionEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="water"/>
 			<xs:enumeration value="gas"/>
 			<xs:enumeration value="oil"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="KnownWellBoreholeLiningMaterialEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="steel"/>
-			<xs:enumeration value="concrete"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownWorkingMethodEnum">
@@ -32535,6 +32959,50 @@ Last Updated: 10 March 2021
 			<xs:element name="LandCoverChange" type="LandCoverChangeType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="description" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="LandFormationAndReclamationComplexityType">
+		<xs:sequence>
+			<xs:element name="ConcreteVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="EarthworksVolume" type="SimpleMeasurementType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="position" type="LandFormationAndReclamationPositionEnum"/>
+	</xs:complexType>
+	<xs:complexType name="LandFormationAndReclamationComplexType">
+		<xs:complexContent>
+			<xs:extension base="CostedProjectType">
+				<xs:sequence>
+					<xs:element name="Works" type="LandFormationAndReclamationWorksType" minOccurs="0"/>
+					<xs:element name="Quantities" type="LandFormationAndReclamationQuantitiesType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LandFormationAndReclamationDesignFeaturesType">
+		<xs:sequence>
+			<xs:element name="Surfacing" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="LandFormationAndReclamationFunctionEnum">
+		<xs:union memberTypes="KnownLandFormationAndReclamationFunctionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="LandFormationAndReclamationPositionEnum">
+		<xs:union memberTypes="KnownLandFormationAndReclamationPositionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="LandFormationAndReclamationQuantitiesType">
+		<xs:sequence>
+			<xs:element name="LandArea" type="SimpleMeasurementType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LandFormationAndReclamationWorksType">
+		<xs:sequence>
+			<xs:element name="EnvironmentalGrade" type="EnvironmentalGradeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DesignFeatures" type="LandFormationAndReclamationDesignFeaturesType" minOccurs="0"/>
+			<xs:element name="Complexity" type="LandFormationAndReclamationComplexityType" minOccurs="0"/>
+			<xs:element name="AverageHeightToSeaLevel" type="SeaLevelHeightType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="function" type="LandFormationAndReclamationFunctionEnum"/>
+		<xs:attribute name="nature" type="BuildNatureEnum"/>
+		<xs:attribute name="designLifeInYears" type="xs:decimal"/>
 	</xs:complexType>
 	<xs:simpleType name="LandServiceStatusEnum">
 		<xs:union memberTypes="KnownLandServiceStatusEnum xs:string"/>
@@ -33194,8 +33662,8 @@ Last Updated: 10 March 2021
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:simpleType name="MaterialEnum">
-		<xs:union memberTypes="KnownMaterialEnum xs:string"/>
+	<xs:simpleType name="MaterialQuantitySourceEnum">
+		<xs:union memberTypes="KnownMaterialQuantitySourceEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="MeasuredPropertyType">
 		<xs:complexContent>
@@ -33319,11 +33787,11 @@ Last Updated: 10 March 2021
 	<xs:complexType name="MineAndQuarryDesignFeaturesType">
 		<xs:sequence>
 			<xs:element name="MetallurgicalProcesses" type="MineAndQuarryMetallurgicalProcessEnum" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Infrastructure" type="MineAndQuarryInfrastructureEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Infrastructure" type="InfrastructureEnum" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="excavation" type="MineAndQuarryExcavationEnum"/>
-		<xs:attribute name="wasteHandling" type="MineAndQuarryWasteHandlingEnum"/>
-		<xs:attribute name="reclaimationAndClosure" type="MineAndQuarryReclaimationEnum"/>
+		<xs:attribute name="wasteHandling" type="WasteHandlingEnum"/>
+		<xs:attribute name="reinstatement" type="ReinstatementEnum"/>
 	</xs:complexType>
 	<xs:complexType name="MineAndQuarryDimensionType">
 		<xs:sequence>
@@ -33343,59 +33811,8 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="underwater"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="MineAndQuarryFunctionalEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="oreExtraction"/>
-			<xs:enumeration value="throughputOfProduct"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="MineAndQuarryFunctionalUnitsEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="tonnesPerYear"/>
-			<xs:enumeration value="tonsPerYear"/>
-			<xs:enumeration value="tonnesPerDay"/>
-			<xs:enumeration value="tonsPerDay"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="MineAndQuarryFunctionalUnitsType">
-		<xs:complexContent>
-			<xs:extension base="SimpleMeasurementType">
-				<xs:attribute name="function" type="MineAndQuarryFunctionalEnum"/>
-				<xs:attribute name="units" type="MineAndQuarryFunctionalUnitsEnum"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:simpleType name="MineAndQuarryFunctionEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="diamonds"/>
-			<xs:enumeration value="preciousMetals"/>
-			<xs:enumeration value="baseMetals"/>
-			<xs:enumeration value="naturalSolidInorganicMaterial"/>
-			<xs:enumeration value="organicMaterial"/>
-			<xs:enumeration value="hydrocarbons"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="MineAndQuarryInfrastructureEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="accessRoads"/>
-			<xs:enumeration value="airstrips"/>
-			<xs:enumeration value="portFacilities"/>
-			<xs:enumeration value="siteWorks"/>
-			<xs:enumeration value="powerStation"/>
-			<xs:enumeration value="powerLine"/>
-			<xs:enumeration value="waterSupply"/>
-			<xs:enumeration value="desalinationPlant"/>
-			<xs:enumeration value="fuelStorage"/>
-			<xs:enumeration value="solidWasteDisposal"/>
-			<xs:enumeration value="communications"/>
-			<xs:enumeration value="railroad"/>
-			<xs:enumeration value="slurryPipeline"/>
-			<xs:enumeration value="river"/>
-			<xs:enumeration value="campFacilities"/>
-			<xs:enumeration value="workshopFacilities"/>
-			<xs:enumeration value="administration"/>
-			<xs:enumeration value="township"/>
-		</xs:restriction>
+		<xs:union memberTypes="KnownMineAndQuarryFunctionEnum xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="MineAndQuarryMetallurgicalProcessEnum">
 		<xs:union memberTypes="KnownMineAndQuarryMetallurgicalProcessEnum xs:string"/>
@@ -33403,26 +33820,15 @@ Last Updated: 10 March 2021
 	<xs:complexType name="MineAndQuarryQuantitiesType">
 		<xs:sequence>
 			<xs:element name="SiteArea" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="MineAndQuarryFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="MineAndQuarryReclaimationEnum">
-		<xs:union memberTypes="KnownMineAndQuarryReclaimationEnum xs:string"/>
-	</xs:simpleType>
 	<xs:simpleType name="MineAndQuarryTerrainEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="forest"/>
 			<xs:enumeration value="desert"/>
 			<xs:enumeration value="urban"/>
 			<xs:enumeration value="rural"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="MineAndQuarryWasteHandlingEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="wasteHandling"/>
-			<xs:enumeration value="wasteStorage"/>
-			<xs:enumeration value="tailings"/>
-			<xs:enumeration value="managementFacility"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="MineAndQuarryWorksType">
@@ -33511,6 +33917,80 @@ Last Updated: 10 March 2021
 				<xs:attribute name="score" type="xs:string"/>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NearshoreWorkComplexityType">
+		<xs:sequence>
+			<xs:element name="Positions" type="NearshoreWorkPositionEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TidalVariation" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="QuayFrontLoad" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="QuayRearLoad" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SignificantWaveHeight" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="TotalDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SoftDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="HardDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SpoilDisposalVolume" type="SimpleMeasurementType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="waterNature" type="WaterNatureEnum"/>
+		<xs:attribute name="contaminatedSedimentDredging" type="ContaminatedSedimentDredgingEnum"/>
+		<xs:attribute name="noOfBerths" type="xs:integer"/>
+	</xs:complexType>
+	<xs:complexType name="NearshoreWorkComplexType">
+		<xs:complexContent>
+			<xs:extension base="CostedProjectType">
+				<xs:sequence>
+					<xs:element name="Works" type="NearshoreWorkWorksType" minOccurs="0"/>
+					<xs:element name="Quantities" type="NearshoreWorkQuantitiesType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="NearshoreWorkConstructionEnum">
+		<xs:union memberTypes="KnownNearshoreWorkConstructionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="NearshoreWorkDesignFeaturesType">
+		<xs:sequence>
+			<xs:element name="Bathmetry" type="AnnotatedDocumentType"/>
+			<xs:element name="Materials" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Surface" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Infrastructure" type="InfrastructureEnum" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="construction" type="NearshoreWorkConstructionEnum"/>
+		<xs:attribute name="foundations" type="FoundationsEnum"/>
+	</xs:complexType>
+	<xs:complexType name="NearshoreWorkDimensionType">
+		<xs:sequence>
+			<xs:element name="BerthingOrStructureLength" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="StructureWidth" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="BerthingDraftAtLowWater" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SeabedToDeckHeight" type="SimpleMeasurementType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="NearshoreWorkFunctionEnum">
+		<xs:union memberTypes="KnownNearshoreWorkFunctionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="NearshoreWorkPositionEnum">
+		<xs:union memberTypes="KnownNearshoreWorkPositionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="NearshoreWorkQuantitiesType">
+		<xs:sequence>
+			<xs:element name="QuayLengthPlusRetainingHeight" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="FenderSurfaceLoad" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="QuaysideSurfaceArea" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SiteArea" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="noOfFenders" type="xs:integer"/>
+	</xs:complexType>
+	<xs:complexType name="NearshoreWorkWorksType">
+		<xs:sequence>
+			<xs:element name="EnvironmentalGrade" type="EnvironmentalGradeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DesignFeatures" type="NearshoreWorkDesignFeaturesType" minOccurs="0"/>
+			<xs:element name="Complexity" type="NearshoreWorkComplexityType" minOccurs="0"/>
+			<xs:element name="Dimensions" type="NearshoreWorkDimensionType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="function" type="NearshoreWorkFunctionEnum"/>
+		<xs:attribute name="nature" type="BuildNatureEnum"/>
+		<xs:attribute name="designLifeInYears" type="xs:decimal"/>
 	</xs:complexType>
 	<xs:complexType name="NonIVSBasisOfValueType">
 		<xs:sequence>
@@ -33617,6 +34097,7 @@ Last Updated: 10 March 2021
 					<xs:element name="Removed" type="DateChoiceType" minOccurs="0"/>
 					<xs:element name="Certificates" type="CertificateType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Targets" type="TargetsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Indicators" type="IndicatorsType" minOccurs="0" maxOccurs="unbounded"/>
@@ -33636,7 +34117,7 @@ Last Updated: 10 March 2021
 				<xs:attribute name="class" type="ObjectClassEnum"/>
 				<xs:attribute name="category" type="ObjectCategoryEnum"/>
 				<xs:attribute name="group" type="ObjectGroupEnum"/>
-				<xs:attribute name="subGroup" type="xs:string"/>
+				<xs:attribute name="subgroup" type="xs:string"/>
 				<xs:attribute name="size" type="xs:string"/>
 				<xs:attribute name="type" type="xs:string"/>
 				<xs:attribute name="position" type="xs:string"/>
@@ -33666,6 +34147,99 @@ Last Updated: 10 March 2021
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="OffshoreStructureComplexityType">
+		<xs:sequence>
+			<xs:element name="Positions" type="OffshoreStructurePositionEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SignificantWaveHeight" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="GrossTonnageOrBollardPullCapacity" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="TotalDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SoftDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="HardDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SpoilDisposalVolume" type="SimpleMeasurementType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="waterNature" type="WaterNatureEnum"/>
+		<xs:attribute name="contaminatedSedimentDredging" type="ContaminatedSedimentDredgingEnum"/>
+		<xs:attribute name="noOfBerths" type="xs:integer"/>
+	</xs:complexType>
+	<xs:complexType name="OffshoreStructureComplexType">
+		<xs:complexContent>
+			<xs:extension base="CostedProjectType">
+				<xs:sequence>
+					<xs:element name="Works" type="OffshoreStructureWorksType" minOccurs="0"/>
+					<xs:element name="Quantities" type="OffshoreStructureQuantitiesType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="OffshoreStructureConstructionEnum">
+		<xs:union memberTypes="KnownOffshoreStructureConstructionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="OffshoreStructureDesignFeaturesType">
+		<xs:sequence>
+			<xs:element name="Bathmetry" type="AnnotatedDocumentType"/>
+			<xs:element name="Materials" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="construction" type="OffshoreStructureConstructionEnum"/>
+		<xs:attribute name="foundations" type="FoundationsEnum"/>
+	</xs:complexType>
+	<xs:complexType name="OffshoreStructureDimensionType">
+		<xs:sequence>
+			<xs:element name="BerthingOrStructureLength" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="StructureWidth" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="BerthingDraftAtLowWater" type="SimpleMeasurementType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OffshoreStructureFunctionalUnitsType">
+		<xs:simpleContent>
+			<xs:extension base="SimpleMeasurementType">
+				<xs:attribute name="function" type="FunctionalEnum"/>
+				<xs:attribute name="units" type="FunctionalUnitsEnum"/>
+				<xs:attribute name="product" type="OffshoreStructureProductEnum"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="OffshoreStructureFunctionEnum">
+		<xs:union memberTypes="KnownOffshoreStructureFunctionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="OffshoreStructureOilAndGasType">
+		<xs:sequence>
+			<xs:element name="ExploratoryDrillingDiameter" type="SimpleMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ExploratoryDrillingDepth" type="SimpleMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DevelopmentsDillingDiameter" type="SimpleMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DevelopmentsDrillingDepth" type="SimpleMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="decommissioning" type="xs:string"/>
+	</xs:complexType>
+	<xs:simpleType name="OffshoreStructurePositionEnum">
+		<xs:union memberTypes="KnownOffshoreStructurePositionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="OffshoreStructureProductEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="crudeOil"/>
+			<xs:enumeration value="naturalGas"/>
+			<xs:enumeration value="electricity"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="OffshoreStructureQuantitiesType">
+		<xs:sequence>
+			<xs:element name="PlatformSurfaceArea" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="MassPrefabricated" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="FunctionalUnits" type="OffshoreStructureFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OffshoreStructureWorksType">
+		<xs:sequence>
+			<xs:element name="EnvironmentalGrade" type="EnvironmentalGradeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DesignFeatures" type="OffshoreStructureDesignFeaturesType" minOccurs="0"/>
+			<xs:element name="Complexity" type="OffshoreStructureComplexityType" minOccurs="0"/>
+			<xs:element name="OilAndGas" type="OffshoreStructureOilAndGasType" minOccurs="0"/>
+			<xs:element name="AverageDeckHeightToSeaLevel" type="SeaLevelHeightType" minOccurs="0"/>
+			<xs:element name="Dimensions" type="OffshoreStructureDimensionType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="function" type="OffshoreStructureFunctionEnum"/>
+		<xs:attribute name="nature" type="BuildNatureEnum"/>
+		<xs:attribute name="designLifeInYears" type="xs:decimal"/>
+	</xs:complexType>
 	<xs:simpleType name="OmniClassCategoryEnum">
 		<xs:union memberTypes="KnownOmniClassCategoryEnum xs:string"/>
 	</xs:simpleType>
@@ -33681,6 +34255,15 @@ Last Updated: 10 March 2021
 			<xs:enumeration value="closed"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="OperationalEnergySourceEnum">
+		<xs:union memberTypes="KnownOperationalEnergySourceEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="OperationalEnergySourceType">
+		<xs:sequence>
+			<xs:element name="Percentage" type="PercentageChoiceType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="source" type="OperationalEnergySourceEnum"/>
+	</xs:complexType>
 	<xs:simpleType name="OrderEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="primary"/>
@@ -33815,7 +34398,7 @@ Last Updated: 10 March 2021
 	</xs:complexType>
 	<xs:complexType name="PipelineDesignFeaturesType">
 		<xs:sequence>
-			<xs:element name="PrincipalMaterials" type="PipelineMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PrincipalMaterials" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="MinimumDepthBelowGround" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="MaximumDepthBelowGround" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="MinimumHeightAboveGround" type="SimpleMeasurementType" minOccurs="0"/>
@@ -33833,20 +34416,13 @@ Last Updated: 10 March 2021
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="PipelineFunctionEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="liquid"/>
-			<xs:enumeration value="gas"/>
-			<xs:enumeration value="powder"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="PipelineMaterialEnum">
-		<xs:union memberTypes="KnownPipelineMaterialEnum xs:string"/>
+		<xs:union memberTypes="KnownPipelineFunctionEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="PipelineQuantitiesType">
 		<xs:sequence>
 			<xs:element name="LengthOfPipes" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="LengthFromServicingInletsToOutlets" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="CapacityFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PipelineWorksType">
@@ -33874,6 +34450,7 @@ Last Updated: 10 March 2021
 			<xs:extension base="GenericContentType">
 				<xs:sequence>
 					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="PeriodOfCycle" type="DurationType" minOccurs="0"/>
 				</xs:sequence>
@@ -33901,6 +34478,10 @@ Last Updated: 10 March 2021
 					<xs:choice>
 						<xs:element name="StatusDate" type="DateChoiceType" minOccurs="0"/>
 						<xs:element name="StatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+					<xs:choice>
+						<xs:element name="DecisionDate" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="DecisionDateRange" type="DateRangeChoiceType" minOccurs="0"/>
 					</xs:choice>
 					<xs:element name="StatusHistory" type="PlanningStatusType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Participants" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
@@ -33949,6 +34530,88 @@ Last Updated: 10 March 2021
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="PortComplexityType">
+		<xs:sequence>
+			<xs:element name="Positions" type="PortPositionEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SignificantWaveHeight" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="TotalDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SoftDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="HardDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SpoilDisposalVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="PermitsLicences" type="PortPermitLicenceEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="BollardLoad" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="ImposedQuayLoad" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="FenderBerthingLoad" type="SimpleMeasurementType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="waterNature" type="WaterNatureEnum"/>
+		<xs:attribute name="contaminatedSedimentDredging" type="ContaminatedSedimentDredgingEnum"/>
+		<xs:attribute name="noOfBerths" type="xs:integer"/>
+	</xs:complexType>
+	<xs:complexType name="PortComplexType">
+		<xs:complexContent>
+			<xs:extension base="CostedProjectType">
+				<xs:sequence>
+					<xs:element name="Works" type="PortWorksType" minOccurs="0"/>
+					<xs:element name="Quantities" type="PortQuantitiesType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="PortConstructionEnum">
+		<xs:union memberTypes="KnownPortConstructionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="PortDesignFeaturesType">
+		<xs:sequence>
+			<xs:element name="Bathmetry" type="AnnotatedDocumentType"/>
+			<xs:element name="Materials" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Surface" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SurfaceLoad" type="PortSurfaceLoadEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Infrastructure" type="InfrastructureEnum" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="construction" type="PortConstructionEnum"/>
+		<xs:attribute name="foundations" type="FoundationsEnum"/>
+	</xs:complexType>
+	<xs:complexType name="PortDimensionType">
+		<xs:sequence>
+			<xs:element name="BerthingOrStructureLength" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="StructureWidth" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="BerthingDraftAtLowWater" type="SimpleMeasurementType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PortFunctionEnum">
+		<xs:union memberTypes="KnownPortFunctionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="PortPermitLicenceEnum">
+		<xs:union memberTypes="KnownPortPermitLicenceEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="PortPositionEnum">
+		<xs:union memberTypes="KnownPortPositionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="PortQuantitiesType">
+		<xs:sequence>
+			<xs:element name="QuayLengthPlusHeight" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SurfaceArea" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="BreakwaterDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SiteArea" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="noOfFenders" type="xs:integer"/>
+	</xs:complexType>
+	<xs:simpleType name="PortSurfaceLoadEnum">
+		<xs:union memberTypes="KnownPortSurfaceLoadEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="PortWorksType">
+		<xs:sequence>
+			<xs:element name="EnvironmentalGrade" type="EnvironmentalGradeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DesignFeatures" type="PortDesignFeaturesType" minOccurs="0"/>
+			<xs:element name="Complexity" type="PortComplexityType" minOccurs="0"/>
+			<xs:element name="AverageDeckHeightToSeaLevel" type="SeaLevelHeightType" minOccurs="0"/>
+			<xs:element name="Dimensions" type="PortDimensionType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="function" type="PortFunctionEnum"/>
+		<xs:attribute name="nature" type="BuildNatureEnum"/>
+		<xs:attribute name="designLifeInYears" type="xs:decimal"/>
+	</xs:complexType>
 	<xs:simpleType name="Power-generatingCoolingSystemEnum">
 		<xs:union memberTypes="KnownPower-generatingCoolingSystemEnum xs:string"/>
 	</xs:simpleType>
@@ -33972,7 +34635,7 @@ Last Updated: 10 March 2021
 		<xs:sequence>
 			<xs:element name="Turbine" type="TurbineType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="generatorContainmentMaterial" type="GeneratorContainmentMaterialEnum"/>
+		<xs:attribute name="generatorContainmentMaterial" type="ConstructionMaterialEnum"/>
 		<xs:attribute name="coolant" type="Power-generatingPlantCoolantEnum"/>
 		<xs:attribute name="cycle" type="OpenCloseEnum"/>
 	</xs:complexType>
@@ -33982,7 +34645,7 @@ Last Updated: 10 March 2021
 	<xs:complexType name="Power-generatingPlantQuantitiesType">
 		<xs:sequence>
 			<xs:element name="SiteArea" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="CapacityFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Power-generatingPlantWorksType">
@@ -34114,7 +34777,9 @@ Last Updated: 10 March 2021
 					<xs:element name="Procurement" type="ProcurementType" minOccurs="0"/>
 					<xs:element name="CostBaseDate" type="DateChoiceType" minOccurs="0"/>
 					<xs:element name="LifeCycleCosting" type="LifeCycleCostingType" minOccurs="0"/>
+					<xs:element name="CarbonEmissions" type="CarbonEmissionsType" minOccurs="0"/>
 					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Buildings" type="BuildingsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="RoadsRunwaysAndMotorways" type="RoadRunwayAndMotorwayComplexType" minOccurs="0" maxOccurs="unbounded"/>
@@ -34130,6 +34795,11 @@ Last Updated: 10 March 2021
 					<xs:element name="Refineries" type="RefineryComplexType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="DamsAndReservoirs" type="DamAndReservoirComplexType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="MinesAndQuarries" type="MineAndQuarryComplexType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="OffshoreStructures" type="OffshoreStructureComplexType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="NearshoreWorks" type="NearshoreWorkComplexType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Ports" type="PortComplexType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="WaterwayWorks" type="WaterwayWorkComplexType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="LandFormationAndReclamations" type="LandFormationAndReclamationComplexType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="OtherProjectTypes" type="GenericProjectComplexType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="SubProjects" type="ProjectType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
@@ -34205,6 +34875,7 @@ Last Updated: 10 March 2021
 		</xs:sequence>
 		<xs:attribute name="perPeriod" type="PerPeriodEnum"/>
 	</xs:complexType>
+	<xs:element name="PropertyLogbook" substitutionGroup="DataTransfer"/>
 	<xs:complexType name="PropertyMeasurementType">
 		<xs:complexContent>
 			<xs:extension base="PropertyContentType">
@@ -34260,6 +34931,7 @@ Last Updated: 10 March 2021
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="PropertyPassport" substitutionGroup="DataTransfer"/>
 	<xs:complexType name="PropertyProfitType">
 		<xs:sequence>
 			<xs:element name="Value" type="SimpleMonetaryType" minOccurs="0"/>
@@ -34516,6 +35188,7 @@ Last Updated: 10 March 2021
 			<xs:element name="DesignSpeed" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="MaximumAxleLoadingOfTraffic" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="TrackGauge" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="RulingGradient" type="PercentageChoiceType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="position" type="RailwayPositionEnum"/>
 		<xs:attribute name="trainPowerSystems" type="TrainPowerSystemEnum"/>
@@ -34524,35 +35197,18 @@ Last Updated: 10 March 2021
 		<xs:attribute name="railJoints" type="RailwayRailJointsEnum"/>
 		<xs:attribute name="controlSystem" type="RailwayControlSystemEnum"/>
 		<xs:attribute name="signallingSystem" type="RailwaySignallingSystemEnum"/>
+		<xs:attribute name="operationalTelecommunicationsSystem" type="RailwayOperationalTelecommunicationsSystemEnum"/>
 	</xs:complexType>
 	<xs:complexType name="RailwayDimensionType">
 		<xs:sequence>
 			<xs:element name="AverageCorridorWidthBetweenLegalBoundaries" type="SimpleMeasurementType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="RailwayFunctionalEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="weightOfTraffic"/>
-			<xs:enumeration value="passengerJourneys"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="RailwayFunctionalUnitsEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="mTonnesPerYear"/>
-			<xs:enumeration value="mTonsPerYear"/>
-			<xs:enumeration value="millionJourneysPerYear"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="RailwayFunctionalUnitsType">
-		<xs:complexContent>
-			<xs:extension base="SimpleMeasurementType">
-				<xs:attribute name="function" type="RailwayFunctionalEnum"/>
-				<xs:attribute name="units" type="RailwayFunctionalUnitsEnum"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:simpleType name="RailwayFunctionEnum">
 		<xs:union memberTypes="KnownRailwayFunctionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="RailwayOperationalTelecommunicationsSystemEnum">
+		<xs:union memberTypes="KnownRailwayOperationalTelecommunicationsSystemEnum xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="RailwayPositionEnum">
 		<xs:union memberTypes="KnownRailwayPositionEnum xs:string"/>
@@ -34561,7 +35217,7 @@ Last Updated: 10 March 2021
 		<xs:sequence>
 			<xs:element name="RouteLength" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="EquatedTrackLength" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="RailwayFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="RailwayRailJointsEnum">
@@ -34623,9 +35279,6 @@ Last Updated: 10 March 2021
 		<xs:attribute name="name" type="xs:string"/>
 		<xs:attribute name="category" type="RatingCategoryEnum"/>
 	</xs:complexType>
-	<xs:simpleType name="ReactorMaterialEnum">
-		<xs:union memberTypes="KnownReactorMaterialEnum xs:string"/>
-	</xs:simpleType>
 	<xs:complexType name="RefineryComplexityType">
 		<xs:attribute name="noOfProcesses" type="xs:integer"/>
 		<xs:attribute name="noOfProducts" type="xs:integer"/>
@@ -34643,22 +35296,11 @@ Last Updated: 10 March 2021
 	<xs:complexType name="RefineryDesignFeaturesType">
 		<xs:sequence>
 			<xs:element name="PrincipalProcesses" type="RefineryProcessEnum" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="PrincipalReactorMaterial" type="ReactorMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PrincipalReactorMaterial" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Infrastructure" type="InfrastructureEnum" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:simpleType name="RefineryFunctionalEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="inputOfCrudeOil"/>
-			<xs:enumeration value="outputOfProducts"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="RefineryFunctionalUnitsType">
-		<xs:complexContent>
-			<xs:extension base="SimpleMeasurementType">
-				<xs:attribute name="function" type="RefineryFunctionalEnum"/>
-				<xs:attribute name="units" type="CapacityFunctionalUnitsEnum"/>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:attribute name="wasteHandling" type="WasteHandlingEnum"/>
+		<xs:attribute name="reinstatement" type="ReinstatementEnum"/>
 	</xs:complexType>
 	<xs:simpleType name="RefineryFunctionEnum">
 		<xs:union memberTypes="KnownRefineryFunctionEnum xs:string"/>
@@ -34672,7 +35314,7 @@ Last Updated: 10 March 2021
 	<xs:complexType name="RefineryQuantitiesType">
 		<xs:sequence>
 			<xs:element name="SiteArea" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="RefineryFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="RefineryWorksType">
@@ -34702,6 +35344,9 @@ Last Updated: 10 March 2021
 		</xs:sequence>
 		<xs:attribute name="description" type="xs:string"/>
 	</xs:complexType>
+	<xs:simpleType name="ReinstatementEnum">
+		<xs:union memberTypes="KnownReinstatementEnum xs:string"/>
+	</xs:simpleType>
 	<xs:complexType name="RentBreakType">
 		<xs:sequence>
 			<xs:element name="Notice" type="DurationType" minOccurs="0"/>
@@ -34901,6 +35546,7 @@ Last Updated: 10 March 2021
 			<xs:element name="DesignSpeed" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="LaneWidth" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="FootwayWidth" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="RulingGradient" type="PercentageChoiceType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="position" type="RoadRunwayAndMotorwayPositionEnum"/>
 		<xs:attribute name="noOfCarriageways" type="xs:integer"/>
@@ -34916,30 +35562,8 @@ Last Updated: 10 March 2021
 			<xs:element name="Width" type="SimpleMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="RoadRunwayAndMotorwayFunctionalUnitsEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="vehiclesPerHour"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="RoadRunwayAndMotorwayFunctionalUnitsType">
-		<xs:complexContent>
-			<xs:extension base="SimpleMeasurementType">
-				<xs:attribute name="function" type="CapacityFunctionalEnum"/>
-				<xs:attribute name="units" type="RoadRunwayAndMotorwayFunctionalUnitsEnum"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:simpleType name="RoadRunwayAndMotorwayFunctionEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="motorway"/>
-			<xs:enumeration value="highway"/>
-			<xs:enumeration value="freeway"/>
-			<xs:enumeration value="expressway"/>
-			<xs:enumeration value="road"/>
-			<xs:enumeration value="lane"/>
-			<xs:enumeration value="runway"/>
-			<xs:enumeration value="hardstanding"/>
-		</xs:restriction>
+		<xs:union memberTypes="KnownRoadRunwayAndMotorwayFunctionEnum xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="RoadRunwayAndMotorwayPlanProfileEnum">
 		<xs:restriction base="xs:string">
@@ -34948,19 +35572,14 @@ Last Updated: 10 March 2021
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="RoadRunwayAndMotorwayPositionEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="atGrade"/>
-			<xs:enumeration value="inCutting"/>
-			<xs:enumeration value="onEmbankment"/>
-			<xs:enumeration value="elevated"/>
-		</xs:restriction>
+		<xs:union memberTypes="KnownRoadRunwayAndMotorwayPositionEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="RoadRunwayAndMotorwayQuantitiesType">
 		<xs:sequence>
 			<xs:element name="TotalLength" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="EquatedLaneLength" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="TotalPavedArea" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="RoadRunwayAndMotorwayFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="RoadRunwayAndMotorwaySurfaceEnum">
@@ -35014,6 +35633,7 @@ Last Updated: 10 March 2021
 					<xs:element name="HVAC" type="HVACType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Objects" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="isAirConditioned" type="xs:boolean"/>
@@ -35060,11 +35680,11 @@ Last Updated: 10 March 2021
 		<xs:attribute name="unitOfMeasurement" type="UnitOfMeasurementEnum"/>
 	</xs:complexType>
 	<xs:complexType name="SeaLevelHeightType">
-		<xs:complexContent>
+		<xs:simpleContent>
 			<xs:extension base="SimpleMeasurementType">
 				<xs:attribute name="location" type="AboveBelowEnum"/>
 			</xs:extension>
-		</xs:complexContent>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="SeismicZoneType">
 		<xs:complexContent>
@@ -35327,6 +35947,7 @@ Last Updated: 10 March 2021
 					<xs:element name="HVAC" type="HVACType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Objects" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="isAirConditioned" type="xs:boolean"/>
@@ -35348,12 +35969,12 @@ Last Updated: 10 March 2021
 		<xs:attribute name="model" type="StatisticalModelEnum"/>
 	</xs:complexType>
 	<xs:complexType name="StoreyHeightMeasurementType">
-		<xs:complexContent>
+		<xs:simpleContent>
 			<xs:extension base="SimpleMeasurementType">
 				<xs:attribute name="id" type="xs:string"/>
 				<xs:attribute name="label" type="xs:string"/>
 			</xs:extension>
-		</xs:complexContent>
+		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="StoreyInformationType">
 		<xs:sequence>
@@ -35853,20 +36474,6 @@ Last Updated: 10 March 2021
 		<xs:attribute name="noOfProcesses" type="xs:integer"/>
 		<xs:attribute name="termOfUse" type="TermOfUseEnum"/>
 	</xs:complexType>
-	<xs:simpleType name="TreatmentFunctionalUnitsEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="litresPerDay"/>
-			<xs:enumeration value="gallonsPerDay"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="TreatmentFunctionalUnitsType">
-		<xs:complexContent>
-			<xs:extension base="SimpleMeasurementType">
-				<xs:attribute name="function" type="CapacityFunctionalEnum"/>
-				<xs:attribute name="units" type="TreatmentFunctionalUnitsEnum"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="TreatmentFunctionType">
 		<xs:attribute name="process" type="TreatmentProcessEnum"/>
 		<xs:attribute name="order" type="OrderEnum"/>
@@ -35877,15 +36484,12 @@ Last Updated: 10 March 2021
 	<xs:complexType name="TreatmentQuantitiesType">
 		<xs:sequence>
 			<xs:element name="SiteArea" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="TreatmentFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="TreatmentTankMaterialEnum">
-		<xs:union memberTypes="KnownTreatmentTankMaterialEnum xs:string"/>
-	</xs:simpleType>
 	<xs:complexType name="TreatmentTankMaterialType">
 		<xs:sequence>
-			<xs:element name="Material" type="TreatmentTankMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Material" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="process" type="TreatmentProcessEnum"/>
 	</xs:complexType>
@@ -35943,23 +36547,6 @@ Last Updated: 10 March 2021
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="TunnelFunctionalUnitsEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="vehiclesPerHour"/>
-			<xs:enumeration value="litresPerHour"/>
-			<xs:enumeration value="gallonsPerHour"/>
-			<xs:enumeration value="tonnesPerHour"/>
-			<xs:enumeration value="tonsPerHour"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="TunnelFunctionalUnitsType">
-		<xs:complexContent>
-			<xs:extension base="SimpleMeasurementType">
-				<xs:attribute name="function" type="CapacityFunctionalEnum"/>
-				<xs:attribute name="units" type="TunnelFunctionalUnitsEnum"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:simpleType name="TunnelFunctionEnum">
 		<xs:union memberTypes="KnownTunnelFunctionEnum xs:string"/>
 	</xs:simpleType>
@@ -35980,7 +36567,7 @@ Last Updated: 10 March 2021
 			<xs:element name="EquatedTrackLength" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="EquatedLaneLength" type="SimpleMeasurementType" minOccurs="0"/>
 			<xs:element name="VolumeOfExcavation" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="TunnelFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="TunnelWorksType">
@@ -36204,6 +36791,92 @@ Last Updated: 10 March 2021
 	<xs:simpleType name="WallDesignEnum">
 		<xs:union memberTypes="KnownWallDesignEnum xs:string"/>
 	</xs:simpleType>
+	<xs:simpleType name="WasteHandlingEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="wasteHandling"/>
+			<xs:enumeration value="wasteStorage"/>
+			<xs:enumeration value="tailings"/>
+			<xs:enumeration value="managementFacility"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WaterNatureEnum">
+		<xs:union memberTypes="KnownWaterNatureEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="WaterwayWorkComplexityType">
+		<xs:sequence>
+			<xs:element name="Positions" type="WaterwayWorkPositionEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DischargeQuantity" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="FlowVelocity" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="WaterDepth" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="FloodDesignLevel" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="PermitsLicences" type="WaterwayWorkPermitLicenceEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TotalDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SoftDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="HardDredgingVolume" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SpoilDisposalVolume" type="SimpleMeasurementType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="waterNature" type="WaterNatureEnum"/>
+		<xs:attribute name="contaminatedSedimentDredging" type="ContaminatedSedimentDredgingEnum"/>
+	</xs:complexType>
+	<xs:complexType name="WaterwayWorkComplexType">
+		<xs:complexContent>
+			<xs:extension base="CostedProjectType">
+				<xs:sequence>
+					<xs:element name="Works" type="WaterwayWorkWorksType" minOccurs="0"/>
+					<xs:element name="Quantities" type="WaterwayWorkQuantitiesType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="WaterwayWorkConstructionEnum">
+		<xs:union memberTypes="KnownWaterwayWorkConstructionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="WaterwayWorkDesignFeaturesType">
+		<xs:sequence>
+			<xs:element name="Bathmetry" type="AnnotatedDocumentType"/>
+			<xs:element name="Materials" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Surface" type="ConstructionMaterialEnum" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Infrastructure" type="InfrastructureEnum" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="construction" type="WaterwayWorkConstructionEnum"/>
+		<xs:attribute name="foundations" type="FoundationsEnum"/>
+	</xs:complexType>
+	<xs:complexType name="WaterwayWorkDimensionType">
+		<xs:sequence>
+			<xs:element name="StructureLength" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="StructureWidth" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="CrestLevel" type="SeaLevelHeightType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="WaterwayWorkFunctionEnum">
+		<xs:union memberTypes="KnownWaterwayWorkFunctionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="WaterwayWorkPermitLicenceEnum">
+		<xs:union memberTypes="KnownWaterwayWorkPermitLicenceEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="WaterwayWorkPositionEnum">
+		<xs:union memberTypes="KnownWaterwayWorkPositionEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="WaterwayWorkQuantitiesType">
+		<xs:sequence>
+			<xs:element name="Length" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="SiteArea" type="SimpleMeasurementType" minOccurs="0"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="noOfFenders" type="xs:integer"/>
+	</xs:complexType>
+	<xs:complexType name="WaterwayWorkWorksType">
+		<xs:sequence>
+			<xs:element name="EnvironmentalGrade" type="EnvironmentalGradeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DesignFeatures" type="WaterwayWorkDesignFeaturesType" minOccurs="0"/>
+			<xs:element name="Complexity" type="WaterwayWorkComplexityType" minOccurs="0"/>
+			<xs:element name="AverageHeightToSeaLevel" type="SeaLevelHeightType" minOccurs="0"/>
+			<xs:element name="Dimensions" type="WaterwayWorkDimensionType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="function" type="WaterwayWorkFunctionEnum"/>
+		<xs:attribute name="nature" type="BuildNatureEnum"/>
+		<xs:attribute name="designLifeInYears" type="xs:decimal"/>
+	</xs:complexType>
 	<xs:complexType name="WellAndBoreholeComplexityType">
 		<xs:attribute name="position" type="OnshoreOffshoreEnum"/>
 		<xs:attribute name="direction" type="DirectionalEnum"/>
@@ -36219,7 +36892,7 @@ Last Updated: 10 March 2021
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="WellAndBoreholeDesignFeaturesType">
-		<xs:attribute name="liningMaterial" type="WellBoreholeLiningMaterialEnum"/>
+		<xs:attribute name="liningMaterial" type="ConstructionMaterialEnum"/>
 	</xs:complexType>
 	<xs:complexType name="WellAndBoreholeDimensionType">
 		<xs:sequence>
@@ -36234,7 +36907,7 @@ Last Updated: 10 March 2021
 	<xs:complexType name="WellAndBoreholeQuantitiesType">
 		<xs:sequence>
 			<xs:element name="TotalLengthDrilledBored" type="SimpleMeasurementType" minOccurs="0"/>
-			<xs:element name="FunctionalUnits" type="CapacityFunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="FunctionalUnits" type="FunctionalUnitsType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="WellAndBoreholeWorksType">
@@ -36250,9 +36923,6 @@ Last Updated: 10 March 2021
 		<xs:attribute name="nature" type="BuildNatureEnum"/>
 		<xs:attribute name="designLifeInYears" type="xs:decimal"/>
 	</xs:complexType>
-	<xs:simpleType name="WellBoreholeLiningMaterialEnum">
-		<xs:union memberTypes="KnownWellBoreholeLiningMaterialEnum xs:string"/>
-	</xs:simpleType>
 	<xs:simpleType name="WorkingMethodEnum">
 		<xs:union memberTypes="KnownWorkingMethodEnum xs:string"/>
 	</xs:simpleType>
@@ -36295,6 +36965,7 @@ Last Updated: 10 March 2021
 					<xs:element name="HVAC" type="HVACType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Objects" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="isAirConditioned" type="xs:boolean"/>
