@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rics:DataTransfer xmlns:rics="urn:xsdschema:rics:3.3.0" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:xsdschema:rics:3.3.0 rics-3.3.0.xsd">
+<rics:DataTransfer xmlns:rics="urn:xsdschema:rics:3.3.1" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:xsdschema:rics:3.3.1 rics-3.3.1.xsd">
 	<rics:GeneratedBy name="Andrew Knight"/>
 	<rics:Property primaryUse="Office" description="Aura House" isPrimaryProperty="true">
 		<rics:Address>

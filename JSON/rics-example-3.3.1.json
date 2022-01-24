@@ -1194,9 +1194,11 @@
 				"@qualityOfBuilding": "excellent",
 				"@typeOfBuilding": "office",
 				"@compassPointDirection": "S",
-				"rics:BuiltAge": {
-					"rics:Year": "1990"
-				},
+				"rics:BuiltAge": [
+					{
+						"rics:Year": "1990"
+					}
+				],
 				"rics:ConvertedAge": [
 					{
 						"rics:Year": "2017"

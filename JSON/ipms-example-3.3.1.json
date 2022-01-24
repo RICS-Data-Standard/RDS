@@ -56,11 +56,13 @@
 							"$": "MTK"
 						}
 					],
-					"rics:Accuracy": {
-						"rics:Value": {
-							"@valueAsText": "5mm"
+					"rics:Accuracy": [
+						{
+							"rics:Value": {
+								"@valueAsText": "5mm"
+							}
 						}
-					},
+					],
 					"rics:MeasuredBy": [
 						{
 							"@name": "Andrew Knight"
