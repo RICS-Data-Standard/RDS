@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rics:DataTransfer xmlns:rics="urn:xsdschema:rics:3.3.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xsi:schemaLocation="urn:xsdschema:rics:3.3.1 rics-3.3.1.xsd">
+<rics:DataTransfer xmlns:rics="urn:xsdschema:rics:3.3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xsi:schemaLocation="urn:xsdschema:rics:3.3.2 rics-3.3.2.xsd">
 	<rics:GeneratedBy name="Andrew Knight">
 		<rics:LegalEntity name="RICS"/>
 	</rics:GeneratedBy>
@@ -781,6 +781,21 @@
 			<rics:Approach approach="income">
 				<rics:Methodology methodology="discountedCashFlow"/>
 			</rics:Approach>
+			<rics:ComparableEvidence ranking="1" rationale="similar office in location albeit of newer build and condition recently let to similar occupier profile">
+				<rics:Differences name="age">
+					<rics:Date description="newer building">
+						<rics:Year>1990</rics:Year>
+					</rics:Date>
+				</rics:Differences>
+				<rics:Differences name="condition">
+					<rics:Date description="recent refit">
+						<rics:Year>2015</rics:Year>
+					</rics:Date>
+				</rics:Differences>
+				<rics:Adjustments name="market rent">
+					<rics:Monetary iso4217Code="GBP" description="per m2">-20</rics:Monetary>
+				</rics:Adjustments>
+			</rics:ComparableEvidence>
 		</rics:Valuation>
 	</rics:Valuations>
 	<rics:Insurance isInsured="true" perPeriod="annum">

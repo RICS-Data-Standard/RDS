@@ -1529,6 +1529,38 @@
 									}
 								]
 							}
+						],
+						"rics:ComparableEvidence": [
+							{
+								"@ranking": 1,
+								"@rationale": "similar office in location albeit of newer build and condition recently let to similar occupier profile",
+								"rics:Differences": [
+									{
+										"@name": "age",
+										"rics:Date": {
+											"@description": "newer building",
+											"rics:Year": "1990"
+										}
+									},
+									{
+										"@name": "condition",
+										"rics:Date": {
+											"@description": "recent refit",
+											"rics:Year": "2015"
+										}
+									}
+								],
+								"rics:Adjustments": [
+									{
+										"@name": "market rent",
+										"rics:Monetary": {
+											"@iso4217Code": "GBP",
+											"@description": "per m2",
+											"$": -20
+										}
+									}
+								]
+							}
 						]
 					}
 				]

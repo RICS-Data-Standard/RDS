@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:xsdschema:rics:3.3.1" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" targetNamespace="urn:xsdschema:rics:3.3.1" elementFormDefault="qualified" version="3.3.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:xsdschema:rics:3.3.2" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" targetNamespace="urn:xsdschema:rics:3.3.2" elementFormDefault="qualified" version="3.3.2">
 	<xs:import namespace="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" schemaLocation="IFC4x1.xsd"/>
 	<xs:import namespace="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" schemaLocation="xAL-2.0.xsd"/>
 	<xs:annotation>
 		<xs:documentation xml:lang="en">RICS Data Standard (RDS)
-This is an XML schema (XSD) for the RICS Data Standard (RDS) incorporating ICMS, ILMS, IPMS, and IVS using address formats from buildingSMART IFC, and Oasis xAL.
+This is an XML schema (XSD) for the RICS Data Standard (RDS) incorporating ICMS, ILMS, IPMS, IVS, and IBOS using address formats from buildingSMART IFC, and Oasis xAL.
 Copyright(c) 2017-2022 RICS [http://www.rics.org]
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 Contact: RICS http://www.rics.org
 For help and support, enhancement requests, etc., please email: datastandards@rics.org
-Version: 3.3.1
-Last Updated: 24 January 2022
+Version: 3.3.2
+Last Updated: 17 February 2022
 		</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType name="AboveBelowEnum">
@@ -302,6 +302,9 @@ Last Updated: 24 January 2022
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="declaration" type="xs:string"/>
+		<xs:attribute name="isAbleToAffirm" type="xs:boolean"/>
+		<xs:attribute name="affirmation" type="xs:boolean"/>
+		<xs:attribute name="comments" type="xs:string"/>
 	</xs:complexType>
 	<xs:complexType name="AuthorStatusType">
 		<xs:sequence>
@@ -691,6 +694,7 @@ Last Updated: 24 January 2022
 			<xs:extension base="GenericContentType">
 				<xs:sequence>
 					<xs:element name="ActualQuantities" type="SimplePercentageType" minOccurs="0"/>
+					<xs:element name="AssessmentStandards" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="AssessmentTools" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="MaterialQuantitySources" type="MaterialQuantitySourceEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="EmissionFactorSources" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
@@ -736,11 +740,14 @@ Last Updated: 24 January 2022
 				<xs:sequence>
 					<xs:element name="Participants" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Jurisdiction" type="JurisdictionType" minOccurs="0"/>
+					<xs:element name="Length" type="DurationType" minOccurs="0"/>
+					<xs:element name="Remaining" type="DurationType" minOccurs="0"/>
 					<xs:element name="FailedDate" type="DateChoiceType" minOccurs="0"/>
 					<xs:element name="IssueDate" type="DateChoiceType" minOccurs="0"/>
 					<xs:element name="StartDate" type="DateChoiceType" minOccurs="0"/>
 					<xs:element name="EndDate" type="DateChoiceType" minOccurs="0"/>
 					<xs:element name="RevocationDate" type="DateChoiceType" minOccurs="0"/>
+					<xs:element name="FirstInspectionDate" type="DateChoiceType" minOccurs="0"/>
 					<xs:element name="LastInspectionDate" type="DateChoiceType" minOccurs="0"/>
 					<xs:element name="NextInspectionDueDate" type="DateChoiceType" minOccurs="0"/>
 					<xs:element name="Limitations" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
@@ -853,13 +860,12 @@ Last Updated: 24 January 2022
 		<xs:complexContent>
 			<xs:extension base="PropertyContentType">
 				<xs:sequence>
-					<xs:element name="Justification" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:choice>
-						<xs:element name="ComparableProperty" type="ValuedPropertyType" minOccurs="0" maxOccurs="unbounded"/>
-						<xs:element name="Adjustment" type="SimplePercentageType" minOccurs="0"/>
-						<xs:element name="Weighting" type="SimplePercentageType" minOccurs="0"/>
-					</xs:choice>
+					<xs:element name="ComparableProperty" type="ValuedPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Differences" type="ValueType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Adjustments" type="ValueType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
+				<xs:attribute name="rationale" type="xs:string"/>
+				<xs:attribute name="ranking" type="xs:integer"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -885,6 +891,12 @@ Last Updated: 24 January 2022
 	<xs:simpleType name="CompletionConditionsEnum">
 		<xs:union memberTypes="KnownCompletionConditionsEnum xs:string"/>
 	</xs:simpleType>
+	<xs:simpleType name="ComplexMeasurementCategoryEnum">
+		<xs:union memberTypes="KnownComplexMeasurementCategoryEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ComplexMeasurementFrameworkEnum">
+		<xs:union memberTypes="KnownComplexMeasurementFrameworkEnum xs:string"/>
+	</xs:simpleType>
 	<xs:simpleType name="ComplexMeasurementItemEnum">
 		<xs:union memberTypes="KnownComplexMeasurementItemEnum xs:string"/>
 	</xs:simpleType>
@@ -906,6 +918,7 @@ Last Updated: 24 January 2022
 						<xs:element name="Percentage" type="PercentageChoiceType" minOccurs="0"/>
 						<xs:element name="Ratio" type="SimplePercentageType" minOccurs="0"/>
 						<xs:element name="Monetary" type="SimpleMonetaryType" minOccurs="0"/>
+						<xs:element name="Boolean" type="SimpleBooleanType" minOccurs="0"/>
 					</xs:choice>
 					<xs:choice>
 						<xs:element name="MeasurementDate" type="DateChoiceType" minOccurs="0"/>
@@ -915,6 +928,7 @@ Last Updated: 24 January 2022
 						<xs:element name="ReportedDate" type="DateChoiceType" minOccurs="0"/>
 						<xs:element name="ReportedDateRange" type="DateRangeChoiceType" minOccurs="0"/>
 					</xs:choice>
+					<xs:element name="Frequency" type="DurationType" minOccurs="0"/>
 					<xs:element name="Period" type="DurationType" minOccurs="0"/>
 					<xs:element name="Valid" type="DurationType" minOccurs="0"/>
 					<xs:element name="Tolerance" type="AccuracyType" minOccurs="0" maxOccurs="unbounded"/>
@@ -933,20 +947,29 @@ Last Updated: 24 January 2022
 					<xs:element name="Rooms" type="RoomType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Object" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Sensor" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Methodology" type="MethodologyEnum" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="JurisdictionalLegislation" type="JurisdictionalLegislationType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="isCurrent" type="xs:boolean"/>
+				<xs:attribute name="isMinimum" type="xs:boolean"/>
+				<xs:attribute name="isMaximum" type="xs:boolean"/>
+				<xs:attribute name="isMean" type="xs:boolean"/>
+				<xs:attribute name="isMode" type="xs:boolean"/>
+				<xs:attribute name="isMedian" type="xs:boolean"/>
+				<xs:attribute name="isRange" type="xs:boolean"/>
 				<xs:attribute name="valueAsText" type="xs:string"/>
 				<xs:attribute name="unitOfMeasurement" type="UnitOfMeasurementEnum"/>
 				<xs:attribute name="denominatorUnitOfMeasurement" type="UnitOfMeasurementEnum"/>
 				<xs:attribute name="timeUnitOfMeasurement" type="UnitOfMeasurementEnum"/>
-				<xs:attribute name="framework" type="TargetFrameworkEnum"/>
-				<xs:attribute name="category" type="TargetCategoryEnum"/>
+				<xs:attribute name="framework" type="ComplexMeasurementFrameworkEnum"/>
+				<xs:attribute name="category" type="ComplexMeasurementCategoryEnum"/>
 				<xs:attribute name="type" type="ComplexMeasurementTypeEnum"/>
 				<xs:attribute name="subType" type="ComplexMeasurementSubTypeEnum"/>
-				<xs:attribute name="purpose" type="MeasurementPurposeEnum"/>
-				<xs:attribute name="source" type="ComplexMeasurementSourceEnum"/>
-				<xs:attribute name="status" type="ComplexMeasurementStatusEnum"/>
 				<xs:attribute name="item" type="ComplexMeasurementItemEnum"/>
+				<xs:attribute name="status" type="ComplexMeasurementStatusEnum"/>
+				<xs:attribute name="source" type="ComplexMeasurementSourceEnum"/>
+				<xs:attribute name="purpose" type="MeasurementPurposeEnum"/>
+				<xs:attribute name="maturity" type="MaturityEnum"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -996,6 +1019,20 @@ Last Updated: 24 January 2022
 		<xs:attribute name="responsibility" type="PropertyResponsibilityEnum"/>
 		<xs:attribute name="isHandingBackToSpecification" type="xs:boolean"/>
 		<xs:attribute name="specialUnusualProvisions" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="ConfidenceType">
+		<xs:sequence>
+			<xs:element name="Level" type="SimplePercentageType" minOccurs="0"/>
+			<xs:choice>
+				<xs:element name="Interval" type="SimplePercentageType" minOccurs="0"/>
+				<xs:sequence>
+					<xs:element name="LowerInterval" type="SimplePercentageType" minOccurs="0"/>
+					<xs:element name="UpperInterval" type="SimplePercentageType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="isAsymmetrical" type="xs:boolean"/>
+		<xs:attribute name="calculationMethod" type="xs:string"/>
 	</xs:complexType>
 	<xs:simpleType name="ConsentApprovalObtainedEnum">
 		<xs:union memberTypes="KnownConsentApprovalObtainedEnum xs:string"/>
@@ -1136,6 +1173,13 @@ Last Updated: 24 January 2022
 	<xs:simpleType name="CostEmissionGroupEnum">
 		<xs:union memberTypes="KnownCostEmissionGroupEnum xs:string"/>
 	</xs:simpleType>
+	<xs:simpleType name="CostEmissionMappingStandardEnum">
+		<xs:union memberTypes="KnownCostEmissionMappingStandardEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="CostEmissionMappingType">
+		<xs:attribute name="code" type="xs:string"/>
+		<xs:attribute name="standard" type="CostEmissionMappingStandardEnum"/>
+	</xs:complexType>
 	<xs:simpleType name="CostReportStatusEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="pre-constructionForecast"/>
@@ -1154,6 +1198,7 @@ Last Updated: 24 January 2022
 					<xs:element name="Quantity" type="SimpleMeasurementType" minOccurs="0"/>
 					<xs:element name="Rate" type="SimpleMonetaryType" minOccurs="0"/>
 					<xs:element name="Total" type="SimpleMonetaryType" minOccurs="0"/>
+					<xs:element name="Mapping" type="CostEmissionMappingType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Objects" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="category" type="CostEmissionCategoryEnum"/>
@@ -1537,6 +1582,7 @@ Last Updated: 24 January 2022
 		</xs:sequence>
 		<xs:attribute name="boredHolesCount" type="xs:integer"/>
 	</xs:complexType>
+	<xs:element name="DueDiligence" substitutionGroup="DataTransfer"/>
 	<xs:complexType name="DurationType">
 		<xs:sequence>
 			<xs:element name="BaseDate" type="DateChoiceType" minOccurs="0"/>
@@ -1580,6 +1626,7 @@ Last Updated: 24 January 2022
 					<xs:element name="Target" type="ComplexMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Forecast" type="ComplexMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Actual" type="ComplexMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Mapping" type="CostEmissionMappingType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Objects" type="ObjectType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="category" type="CostEmissionCategoryEnum"/>
@@ -2024,6 +2071,7 @@ Last Updated: 24 January 2022
 				<xs:sequence>
 					<xs:element name="Property" type="PropertyType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:choice>
+						<xs:element name="Valid" type="DurationType" minOccurs="0"/>
 						<xs:sequence>
 							<xs:element name="CreatedDate" type="DateChoiceType" minOccurs="0"/>
 							<xs:element name="CreatedBetween" type="DateRangeChoiceType" minOccurs="0"/>
@@ -2053,6 +2101,7 @@ Last Updated: 24 January 2022
 					<xs:element name="Owners" type="InformationEntityType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="CopyrightHolders" type="InformationEntityType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="InstructionPurpose" type="InstructionPurposeEnum" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Confidence" type="ConfidenceType" minOccurs="0"/>
 					<xs:element name="Methodology" type="MethodologyEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Assumptions" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Limitations" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
@@ -2708,6 +2757,8 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="gas"/>
 			<xs:enumeration value="licence"/>
 			<xs:enumeration value="guarantee"/>
+			<xs:enumeration value="warranty"/>
+			<xs:enumeration value="maintenanceContract"/>
 			<xs:enumeration value="indemnity"/>
 			<xs:enumeration value="insurance"/>
 			<xs:enumeration value="energyEfficiency"/>
@@ -2856,6 +2907,23 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="governanceApproval"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownComplexMeasurementCategoryEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="wholeBuildingGHGIntensityPathway"/>
+			<xs:enumeration value="wholeBuildingEnergyIntensityPathway"/>
+			<xs:enumeration value="compliant"/>
+			<xs:enumeration value="functional"/>
+			<xs:enumeration value="economic"/>
+			<xs:enumeration value="sustainable"/>
+			<xs:enumeration value="performing"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownComplexMeasurementFrameworkEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="IBOS"/>
+			<xs:enumeration value="CRREM"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownComplexMeasurementItemEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="greyWater"/>
@@ -2868,6 +2936,7 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="hydrofluorocarbon"/>
 			<xs:enumeration value="perfluorocarbon"/>
 			<xs:enumeration value="sulphurHexafluoride"/>
+			<xs:enumeration value="carbonDioxideEquivalent"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownComplexMeasurementSourceEnum">
@@ -2885,7 +2954,13 @@ Last Updated: 24 January 2022
 	</xs:simpleType>
 	<xs:simpleType name="KnownComplexMeasurementStatusEnum">
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="target"/>
+			<xs:enumeration value="benchmark"/>
+			<xs:enumeration value="legalRequirement"/>
+			<xs:enumeration value="bestPractice"/>
+			<xs:enumeration value="forecast"/>
 			<xs:enumeration value="estimated"/>
+			<xs:enumeration value="actual"/>
 			<xs:enumeration value="final"/>
 			<xs:enumeration value="unknown"/>
 			<xs:enumeration value="other"/>
@@ -2897,6 +2972,51 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="consumption"/>
 			<xs:enumeration value="netEnergy"/>
 			<xs:enumeration value="waste"/>
+			<xs:enumeration value="temperatureReadings"/>
+			<xs:enumeration value="humidity"/>
+			<xs:enumeration value="userSatisfactionData"/>
+			<xs:enumeration value="CO2Level"/>
+			<xs:enumeration value="airFlow"/>
+			<xs:enumeration value="noiseLevel"/>
+			<xs:enumeration value="lightingLevel"/>
+			<xs:enumeration value="incidentLogs"/>
+			<xs:enumeration value="auditFindingsAndRecommendations"/>
+			<xs:enumeration value="riskAssessmentsAndRecommendations"/>
+			<xs:enumeration value="userConcernsAndIssuesRaised"/>
+			<xs:enumeration value="userFunctionalRequirements"/>
+			<xs:enumeration value="occupancyAndUtilisationLevel"/>
+			<xs:enumeration value="workspaceProtocols"/>
+			<xs:enumeration value="businessContinuityPlan"/>
+			<xs:enumeration value="businessContinuityPlanTestingRegime"/>
+			<xs:enumeration value="testsAndRecommendations"/>
+			<xs:enumeration value="ICTInfrastructureAvailability"/>
+			<xs:enumeration value="incidenceOfFailure"/>
+			<xs:enumeration value="costs"/>
+			<xs:enumeration value="conditionAssessments"/>
+			<xs:enumeration value="backlogMaintenance"/>
+			<xs:enumeration value="costedCAPEXPLans"/>
+			<xs:enumeration value="assetStrategy"/>
+			<xs:enumeration value="maintenanceRecords"/>
+			<xs:enumeration value="floorArea"/>
+			<xs:enumeration value="propertyRunningCosts"/>
+			<xs:enumeration value="kWhEnergyConsumed"/>
+			<xs:enumeration value="proportionOfEnergyFromSustainableSources"/>
+			<xs:enumeration value="litresOfWaterConsumption"/>
+			<xs:enumeration value="costOfUtilities"/>
+			<xs:enumeration value="netZeroCarbonStrategy"/>
+			<xs:enumeration value="volumesAndTypeOfWasteDisposedOf"/>
+			<xs:enumeration value="methodsOfDisposal"/>
+			<xs:enumeration value="costsIncurred"/>
+			<xs:enumeration value="stakeholderCommunityEngagementPlan"/>
+			<xs:enumeration value="socialValueStrategy"/>
+			<xs:enumeration value="socialValueGenerated"/>
+			<xs:enumeration value="EVChargingPoints"/>
+			<xs:enumeration value="greenTravelPlan"/>
+			<xs:enumeration value="showerProvisionForCyclists"/>
+			<xs:enumeration value="userSentimentSurveyData"/>
+			<xs:enumeration value="KPIsRelatingToResponsiveness"/>
+			<xs:enumeration value="performanceAgainstKPIs"/>
+			<xs:enumeration value="helpdeskData"/>
 			<xs:enumeration value="unknown"/>
 			<xs:enumeration value="other"/>
 		</xs:restriction>
@@ -2911,6 +3031,25 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="fittedWidth"/>
 			<xs:enumeration value="fittedDepth"/>
 			<xs:enumeration value="fittedHeight"/>
+			<xs:enumeration value="temperature"/>
+			<xs:enumeration value="CO2"/>
+			<xs:enumeration value="ventilationRate"/>
+			<xs:enumeration value="noise"/>
+			<xs:enumeration value="lighting"/>
+			<xs:enumeration value="healthAndSafety"/>
+			<xs:enumeration value="workspaceOptimisation"/>
+			<xs:enumeration value="businessContinuity"/>
+			<xs:enumeration value="connectivity"/>
+			<xs:enumeration value="lifeCycleCosts"/>
+			<xs:enumeration value="operatingCosts"/>
+			<xs:enumeration value="operatingRange"/>
+			<xs:enumeration value="operationalEnergyUse"/>
+			<xs:enumeration value="waste"/>
+			<xs:enumeration value="socialValue"/>
+			<xs:enumeration value="transport"/>
+			<xs:enumeration value="userExperience"/>
+			<xs:enumeration value="responsivenessOfFMServices"/>
+			<xs:enumeration value="well-being"/>
 			<xs:enumeration value="unknown"/>
 			<xs:enumeration value="other"/>
 		</xs:restriction>
@@ -8689,6 +8828,19 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="workAndUtilitiesOffsite"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownCostEmissionMappingStandardEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NRM"/>
+			<xs:enumeration value="CESMM4"/>
+			<xs:enumeration value="RMM"/>
+			<xs:enumeration value="MMHW"/>
+			<xs:enumeration value="uniclass"/>
+			<xs:enumeration value="uniformat"/>
+			<xs:enumeration value="masterFormat"/>
+			<xs:enumeration value="CIQS"/>
+			<xs:enumeration value="ASAQS"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownCovenantTypeEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="financial"/>
@@ -14028,7 +14180,7 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="unproductive"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="KnownLegalEntityPeopleStatusEnum">
+	<xs:simpleType name="KnownLegalEntityPeopleRoleEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="director"/>
 			<xs:enumeration value="partner"/>
@@ -14038,14 +14190,25 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="other"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownLegalEntityPeopleStatusEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="apppointed"/>
+			<xs:enumeration value="resigned"/>
+			<xs:enumeration value="removed"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownLegalEntityStatusEnum">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="ltd"/>
-			<xs:enumeration value="llp"/>
-			<xs:enumeration value="plc"/>
-			<xs:enumeration value="gmbh"/>
-			<xs:enumeration value="srl"/>
-			<xs:enumeration value="unincorporated"/>
+			<xs:enumeration value="incorporated"/>
+			<xs:enumeration value="dissolved"/>
+			<xs:enumeration value="inAdministration"/>
+			<xs:enumeration value="inReceivership"/>
+			<xs:enumeration value="inChapter7"/>
+			<xs:enumeration value="inChapter9"/>
+			<xs:enumeration value="inChapter11"/>
+			<xs:enumeration value="inChapter12"/>
+			<xs:enumeration value="inChapter13"/>
+			<xs:enumeration value="inChapter15"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownLegalLandUseClassEnum">
@@ -14103,6 +14266,16 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="classF2(c)"/>
 			<xs:enumeration value="classF2(d)"/>
 			<xs:enumeration value="suiGeneris"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownLegalStatusEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ltd"/>
+			<xs:enumeration value="llp"/>
+			<xs:enumeration value="plc"/>
+			<xs:enumeration value="gmbh"/>
+			<xs:enumeration value="srl"/>
+			<xs:enumeration value="unincorporated"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownLegislationEnum">
@@ -14215,6 +14388,14 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="billsOfQuantities(BoQ)"/>
 			<xs:enumeration value="costPlans"/>
 			<xs:enumeration value="estimationsFromConsultant'sDrawings"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownMaturityEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Undeveloped"/>
+			<xs:enumeration value="Developing"/>
+			<xs:enumeration value="Good"/>
+			<xs:enumeration value="Advanced"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownMeasurementBasisEnum">
@@ -19605,6 +19786,26 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="common"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownProjectStageEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RIBA:Stage0StrategicDefinition"/>
+			<xs:enumeration value="RIBA:Stage1PreparationAndBriefing"/>
+			<xs:enumeration value="RIBA:Stage2ConceptDesign"/>
+			<xs:enumeration value="RIBA:Stage3SpatialCoordination"/>
+			<xs:enumeration value="RIBA:Stage4TechnicalDesign"/>
+			<xs:enumeration value="RIBA:Stage5ManufacturingAndConstruction"/>
+			<xs:enumeration value="RIBA:Stage6HandoverAndCloseOut"/>
+			<xs:enumeration value="RIBA:Stage7Use"/>
+			<xs:enumeration value="OGC:GatewayReview0StrategicAssessment"/>
+			<xs:enumeration value="OGC:GatewayReview1BusinessJustification"/>
+			<xs:enumeration value="OGC:GatewayReview2DeliveryStrategyOrProcurementStrategy"/>
+			<xs:enumeration value="OGC:gatewayReview3InvestmentDecision"/>
+			<xs:enumeration value="OGC:GatewayReview4ReadinessForService"/>
+			<xs:enumeration value="OGC:GatewayReview5OperationsReviewAndBenefitsRealisationOrEvaluation"/>
+			<xs:enumeration value="OGC:DecisionPoint1OutlineDesign"/>
+			<xs:enumeration value="OGC:DecisionPoint2DetailedDesign"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownPropertyInspectionStatusEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="empty"/>
@@ -19836,6 +20037,45 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="pollutionMonitoring"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownRelationshipStatusEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="single"/>
+			<xs:enumeration value="married"/>
+			<xs:enumeration value="separated"/>
+			<xs:enumeration value="divorced"/>
+			<xs:enumeration value="widowed"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KnownRelationshipTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="husband"/>
+			<xs:enumeration value="wife"/>
+			<xs:enumeration value="ex-husband"/>
+			<xs:enumeration value="ex-wife"/>
+			<xs:enumeration value="spouse"/>
+			<xs:enumeration value="partner"/>
+			<xs:enumeration value="parent"/>
+			<xs:enumeration value="father"/>
+			<xs:enumeration value="mother"/>
+			<xs:enumeration value="brother"/>
+			<xs:enumeration value="sister"/>
+			<xs:enumeration value="son"/>
+			<xs:enumeration value="daughter"/>
+			<xs:enumeration value="guardian"/>
+			<xs:enumeration value="uncle"/>
+			<xs:enumeration value="aunt"/>
+			<xs:enumeration value="nephew"/>
+			<xs:enumeration value="neice"/>
+			<xs:enumeration value="grandparent"/>
+			<xs:enumeration value="grandfather"/>
+			<xs:enumeration value="grandmother"/>
+			<xs:enumeration value="grandchild"/>
+			<xs:enumeration value="grandson"/>
+			<xs:enumeration value="granddaughter"/>
+			<xs:enumeration value="brother-In-Law"/>
+			<xs:enumeration value="sister-In-Law"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownRentReviewBasisEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="benchmark"/>
@@ -20044,17 +20284,6 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="EU"/>
 			<xs:enumeration value="EEA"/>
 			<xs:enumeration value="EFTA"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="KnownTargetCategoryEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="wholeBuildingGHGIntensityPathway"/>
-			<xs:enumeration value="wholeBuildingEnergyIntensityPathway"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="KnownTargetFrameworkEnum">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="CRREM"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownTenureAgreementEnum">
@@ -34507,6 +34736,14 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="fitOut"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownWorksStatusEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="planned"/>
+			<xs:enumeration value="inProgress"/>
+			<xs:enumeration value="onHold"/>
+			<xs:enumeration value="complete"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="LandAreaType">
 		<xs:sequence>
 			<xs:element name="Dimensions" type="DimensionType" minOccurs="0"/>
@@ -34678,15 +34915,35 @@ Last Updated: 24 January 2022
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:simpleType name="LegalEntityPeopleRoleEnum">
+		<xs:union memberTypes="KnownLegalEntityPeopleRoleEnum xs:string"/>
+	</xs:simpleType>
 	<xs:simpleType name="LegalEntityPeopleStatusEnum">
 		<xs:union memberTypes="KnownLegalEntityPeopleStatusEnum xs:string"/>
 	</xs:simpleType>
+	<xs:complexType name="LegalEntityPeopleStatusType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="StatusDate" type="DateChoiceType" minOccurs="0"/>
+				<xs:element name="StatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="status" type="LegalEntityPeopleStatusEnum"/>
+	</xs:complexType>
 	<xs:complexType name="LegalEntityPeopleType">
 		<xs:complexContent>
 			<xs:extension base="PersonType">
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="StatusDate" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="StatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+					<xs:element name="StatusHistory" type="LegalEntityPeopleStatusType" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
 				<xs:attribute name="jobTitle" type="xs:string"/>
 				<xs:attribute name="jobFunction" type="xs:string"/>
 				<xs:attribute name="department" type="xs:string"/>
+				<xs:attribute name="role" type="LegalEntityPeopleRoleEnum"/>
 				<xs:attribute name="status" type="LegalEntityPeopleStatusEnum"/>
 				<xs:attribute name="isLegallyResponsible" type="xs:boolean"/>
 			</xs:extension>
@@ -34695,10 +34952,29 @@ Last Updated: 24 January 2022
 	<xs:simpleType name="LegalEntityStatusEnum">
 		<xs:union memberTypes="KnownLegalEntityStatusEnum xs:string"/>
 	</xs:simpleType>
+	<xs:complexType name="LegalEntityStatusType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="StatusDate" type="DateChoiceType" minOccurs="0"/>
+				<xs:element name="StatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="status" type="LegalEntityStatusEnum"/>
+	</xs:complexType>
 	<xs:complexType name="LegalEntityType">
 		<xs:complexContent>
 			<xs:extension base="GenericContentType">
 				<xs:sequence>
+					<xs:choice>
+						<xs:element name="StatusDate" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="StatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+					<xs:choice>
+						<xs:element name="LegalStatusDate" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="LegalStatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+					<xs:element name="StatusHistory" type="LegalEntityStatusType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="LegalStatusHistory" type="LegalStatusType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="ActiveBetween" type="DateRangeChoiceType" minOccurs="0"/>
 					<xs:element name="AccountingStandard" type="AccountingStandardType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Currency" type="CurrencyType" minOccurs="0" maxOccurs="unbounded"/>
@@ -34713,7 +34989,8 @@ Last Updated: 24 January 2022
 				</xs:sequence>
 				<xs:attribute name="isCurrent" type="xs:boolean"/>
 				<xs:attribute name="name" type="xs:string"/>
-				<xs:attribute name="legalStatus" type="LegalEntityStatusEnum"/>
+				<xs:attribute name="status" type="LegalEntityStatusEnum"/>
+				<xs:attribute name="legalStatus" type="LegalStatusEnum"/>
 				<xs:attribute name="registeredID" type="xs:string"/>
 				<xs:attribute name="isSpecialPurposeVehicle" type="xs:boolean"/>
 			</xs:extension>
@@ -34737,6 +35014,18 @@ Last Updated: 24 January 2022
 			<xs:element name="Classes" type="LegalLandUseClassEnum" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="description" type="xs:string"/>
+	</xs:complexType>
+	<xs:simpleType name="LegalStatusEnum">
+		<xs:union memberTypes="KnownLegalStatusEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="LegalStatusType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="LegalStatusDate" type="DateChoiceType" minOccurs="0"/>
+				<xs:element name="LegalStatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="legalStatus" type="LegalStatusEnum"/>
 	</xs:complexType>
 	<xs:simpleType name="LegislationEnum">
 		<xs:union memberTypes="KnownLegislationEnum xs:string"/>
@@ -35093,6 +35382,7 @@ Last Updated: 24 January 2022
 					<xs:element name="Borrower" type="BorrowerType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Lender" type="LenderType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Currency" type="CurrencyType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Jurisdiction" type="JurisdictionType" minOccurs="0"/>
 					<xs:element name="JurisdictionalLegislation" type="JurisdictionalLegislationType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Length" type="DurationType" minOccurs="0"/>
 					<xs:element name="Remaining" type="DurationType" minOccurs="0"/>
@@ -35264,6 +35554,9 @@ Last Updated: 24 January 2022
 	</xs:complexType>
 	<xs:simpleType name="MaterialQuantitySourceEnum">
 		<xs:union memberTypes="KnownMaterialQuantitySourceEnum xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="MaturityEnum">
+		<xs:union memberTypes="KnownMaturityEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="MeasuredPropertyType">
 		<xs:complexContent>
@@ -35609,6 +35902,7 @@ Last Updated: 24 January 2022
 		<xs:complexContent>
 			<xs:extension base="PropertyContentType">
 				<xs:sequence>
+					<xs:element name="Source" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Jurisdiction" type="JurisdictionType" minOccurs="0"/>
 					<xs:element name="JurisdictionalLegislation" type="JurisdictionalLegislationType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
@@ -35675,6 +35969,7 @@ Last Updated: 24 January 2022
 					<xs:element name="Dimensions" type="ObjectMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Supplier" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Manufacturer" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Mantainer" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Installed" type="DateChoiceType" minOccurs="0"/>
 					<xs:element name="Installation" type="InstallationType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Upgraded" type="DateChoiceType" minOccurs="0"/>
@@ -35709,6 +36004,8 @@ Last Updated: 24 January 2022
 				<xs:attribute name="rating" type="InformationQualityEnum"/>
 				<xs:attribute name="isNotPresent" type="xs:boolean"/>
 				<xs:attribute name="isNotWorking" type="xs:boolean"/>
+				<xs:attribute name="isInWarrantyPeriod" type="xs:boolean"/>
+				<xs:attribute name="isInMaintenanceContract" type="xs:boolean"/>
 				<xs:attribute name="isExternallyConnected" type="xs:boolean"/>
 				<xs:attribute name="isIncludedInInspection" type="xs:boolean"/>
 				<xs:attribute name="isIncludedInTransaction" type="xs:boolean"/>
@@ -35945,11 +36242,29 @@ Last Updated: 24 January 2022
 	<xs:simpleType name="PerPeriodEnum">
 		<xs:union memberTypes="KnownPerPeriodEnum xs:string"/>
 	</xs:simpleType>
+	<xs:complexType name="PersonNameType">
+		<xs:sequence>
+			<xs:element name="ActiveBetween" type="DateRangeChoiceType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="fullname" type="xs:string"/>
+		<xs:attribute name="title" type="xs:string"/>
+		<xs:attribute name="firstName" type="xs:string"/>
+		<xs:attribute name="middleName" type="xs:string"/>
+		<xs:attribute name="lastName" type="xs:string"/>
+		<xs:attribute name="nameOrder" type="NameOrderEnum"/>
+		<xs:attribute name="salutation" type="xs:string"/>
+		<xs:attribute name="gender" type="GenderEnum"/>
+	</xs:complexType>
 	<xs:complexType name="PersonType">
 		<xs:complexContent>
 			<xs:extension base="GenericContentType">
 				<xs:sequence>
 					<xs:element name="ActiveBetween" type="DateRangeChoiceType" minOccurs="0"/>
+					<xs:choice>
+						<xs:element name="RelationshipStatusDate" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="RelationshipStatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+					<xs:element name="RelationshipStatusHistory" type="RelationshipStatusType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:choice>
 						<xs:element name="DateOfBirth" type="DateChoiceType" minOccurs="0"/>
 						<xs:element name="DateOfBirthRange" type="DateRangeChoiceType" minOccurs="0"/>
@@ -35959,7 +36274,9 @@ Last Updated: 24 January 2022
 						<xs:element name="DateOfDeathRange" type="DateRangeChoiceType" minOccurs="0"/>
 					</xs:choice>
 					<xs:element name="Age" type="DurationType" minOccurs="0"/>
-					<xs:element name="Alias" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Alias" type="PersonNameType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="PreviousName" type="PersonNameType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Related" type="RelatedType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="TaxDomicile" type="JurisdictionType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Citizenship" type="JurisdictionType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Address" type="AddressType" minOccurs="0"/>
@@ -35971,6 +36288,7 @@ Last Updated: 24 January 2022
 					<xs:element name="DigitalCertificate" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="isCurrent" type="xs:boolean"/>
+				<xs:attribute name="relationshipStatus" type="RelationshipStatusEnum"/>
 				<xs:attribute name="fullname" type="xs:string"/>
 				<xs:attribute name="title" type="xs:string"/>
 				<xs:attribute name="firstName" type="xs:string"/>
@@ -36094,6 +36412,7 @@ Last Updated: 24 January 2022
 					<xs:element name="StatusHistory" type="PlanningStatusType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Participants" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Jurisdiction" type="JurisdictionType" minOccurs="0"/>
+					<xs:element name="JurisdictionalLegislation" type="JurisdictionalLegislationType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Conditions" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="OtherAffectedProperties" type="PropertyType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="LinkedPlanning" type="PlanningType" minOccurs="0" maxOccurs="unbounded"/>
@@ -36360,6 +36679,9 @@ Last Updated: 24 January 2022
 	<xs:simpleType name="ProjectDescriptionEnum">
 		<xs:union memberTypes="KnownProjectDescriptionEnum xs:string"/>
 	</xs:simpleType>
+	<xs:simpleType name="ProjectStageEnum">
+		<xs:union memberTypes="KnownProjectStageEnum xs:string"/>
+	</xs:simpleType>
 	<xs:simpleType name="ProjectStatusEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="initiationAndConceptPhase"/>
@@ -36382,7 +36704,7 @@ Last Updated: 24 January 2022
 					<xs:element name="SubProjectsIncluded" type="ProjectDescriptionEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="ConstructionPeriod" type="ConstructionPeriodType" minOccurs="0"/>
 					<xs:element name="KeyMilestones" type="MilestoneType" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="Site" type="SiteType" minOccurs="0"/>
+					<xs:element name="Site" type="SiteType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="SeismicZones" type="SeismicZoneType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Procurement" type="ProcurementType" minOccurs="0"/>
 					<xs:element name="CostBaseDate" type="DateChoiceType" minOccurs="0"/>
@@ -36419,6 +36741,7 @@ Last Updated: 24 January 2022
 				<xs:attribute name="costReportStatus" type="CostReportStatusEnum"/>
 				<xs:attribute name="reportPriceBasis" type="ReportPriceBasisEnum"/>
 				<xs:attribute name="projectStatus" type="ProjectStatusEnum"/>
+				<xs:attribute name="projectStage" type="ProjectStageEnum"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -36688,9 +37011,13 @@ Last Updated: 24 January 2022
 					<xs:element name="SecondaryUse" type="PropertyUseEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Taxes" type="PropertyTaxesType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Property" type="PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="PartOfProperty" type="PropertyType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="isPrimaryProperty" type="xs:boolean"/>
+				<xs:attribute name="isSecondaryProperty" type="xs:boolean"/>
+				<xs:attribute name="isIncludedInInspection" type="xs:boolean"/>
 				<xs:attribute name="isIncludedInTransaction" type="xs:boolean"/>
+				<xs:attribute name="isIncludedInExchange" type="xs:boolean"/>
 				<xs:attribute name="name" type="xs:string"/>
 				<xs:attribute name="reference" type="xs:string"/>
 				<xs:attribute name="type" type="PropertyTypeEnum"/>
@@ -36961,6 +37288,29 @@ Last Updated: 24 January 2022
 	</xs:complexType>
 	<xs:simpleType name="ReinstatementEnum">
 		<xs:union memberTypes="KnownReinstatementEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="RelatedType">
+		<xs:sequence>
+			<xs:element name="ActiveBetween" type="DateRangeChoiceType" minOccurs="0"/>
+			<xs:element name="Person" type="PersonType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="isCurrent" type="xs:boolean"/>
+		<xs:attribute name="relationshipType" type="RelationshipTypeEnum"/>
+	</xs:complexType>
+	<xs:simpleType name="RelationshipStatusEnum">
+		<xs:union memberTypes="KnownRelationshipStatusEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="RelationshipStatusType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="StatusDate" type="DateChoiceType" minOccurs="0"/>
+				<xs:element name="StatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="relationshipStatus" type="RelationshipStatusEnum"/>
+	</xs:complexType>
+	<xs:simpleType name="RelationshipTypeEnum">
+		<xs:union memberTypes="KnownRelationshipTypeEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="RentBreakType">
 		<xs:sequence>
@@ -37495,6 +37845,8 @@ Last Updated: 24 January 2022
 			<xs:extension base="PropertyContentType">
 				<xs:sequence>
 					<xs:element name="Dimensions" type="DimensionType" minOccurs="0"/>
+					<xs:element name="Parcel" type="ParcelType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Indicator" type="ComplexMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="stateOfUse" type="SiteStateOfUseEnum"/>
 				<xs:attribute name="typeOfUse" type="SiteTypeOfUseEnum"/>
@@ -37607,7 +37959,7 @@ Last Updated: 24 January 2022
 	</xs:simpleType>
 	<xs:complexType name="StatisticsType">
 		<xs:sequence>
-			<xs:element name="ConfidenceLevel" type="SimplePercentageType" minOccurs="0"/>
+			<xs:element name="Confidence" type="ConfidenceType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="model" type="StatisticalModelEnum"/>
 	</xs:complexType>
@@ -37680,12 +38032,6 @@ Last Updated: 24 January 2022
 			<xs:enumeration value="clubDeal"/>
 			<xs:enumeration value="other"/>
 		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="TargetCategoryEnum">
-		<xs:union memberTypes="KnownTargetCategoryEnum xs:string"/>
-	</xs:simpleType>
-	<xs:simpleType name="TargetFrameworkEnum">
-		<xs:union memberTypes="KnownTargetFrameworkEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="TargetsType">
 		<xs:complexContent>
@@ -37917,6 +38263,7 @@ Last Updated: 24 January 2022
 					<xs:element name="Premises" type="PremisesType" minOccurs="0"/>
 					<xs:element name="SpecialRights" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Length" type="DurationType" minOccurs="0"/>
+					<xs:element name="Jurisdiction" type="JurisdictionType" minOccurs="0"/>
 					<xs:element name="JurisdictionalLegislation" type="JurisdictionalLegislationType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Renewal" type="RentRenewalType" minOccurs="0"/>
 					<xs:element name="Breaks" type="RentBreakType" minOccurs="0" maxOccurs="unbounded"/>
@@ -38070,6 +38417,7 @@ Last Updated: 24 January 2022
 	<xs:simpleType name="TrainPowerSystemEnum">
 		<xs:union memberTypes="KnownTrainPowerSystemEnum xs:string"/>
 	</xs:simpleType>
+	<xs:element name="Transaction" substitutionGroup="DataTransfer"/>
 	<xs:simpleType name="TransportServiceEnum">
 		<xs:union memberTypes="KnownTransportServiceEnum xs:string"/>
 	</xs:simpleType>
@@ -38404,7 +38752,8 @@ Last Updated: 24 January 2022
 				<xs:element name="Monetary" type="SimpleMonetaryType" minOccurs="0"/>
 				<xs:element name="Date" type="DateChoiceType" minOccurs="0"/>
 				<xs:element name="DateRange" type="DateRangeChoiceType" minOccurs="0"/>
-				<xs:element name="Measurement" type="SimpleMeasurementType" minOccurs="0"/>
+				<xs:element name="SimpleMeasurement" type="SimpleMeasurementType" minOccurs="0"/>
+				<xs:element name="ComplexMeasurement" type="ComplexMeasurementType" minOccurs="0"/>
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="name" type="xs:string"/>
@@ -38598,9 +38947,18 @@ Last Updated: 24 January 2022
 		<xs:complexContent>
 			<xs:extension base="PropertyContentType">
 				<xs:sequence>
+					<xs:choice>
+						<xs:element name="StatusDate" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="StatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+					<xs:element name="StatusHistory" type="WorksStatusType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Length" type="DurationType" minOccurs="0"/>
 					<xs:element name="ConsentApproval" type="ConsentApprovalType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
+				<xs:attribute name="status" type="WorksStatusEnum"/>
+				<xs:attribute name="projectStage" type="ProjectStageEnum"/>
 				<xs:attribute name="type" type="WorksAlterationsChangesTypeEnum"/>
 				<xs:attribute name="scope" type="xs:string"/>
 				<xs:attribute name="isIncomplete" type="xs:boolean"/>
@@ -38611,6 +38969,18 @@ Last Updated: 24 January 2022
 	<xs:simpleType name="WorksAlterationsChangesTypeEnum">
 		<xs:union memberTypes="KnownWorksAlterationsChangesTypeEnum xs:string"/>
 	</xs:simpleType>
+	<xs:simpleType name="WorksStatusEnum">
+		<xs:union memberTypes="KnownWorksStatusEnum xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="WorksStatusType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="StatusDate" type="DateChoiceType" minOccurs="0"/>
+				<xs:element name="StatusDateRange" type="DateRangeChoiceType" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="status" type="WorksStatusEnum"/>
+	</xs:complexType>
 	<xs:complexType name="YieldType">
 		<xs:sequence>
 			<xs:element name="Initial" type="SimplePercentageType" minOccurs="0"/>
@@ -38626,6 +38996,8 @@ Last Updated: 24 January 2022
 					<xs:element name="Dimensions" type="DimensionType" minOccurs="0"/>
 					<xs:element name="Plans" type="PlanType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Spaces" type="SpaceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Zones" type="ZoneType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="PartOfZone" type="ZoneType" minOccurs="0"/>
 					<xs:element name="Measurement" type="PropertyMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="MeasuredComponents" type="ComponentMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="RightsHolders" type="PropertyRightsHolderType" minOccurs="0" maxOccurs="unbounded"/>
