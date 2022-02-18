@@ -112,10 +112,16 @@
 		".rics:DigitalTwin": {
 			"$ref": "#/definitions/rics:DataTransferType"
 		},
+		".rics:DueDiligence": {
+			"$ref": "#/definitions/rics:DataTransferType"
+		},
 		".rics:PropertyLogbook": {
 			"$ref": "#/definitions/rics:DataTransferType"
 		},
 		".rics:PropertyPassport": {
+			"$ref": "#/definitions/rics:DataTransferType"
+		},
+		".rics:Transaction": {
 			"$ref": "#/definitions/rics:DataTransferType"
 		},
 		".xal:AddressDetails": {
@@ -4288,8 +4294,17 @@
 		"rics:AttestationType": {
 			"additionalProperties": false,
 			"properties": {
+				"@affirmation": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@comments": {
+					"$ref": "#/definitions/xs:string"
+				},
 				"@declaration": {
 					"$ref": "#/definitions/xs:string"
+				},
+				"@isAbleToAffirm": {
+					"$ref": "#/definitions/xs:boolean"
 				},
 				"rics:Date": {
 					"$ref": "#/definitions/rics:DateChoiceType"
@@ -8510,6 +8525,19 @@
 				"rics:ActualQuantities": {
 					"$ref": "#/definitions/rics:SimplePercentageType"
 				},
+				"rics:AssessmentStandards": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/xs:string"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/xs:string"
+							},
+							"type": "array"
+						}
+					]
+				},
 				"rics:AssessmentTools": {
 					"anyOf": [
 						{
@@ -8713,6 +8741,8 @@
 						"gas",
 						"licence",
 						"guarantee",
+						"warranty",
+						"maintenanceContract",
 						"indemnity",
 						"insurance",
 						"energyEfficiency"
@@ -8798,6 +8828,9 @@
 				"rics:FailedDate": {
 					"$ref": "#/definitions/rics:DateChoiceType"
 				},
+				"rics:FirstInspectionDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
 				"rics:GUID": {
 					"anyOf": [
 						{
@@ -8845,6 +8878,9 @@
 				},
 				"rics:LastInspectionDate": {
 					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:Length": {
+					"$ref": "#/definitions/rics:DurationType"
 				},
 				"rics:Limitations": {
 					"anyOf": [
@@ -8929,6 +8965,9 @@
 				},
 				"rics:RelianceValue": {
 					"$ref": "#/definitions/rics:SimpleMonetaryType"
+				},
+				"rics:Remaining": {
+					"$ref": "#/definitions/rics:DurationType"
 				},
 				"rics:RevocationDate": {
 					"$ref": "#/definitions/rics:DateChoiceType"
@@ -9700,11 +9739,27 @@
 				"@description": {
 					"$ref": "#/definitions/xs:string"
 				},
+				"@ranking": {
+					"$ref": "#/definitions/xs:integer"
+				},
+				"@rationale": {
+					"$ref": "#/definitions/xs:string"
+				},
 				"rics:ActiveBetween": {
 					"$ref": "#/definitions/rics:DurationType"
 				},
-				"rics:Adjustment": {
-					"$ref": "#/definitions/rics:SimplePercentageType"
+				"rics:Adjustments": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:ValueType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:ValueType"
+							},
+							"type": "array"
+						}
+					]
 				},
 				"rics:ComparableProperty": {
 					"anyOf": [
@@ -9714,6 +9769,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:ValuedPropertyType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Differences": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:ValueType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:ValueType"
 							},
 							"type": "array"
 						}
@@ -9740,19 +9808,6 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:InformationSourceType"
-							},
-							"type": "array"
-						}
-					]
-				},
-				"rics:Justification": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/xs:string"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/xs:string"
 							},
 							"type": "array"
 						}
@@ -9835,9 +9890,6 @@
 							"type": "array"
 						}
 					]
-				},
-				"rics:Weighting": {
-					"$ref": "#/definitions/rics:SimplePercentageType"
 				}
 			},
 			"type": "object"
@@ -9935,6 +9987,39 @@
 				}
 			]
 		},
+		"rics:ComplexMeasurementCategoryEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"wholeBuildingGHGIntensityPathway",
+						"wholeBuildingEnergyIntensityPathway",
+						"compliant",
+						"functional",
+						"economic",
+						"sustainable",
+						"performing"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:ComplexMeasurementFrameworkEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"IBOS",
+						"CRREM"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
 		"rics:ComplexMeasurementItemEnum": {
 			"anyOf": [
 				{
@@ -9948,7 +10033,8 @@
 						"nitrogenTriflouride",
 						"hydrofluorocarbon",
 						"perfluorocarbon",
-						"sulphurHexafluoride"
+						"sulphurHexafluoride",
+						"carbonDioxideEquivalent"
 					],
 					"type": "string"
 				},
@@ -9982,7 +10068,13 @@
 			"anyOf": [
 				{
 					"enum": [
+						"target",
+						"benchmark",
+						"legalRequirement",
+						"bestPractice",
+						"forecast",
 						"estimated",
+						"actual",
 						"final",
 						"unknown",
 						"other"
@@ -10002,6 +10094,51 @@
 						"consumption",
 						"netEnergy",
 						"waste",
+						"temperatureReadings",
+						"humidity",
+						"userSatisfactionData",
+						"CO2Level",
+						"airFlow",
+						"noiseLevel",
+						"lightingLevel",
+						"incidentLogs",
+						"auditFindingsAndRecommendations",
+						"riskAssessmentsAndRecommendations",
+						"userConcernsAndIssuesRaised",
+						"userFunctionalRequirements",
+						"occupancyAndUtilisationLevel",
+						"workspaceProtocols",
+						"businessContinuityPlan",
+						"businessContinuityPlanTestingRegime",
+						"testsAndRecommendations",
+						"ICTInfrastructureAvailability",
+						"incidenceOfFailure",
+						"costs",
+						"conditionAssessments",
+						"backlogMaintenance",
+						"costedCAPEXPLans",
+						"assetStrategy",
+						"maintenanceRecords",
+						"floorArea",
+						"propertyRunningCosts",
+						"kWhEnergyConsumed",
+						"proportionOfEnergyFromSustainableSources",
+						"litresOfWaterConsumption",
+						"costOfUtilities",
+						"netZeroCarbonStrategy",
+						"volumesAndTypeOfWasteDisposedOf",
+						"methodsOfDisposal",
+						"costsIncurred",
+						"stakeholderCommunityEngagementPlan",
+						"socialValueStrategy",
+						"socialValueGenerated",
+						"EVChargingPoints",
+						"greenTravelPlan",
+						"showerProvisionForCyclists",
+						"userSentimentSurveyData",
+						"KPIsRelatingToResponsiveness",
+						"performanceAgainstKPIs",
+						"helpdeskData",
 						"unknown",
 						"other"
 					],
@@ -10025,7 +10162,7 @@
 			},
 			"properties": {
 				"@category": {
-					"$ref": "#/definitions/rics:TargetCategoryEnum"
+					"$ref": "#/definitions/rics:ComplexMeasurementCategoryEnum"
 				},
 				"@denominatorUnitOfMeasurement": {
 					"$ref": "#/definitions/rics:UnitOfMeasurementEnum"
@@ -10034,13 +10171,34 @@
 					"$ref": "#/definitions/xs:string"
 				},
 				"@framework": {
-					"$ref": "#/definitions/rics:TargetFrameworkEnum"
+					"$ref": "#/definitions/rics:ComplexMeasurementFrameworkEnum"
 				},
 				"@isCurrent": {
 					"$ref": "#/definitions/xs:boolean"
 				},
+				"@isMaximum": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isMean": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isMedian": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isMinimum": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isMode": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isRange": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@item": {
 					"$ref": "#/definitions/rics:ComplexMeasurementItemEnum"
+				},
+				"@maturity": {
+					"$ref": "#/definitions/rics:MaturityEnum"
 				},
 				"@purpose": {
 					"$ref": "#/definitions/rics:MeasurementPurposeEnum"
@@ -10081,6 +10239,9 @@
 				},
 				"rics:ActiveBetween": {
 					"$ref": "#/definitions/rics:DurationType"
+				},
+				"rics:Boolean": {
+					"$ref": "#/definitions/rics:SimpleBooleanType"
 				},
 				"rics:BuildingComplexes": {
 					"anyOf": [
@@ -10150,6 +10311,9 @@
 						}
 					]
 				},
+				"rics:Frequency": {
+					"$ref": "#/definitions/rics:DurationType"
+				},
 				"rics:GUID": {
 					"anyOf": [
 						{
@@ -10171,6 +10335,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:InformationSourceType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:JurisdictionalLegislation": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:JurisdictionalLegislationType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:JurisdictionalLegislationType"
 							},
 							"type": "array"
 						}
@@ -10220,6 +10397,19 @@
 				},
 				"rics:MeasurementDateRange": {
 					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				},
+				"rics:Methodology": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:MethodologyEnum"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:MethodologyEnum"
+							},
+							"type": "array"
+						}
+					]
 				},
 				"rics:Monetary": {
 					"$ref": "#/definitions/rics:SimpleMonetaryType"
@@ -10426,6 +10616,25 @@
 						"fittedWidth",
 						"fittedDepth",
 						"fittedHeight",
+						"temperature",
+						"CO2",
+						"ventilationRate",
+						"noise",
+						"lighting",
+						"healthAndSafety",
+						"workspaceOptimisation",
+						"businessContinuity",
+						"connectivity",
+						"lifeCycleCosts",
+						"operatingCosts",
+						"operatingRange",
+						"operationalEnergyUse",
+						"waste",
+						"socialValue",
+						"transport",
+						"userExperience",
+						"responsivenessOfFMServices",
+						"well-being",
 						"unknown",
 						"other"
 					],
@@ -10890,6 +11099,30 @@
 				},
 				"@specialUnusualProvisions": {
 					"$ref": "#/definitions/xs:string"
+				}
+			},
+			"type": "object"
+		},
+		"rics:ConfidenceType": {
+			"additionalProperties": false,
+			"properties": {
+				"@calculationMethod": {
+					"$ref": "#/definitions/xs:string"
+				},
+				"@isAsymmetrical": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"rics:Interval": {
+					"$ref": "#/definitions/rics:SimplePercentageType"
+				},
+				"rics:Level": {
+					"$ref": "#/definitions/rics:SimplePercentageType"
+				},
+				"rics:LowerInterval": {
+					"$ref": "#/definitions/rics:SimplePercentageType"
+				},
+				"rics:UpperInterval": {
+					"$ref": "#/definitions/rics:SimplePercentageType"
 				}
 			},
 			"type": "object"
@@ -12560,6 +12793,39 @@
 				}
 			]
 		},
+		"rics:CostEmissionMappingStandardEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"NRM",
+						"CESMM4",
+						"RMM",
+						"MMHW",
+						"uniclass",
+						"uniformat",
+						"masterFormat",
+						"CIQS",
+						"ASAQS"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:CostEmissionMappingType": {
+			"additionalProperties": false,
+			"properties": {
+				"@code": {
+					"$ref": "#/definitions/xs:string"
+				},
+				"@standard": {
+					"$ref": "#/definitions/rics:CostEmissionMappingStandardEnum"
+				}
+			},
+			"type": "object"
+		},
 		"rics:CostReportStatusEnum": {
 			"enum": [
 				"pre-constructionForecast",
@@ -12835,6 +13101,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/xs:string"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Mapping": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:CostEmissionMappingType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:CostEmissionMappingType"
 							},
 							"type": "array"
 						}
@@ -15388,6 +15667,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/xs:string"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Mapping": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:CostEmissionMappingType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:CostEmissionMappingType"
 							},
 							"type": "array"
 						}
@@ -18830,6 +19122,9 @@
 				"rics:CollectedDate": {
 					"$ref": "#/definitions/rics:DateChoiceType"
 				},
+				"rics:Confidence": {
+					"$ref": "#/definitions/rics:ConfidenceType"
+				},
 				"rics:CopyrightHolders": {
 					"anyOf": [
 						{
@@ -19097,6 +19392,9 @@
 				},
 				"rics:UpdatedDate": {
 					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:Valid": {
+					"$ref": "#/definitions/rics:DurationType"
 				},
 				"rics:Values": {
 					"anyOf": [
@@ -21348,6 +21646,8 @@
 				"gas",
 				"licence",
 				"guarantee",
+				"warranty",
+				"maintenanceContract",
 				"indemnity",
 				"insurance",
 				"energyEfficiency"
@@ -21506,6 +21806,25 @@
 			],
 			"type": "string"
 		},
+		"rics:KnownComplexMeasurementCategoryEnum": {
+			"enum": [
+				"wholeBuildingGHGIntensityPathway",
+				"wholeBuildingEnergyIntensityPathway",
+				"compliant",
+				"functional",
+				"economic",
+				"sustainable",
+				"performing"
+			],
+			"type": "string"
+		},
+		"rics:KnownComplexMeasurementFrameworkEnum": {
+			"enum": [
+				"IBOS",
+				"CRREM"
+			],
+			"type": "string"
+		},
 		"rics:KnownComplexMeasurementItemEnum": {
 			"enum": [
 				"greyWater",
@@ -21517,7 +21836,8 @@
 				"nitrogenTriflouride",
 				"hydrofluorocarbon",
 				"perfluorocarbon",
-				"sulphurHexafluoride"
+				"sulphurHexafluoride",
+				"carbonDioxideEquivalent"
 			],
 			"type": "string"
 		},
@@ -21537,7 +21857,13 @@
 		},
 		"rics:KnownComplexMeasurementStatusEnum": {
 			"enum": [
+				"target",
+				"benchmark",
+				"legalRequirement",
+				"bestPractice",
+				"forecast",
 				"estimated",
+				"actual",
 				"final",
 				"unknown",
 				"other"
@@ -21550,6 +21876,51 @@
 				"consumption",
 				"netEnergy",
 				"waste",
+				"temperatureReadings",
+				"humidity",
+				"userSatisfactionData",
+				"CO2Level",
+				"airFlow",
+				"noiseLevel",
+				"lightingLevel",
+				"incidentLogs",
+				"auditFindingsAndRecommendations",
+				"riskAssessmentsAndRecommendations",
+				"userConcernsAndIssuesRaised",
+				"userFunctionalRequirements",
+				"occupancyAndUtilisationLevel",
+				"workspaceProtocols",
+				"businessContinuityPlan",
+				"businessContinuityPlanTestingRegime",
+				"testsAndRecommendations",
+				"ICTInfrastructureAvailability",
+				"incidenceOfFailure",
+				"costs",
+				"conditionAssessments",
+				"backlogMaintenance",
+				"costedCAPEXPLans",
+				"assetStrategy",
+				"maintenanceRecords",
+				"floorArea",
+				"propertyRunningCosts",
+				"kWhEnergyConsumed",
+				"proportionOfEnergyFromSustainableSources",
+				"litresOfWaterConsumption",
+				"costOfUtilities",
+				"netZeroCarbonStrategy",
+				"volumesAndTypeOfWasteDisposedOf",
+				"methodsOfDisposal",
+				"costsIncurred",
+				"stakeholderCommunityEngagementPlan",
+				"socialValueStrategy",
+				"socialValueGenerated",
+				"EVChargingPoints",
+				"greenTravelPlan",
+				"showerProvisionForCyclists",
+				"userSentimentSurveyData",
+				"KPIsRelatingToResponsiveness",
+				"performanceAgainstKPIs",
+				"helpdeskData",
 				"unknown",
 				"other"
 			],
@@ -21565,6 +21936,25 @@
 				"fittedWidth",
 				"fittedDepth",
 				"fittedHeight",
+				"temperature",
+				"CO2",
+				"ventilationRate",
+				"noise",
+				"lighting",
+				"healthAndSafety",
+				"workspaceOptimisation",
+				"businessContinuity",
+				"connectivity",
+				"lifeCycleCosts",
+				"operatingCosts",
+				"operatingRange",
+				"operationalEnergyUse",
+				"waste",
+				"socialValue",
+				"transport",
+				"userExperience",
+				"responsivenessOfFMServices",
+				"well-being",
 				"unknown",
 				"other"
 			],
@@ -22865,6 +23255,20 @@
 				"utilities",
 				"wasteManagement",
 				"workAndUtilitiesOffsite"
+			],
+			"type": "string"
+		},
+		"rics:KnownCostEmissionMappingStandardEnum": {
+			"enum": [
+				"NRM",
+				"CESMM4",
+				"RMM",
+				"MMHW",
+				"uniclass",
+				"uniformat",
+				"masterFormat",
+				"CIQS",
+				"ASAQS"
 			],
 			"type": "string"
 		},
@@ -24560,7 +24964,7 @@
 			],
 			"type": "string"
 		},
-		"rics:KnownLegalEntityPeopleStatusEnum": {
+		"rics:KnownLegalEntityPeopleRoleEnum": {
 			"enum": [
 				"director",
 				"partner",
@@ -24571,14 +24975,26 @@
 			],
 			"type": "string"
 		},
+		"rics:KnownLegalEntityPeopleStatusEnum": {
+			"enum": [
+				"apppointed",
+				"resigned",
+				"removed"
+			],
+			"type": "string"
+		},
 		"rics:KnownLegalEntityStatusEnum": {
 			"enum": [
-				"ltd",
-				"llp",
-				"plc",
-				"gmbh",
-				"srl",
-				"unincorporated"
+				"incorporated",
+				"dissolved",
+				"inAdministration",
+				"inReceivership",
+				"inChapter7",
+				"inChapter9",
+				"inChapter11",
+				"inChapter12",
+				"inChapter13",
+				"inChapter15"
 			],
 			"type": "string"
 		},
@@ -24637,6 +25053,17 @@
 				"classF2(c)",
 				"classF2(d)",
 				"suiGeneris"
+			],
+			"type": "string"
+		},
+		"rics:KnownLegalStatusEnum": {
+			"enum": [
+				"ltd",
+				"llp",
+				"plc",
+				"gmbh",
+				"srl",
+				"unincorporated"
 			],
 			"type": "string"
 		},
@@ -24760,6 +25187,15 @@
 				"billsOfQuantities(BoQ)",
 				"costPlans",
 				"estimationsFromConsultant'sDrawings"
+			],
+			"type": "string"
+		},
+		"rics:KnownMaturityEnum": {
+			"enum": [
+				"Undeveloped",
+				"Developing",
+				"Good",
+				"Advanced"
 			],
 			"type": "string"
 		},
@@ -26362,6 +26798,27 @@
 			],
 			"type": "string"
 		},
+		"rics:KnownProjectStageEnum": {
+			"enum": [
+				"RIBA:Stage0StrategicDefinition",
+				"RIBA:Stage1PreparationAndBriefing",
+				"RIBA:Stage2ConceptDesign",
+				"RIBA:Stage3SpatialCoordination",
+				"RIBA:Stage4TechnicalDesign",
+				"RIBA:Stage5ManufacturingAndConstruction",
+				"RIBA:Stage6HandoverAndCloseOut",
+				"RIBA:Stage7Use",
+				"OGC:GatewayReview0StrategicAssessment",
+				"OGC:GatewayReview1BusinessJustification",
+				"OGC:GatewayReview2DeliveryStrategyOrProcurementStrategy",
+				"OGC:gatewayReview3InvestmentDecision",
+				"OGC:GatewayReview4ReadinessForService",
+				"OGC:GatewayReview5OperationsReviewAndBenefitsRealisationOrEvaluation",
+				"OGC:DecisionPoint1OutlineDesign",
+				"OGC:DecisionPoint2DetailedDesign"
+			],
+			"type": "string"
+		},
 		"rics:KnownPropertyInspectionStatusEnum": {
 			"enum": [
 				"empty",
@@ -26609,6 +27066,47 @@
 			],
 			"type": "string"
 		},
+		"rics:KnownRelationshipStatusEnum": {
+			"enum": [
+				"single",
+				"married",
+				"separated",
+				"divorced",
+				"widowed"
+			],
+			"type": "string"
+		},
+		"rics:KnownRelationshipTypeEnum": {
+			"enum": [
+				"husband",
+				"wife",
+				"ex-husband",
+				"ex-wife",
+				"spouse",
+				"partner",
+				"parent",
+				"father",
+				"mother",
+				"brother",
+				"sister",
+				"son",
+				"daughter",
+				"guardian",
+				"uncle",
+				"aunt",
+				"nephew",
+				"neice",
+				"grandparent",
+				"grandfather",
+				"grandmother",
+				"grandchild",
+				"grandson",
+				"granddaughter",
+				"brother-In-Law",
+				"sister-In-Law"
+			],
+			"type": "string"
+		},
 		"rics:KnownRentReviewBasisEnum": {
 			"enum": [
 				"benchmark",
@@ -26834,19 +27332,6 @@
 				"EU",
 				"EEA",
 				"EFTA"
-			],
-			"type": "string"
-		},
-		"rics:KnownTargetCategoryEnum": {
-			"enum": [
-				"wholeBuildingGHGIntensityPathway",
-				"wholeBuildingEnergyIntensityPathway"
-			],
-			"type": "string"
-		},
-		"rics:KnownTargetFrameworkEnum": {
-			"enum": [
-				"CRREM"
 			],
 			"type": "string"
 		},
@@ -30020,6 +30505,15 @@
 			],
 			"type": "string"
 		},
+		"rics:KnownWorksStatusEnum": {
+			"enum": [
+				"planned",
+				"inProgress",
+				"onHold",
+				"complete"
+			],
+			"type": "string"
+		},
 		"rics:LandAreaType": {
 			"additionalProperties": false,
 			"properties": {
@@ -31176,7 +31670,7 @@
 			},
 			"type": "object"
 		},
-		"rics:LegalEntityPeopleStatusEnum": {
+		"rics:LegalEntityPeopleRoleEnum": {
 			"anyOf": [
 				{
 					"enum": [
@@ -31193,6 +31687,36 @@
 					"type": "string"
 				}
 			]
+		},
+		"rics:LegalEntityPeopleStatusEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"apppointed",
+						"resigned",
+						"removed"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:LegalEntityPeopleStatusType": {
+			"additionalProperties": false,
+			"properties": {
+				"@status": {
+					"$ref": "#/definitions/rics:LegalEntityPeopleStatusEnum"
+				},
+				"rics:StatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:StatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				}
+			},
+			"type": "object"
 		},
 		"rics:LegalEntityPeopleType": {
 			"additionalProperties": false,
@@ -31245,6 +31769,12 @@
 				"@nameOrder": {
 					"$ref": "#/definitions/rics:NameOrderEnum"
 				},
+				"@relationshipStatus": {
+					"$ref": "#/definitions/rics:RelationshipStatusEnum"
+				},
+				"@role": {
+					"$ref": "#/definitions/rics:LegalEntityPeopleRoleEnum"
+				},
 				"@salutation": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -31266,11 +31796,11 @@
 				"rics:Alias": {
 					"anyOf": [
 						{
-							"$ref": "#/definitions/xs:string"
+							"$ref": "#/definitions/rics:PersonNameType"
 						},
 						{
 							"items": {
-								"$ref": "#/definitions/xs:string"
+								"$ref": "#/definitions/rics:PersonNameType"
 							},
 							"type": "array"
 						}
@@ -31405,6 +31935,70 @@
 						}
 					]
 				},
+				"rics:PreviousName": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:PersonNameType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:PersonNameType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Related": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:RelatedType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:RelatedType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:RelationshipStatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:RelationshipStatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				},
+				"rics:RelationshipStatusHistory": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:RelationshipStatusType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:RelationshipStatusType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:StatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:StatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				},
+				"rics:StatusHistory": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:LegalEntityPeopleStatusType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:LegalEntityPeopleStatusType"
+							},
+							"type": "array"
+						}
+					]
+				},
 				"rics:TaxDomicile": {
 					"anyOf": [
 						{
@@ -31477,12 +32071,16 @@
 			"anyOf": [
 				{
 					"enum": [
-						"ltd",
-						"llp",
-						"plc",
-						"gmbh",
-						"srl",
-						"unincorporated"
+						"incorporated",
+						"dissolved",
+						"inAdministration",
+						"inReceivership",
+						"inChapter7",
+						"inChapter9",
+						"inChapter11",
+						"inChapter12",
+						"inChapter13",
+						"inChapter15"
 					],
 					"type": "string"
 				},
@@ -31490,6 +32088,21 @@
 					"type": "string"
 				}
 			]
+		},
+		"rics:LegalEntityStatusType": {
+			"additionalProperties": false,
+			"properties": {
+				"@status": {
+					"$ref": "#/definitions/rics:LegalEntityStatusEnum"
+				},
+				"rics:StatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:StatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				}
+			},
+			"type": "object"
 		},
 		"rics:LegalEntityType": {
 			"additionalProperties": false,
@@ -31513,13 +32126,16 @@
 					"$ref": "#/definitions/xs:boolean"
 				},
 				"@legalStatus": {
-					"$ref": "#/definitions/rics:LegalEntityStatusEnum"
+					"$ref": "#/definitions/rics:LegalStatusEnum"
 				},
 				"@name": {
 					"$ref": "#/definitions/xs:string"
 				},
 				"@registeredID": {
 					"$ref": "#/definitions/xs:string"
+				},
+				"@status": {
+					"$ref": "#/definitions/rics:LegalEntityStatusEnum"
 				},
 				"rics:AccountingStandard": {
 					"anyOf": [
@@ -31618,6 +32234,25 @@
 						}
 					]
 				},
+				"rics:LegalStatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:LegalStatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				},
+				"rics:LegalStatusHistory": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:LegalStatusType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:LegalStatusType"
+							},
+							"type": "array"
+						}
+					]
+				},
 				"rics:OtherData": {
 					"anyOf": [
 						{
@@ -31685,6 +32320,25 @@
 				},
 				"rics:RegisteredJurisdiction": {
 					"$ref": "#/definitions/rics:JurisdictionType"
+				},
+				"rics:StatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:StatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				},
+				"rics:StatusHistory": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:LegalEntityStatusType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:LegalEntityStatusType"
+							},
+							"type": "array"
+						}
+					]
 				},
 				"rics:Text": {
 					"anyOf": [
@@ -31852,6 +32506,39 @@
 							"type": "array"
 						}
 					]
+				}
+			},
+			"type": "object"
+		},
+		"rics:LegalStatusEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"ltd",
+						"llp",
+						"plc",
+						"gmbh",
+						"srl",
+						"unincorporated"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:LegalStatusType": {
+			"additionalProperties": false,
+			"properties": {
+				"@legalStatus": {
+					"$ref": "#/definitions/rics:LegalStatusEnum"
+				},
+				"rics:LegalStatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:LegalStatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
 				}
 			},
 			"type": "object"
@@ -33641,6 +34328,9 @@
 				"rics:InterestTransferred": {
 					"$ref": "#/definitions/rics:SimpleMonetaryType"
 				},
+				"rics:Jurisdiction": {
+					"$ref": "#/definitions/rics:JurisdictionType"
+				},
 				"rics:JurisdictionalLegislation": {
 					"anyOf": [
 						{
@@ -34226,6 +34916,22 @@
 						"billsOfQuantities(BoQ)",
 						"costPlans",
 						"estimationsFromConsultant'sDrawings"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:MaturityEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"Undeveloped",
+						"Developing",
+						"Good",
+						"Advanced"
 					],
 					"type": "string"
 				},
@@ -36739,6 +37445,19 @@
 						}
 					]
 				},
+				"rics:Source": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:PropertyParticipantType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:PropertyParticipantType"
+							},
+							"type": "array"
+						}
+					]
+				},
 				"rics:Text": {
 					"anyOf": [
 						{
@@ -36977,6 +37696,12 @@
 					"$ref": "#/definitions/rics:ObjectGroupEnum"
 				},
 				"@isExternallyConnected": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isInMaintenanceContract": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isInWarrantyPeriod": {
 					"$ref": "#/definitions/xs:boolean"
 				},
 				"@isIncludedInExchange": {
@@ -37307,6 +38032,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:EstimateType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Mantainer": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:PropertyParticipantType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:PropertyParticipantType"
 							},
 							"type": "array"
 						}
@@ -40386,6 +41124,39 @@
 			},
 			"type": "object"
 		},
+		"rics:PersonNameType": {
+			"additionalProperties": false,
+			"properties": {
+				"@firstName": {
+					"$ref": "#/definitions/xs:string"
+				},
+				"@fullname": {
+					"$ref": "#/definitions/xs:string"
+				},
+				"@gender": {
+					"$ref": "#/definitions/rics:GenderEnum"
+				},
+				"@lastName": {
+					"$ref": "#/definitions/xs:string"
+				},
+				"@middleName": {
+					"$ref": "#/definitions/xs:string"
+				},
+				"@nameOrder": {
+					"$ref": "#/definitions/rics:NameOrderEnum"
+				},
+				"@salutation": {
+					"$ref": "#/definitions/xs:string"
+				},
+				"@title": {
+					"$ref": "#/definitions/xs:string"
+				},
+				"rics:ActiveBetween": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				}
+			},
+			"type": "object"
+		},
 		"rics:PersonType": {
 			"additionalProperties": false,
 			"patternProperties": {
@@ -40425,6 +41196,9 @@
 				"@nameOrder": {
 					"$ref": "#/definitions/rics:NameOrderEnum"
 				},
+				"@relationshipStatus": {
+					"$ref": "#/definitions/rics:RelationshipStatusEnum"
+				},
 				"@salutation": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -40443,11 +41217,11 @@
 				"rics:Alias": {
 					"anyOf": [
 						{
-							"$ref": "#/definitions/xs:string"
+							"$ref": "#/definitions/rics:PersonNameType"
 						},
 						{
 							"items": {
-								"$ref": "#/definitions/xs:string"
+								"$ref": "#/definitions/rics:PersonNameType"
 							},
 							"type": "array"
 						}
@@ -40577,6 +41351,51 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:AnnotatedDocumentType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:PreviousName": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:PersonNameType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:PersonNameType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Related": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:RelatedType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:RelatedType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:RelationshipStatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:RelationshipStatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				},
+				"rics:RelationshipStatusHistory": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:RelationshipStatusType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:RelationshipStatusType"
 							},
 							"type": "array"
 						}
@@ -41466,6 +42285,19 @@
 				},
 				"rics:Jurisdiction": {
 					"$ref": "#/definitions/rics:JurisdictionType"
+				},
+				"rics:JurisdictionalLegislation": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:JurisdictionalLegislationType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:JurisdictionalLegislationType"
+							},
+							"type": "array"
+						}
+					]
 				},
 				"rics:Keywords": {
 					"anyOf": [
@@ -43097,6 +43929,34 @@
 				}
 			]
 		},
+		"rics:ProjectStageEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"RIBA:Stage0StrategicDefinition",
+						"RIBA:Stage1PreparationAndBriefing",
+						"RIBA:Stage2ConceptDesign",
+						"RIBA:Stage3SpatialCoordination",
+						"RIBA:Stage4TechnicalDesign",
+						"RIBA:Stage5ManufacturingAndConstruction",
+						"RIBA:Stage6HandoverAndCloseOut",
+						"RIBA:Stage7Use",
+						"OGC:GatewayReview0StrategicAssessment",
+						"OGC:GatewayReview1BusinessJustification",
+						"OGC:GatewayReview2DeliveryStrategyOrProcurementStrategy",
+						"OGC:gatewayReview3InvestmentDecision",
+						"OGC:GatewayReview4ReadinessForService",
+						"OGC:GatewayReview5OperationsReviewAndBenefitsRealisationOrEvaluation",
+						"OGC:DecisionPoint1OutlineDesign",
+						"OGC:DecisionPoint2DetailedDesign"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
 		"rics:ProjectStatusEnum": {
 			"enum": [
 				"initiationAndConceptPhase",
@@ -43129,6 +43989,9 @@
 				},
 				"@mainProjectType": {
 					"$ref": "#/definitions/rics:ProjectDescriptionEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@projectStatus": {
 					"$ref": "#/definitions/rics:ProjectStatusEnum"
@@ -43521,7 +44384,17 @@
 					]
 				},
 				"rics:Site": {
-					"$ref": "#/definitions/rics:SiteType"
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:SiteType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:SiteType"
+							},
+							"type": "array"
+						}
+					]
 				},
 				"rics:SubProjects": {
 					"anyOf": [
@@ -45836,10 +46709,19 @@
 				"@description": {
 					"$ref": "#/definitions/xs:string"
 				},
+				"@isIncludedInExchange": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isIncludedInInspection": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@isIncludedInTransaction": {
 					"$ref": "#/definitions/xs:boolean"
 				},
 				"@isPrimaryProperty": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isSecondaryProperty": {
 					"$ref": "#/definitions/xs:boolean"
 				},
 				"@name": {
@@ -45958,6 +46840,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:GUIDType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:PartOfProperty": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:PropertyType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:PropertyType"
 							},
 							"type": "array"
 						}
@@ -47720,6 +48615,94 @@
 						"salvage",
 						"rehabilitationOfLand",
 						"pollutionMonitoring"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:RelatedType": {
+			"additionalProperties": false,
+			"properties": {
+				"@isCurrent": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@relationshipType": {
+					"$ref": "#/definitions/rics:RelationshipTypeEnum"
+				},
+				"rics:ActiveBetween": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				},
+				"rics:Person": {
+					"$ref": "#/definitions/rics:PersonType"
+				}
+			},
+			"type": "object"
+		},
+		"rics:RelationshipStatusEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"single",
+						"married",
+						"separated",
+						"divorced",
+						"widowed"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:RelationshipStatusType": {
+			"additionalProperties": false,
+			"properties": {
+				"@relationshipStatus": {
+					"$ref": "#/definitions/rics:RelationshipStatusEnum"
+				},
+				"rics:StatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:StatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				}
+			},
+			"type": "object"
+		},
+		"rics:RelationshipTypeEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"husband",
+						"wife",
+						"ex-husband",
+						"ex-wife",
+						"spouse",
+						"partner",
+						"parent",
+						"father",
+						"mother",
+						"brother",
+						"sister",
+						"son",
+						"daughter",
+						"guardian",
+						"uncle",
+						"aunt",
+						"nephew",
+						"neice",
+						"grandparent",
+						"grandfather",
+						"grandmother",
+						"grandchild",
+						"grandson",
+						"granddaughter",
+						"brother-In-Law",
+						"sister-In-Law"
 					],
 					"type": "string"
 				},
@@ -50661,6 +51644,19 @@
 						}
 					]
 				},
+				"rics:Indicator": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:ComplexMeasurementType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:ComplexMeasurementType"
+							},
+							"type": "array"
+						}
+					]
+				},
 				"rics:InformationSources": {
 					"anyOf": [
 						{
@@ -50708,6 +51704,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:AnnotatedDocumentType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Parcel": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:ParcelType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:ParcelType"
 							},
 							"type": "array"
 						}
@@ -51588,8 +52597,8 @@
 				"@model": {
 					"$ref": "#/definitions/rics:StatisticalModelEnum"
 				},
-				"rics:ConfidenceLevel": {
-					"$ref": "#/definitions/rics:SimplePercentageType"
+				"rics:Confidence": {
+					"$ref": "#/definitions/rics:ConfidenceType"
 				}
 			},
 			"type": "object"
@@ -51915,33 +52924,6 @@
 				"other"
 			],
 			"type": "string"
-		},
-		"rics:TargetCategoryEnum": {
-			"anyOf": [
-				{
-					"enum": [
-						"wholeBuildingGHGIntensityPathway",
-						"wholeBuildingEnergyIntensityPathway"
-					],
-					"type": "string"
-				},
-				{
-					"type": "string"
-				}
-			]
-		},
-		"rics:TargetFrameworkEnum": {
-			"anyOf": [
-				{
-					"enum": [
-						"CRREM"
-					],
-					"type": "string"
-				},
-				{
-					"type": "string"
-				}
-			]
 		},
 		"rics:TargetsType": {
 			"additionalProperties": false,
@@ -53136,6 +54118,9 @@
 				},
 				"rics:InsuranceDamage": {
 					"$ref": "#/definitions/rics:InsuranceDamageType"
+				},
+				"rics:Jurisdiction": {
+					"$ref": "#/definitions/rics:JurisdictionType"
 				},
 				"rics:JurisdictionalLegislation": {
 					"anyOf": [
@@ -58786,14 +59771,14 @@
 				"rics:Boolean": {
 					"$ref": "#/definitions/rics:SimpleBooleanType"
 				},
+				"rics:ComplexMeasurement": {
+					"$ref": "#/definitions/rics:ComplexMeasurementType"
+				},
 				"rics:Date": {
 					"$ref": "#/definitions/rics:DateChoiceType"
 				},
 				"rics:DateRange": {
 					"$ref": "#/definitions/rics:DateRangeChoiceType"
-				},
-				"rics:Measurement": {
-					"$ref": "#/definitions/rics:SimpleMeasurementType"
 				},
 				"rics:Monetary": {
 					"$ref": "#/definitions/rics:SimpleMonetaryType"
@@ -58803,6 +59788,9 @@
 				},
 				"rics:Percentage": {
 					"$ref": "#/definitions/rics:PercentageChoiceType"
+				},
+				"rics:SimpleMeasurement": {
+					"$ref": "#/definitions/rics:SimpleMeasurementType"
 				},
 				"rics:Text": {
 					"$ref": "#/definitions/rics:SimpleTextType"
@@ -60072,8 +61060,14 @@
 				"@isIncomplete": {
 					"$ref": "#/definitions/xs:boolean"
 				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
+				},
 				"@scope": {
 					"$ref": "#/definitions/xs:string"
+				},
+				"@status": {
+					"$ref": "#/definitions/rics:WorksStatusEnum"
 				},
 				"@type": {
 					"$ref": "#/definitions/rics:WorksAlterationsChangesTypeEnum"
@@ -60089,6 +61083,32 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:ConsentApprovalType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Costs": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:CostsType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:CostsType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Emissions": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:EmissionsType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:EmissionsType"
 							},
 							"type": "array"
 						}
@@ -60175,6 +61195,25 @@
 						}
 					]
 				},
+				"rics:StatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:StatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				},
+				"rics:StatusHistory": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:WorksStatusType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:WorksStatusType"
+							},
+							"type": "array"
+						}
+					]
+				},
 				"rics:Text": {
 					"anyOf": [
 						{
@@ -60224,6 +61263,37 @@
 					"type": "string"
 				}
 			]
+		},
+		"rics:WorksStatusEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"planned",
+						"inProgress",
+						"onHold",
+						"complete"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"rics:WorksStatusType": {
+			"additionalProperties": false,
+			"properties": {
+				"@status": {
+					"$ref": "#/definitions/rics:WorksStatusEnum"
+				},
+				"rics:StatusDate": {
+					"$ref": "#/definitions/rics:DateChoiceType"
+				},
+				"rics:StatusDateRange": {
+					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				}
+			},
+			"type": "object"
 		},
 		"rics:YieldType": {
 			"additionalProperties": false,
@@ -60438,6 +61508,9 @@
 						}
 					]
 				},
+				"rics:PartOfZone": {
+					"$ref": "#/definitions/rics:ZoneType"
+				},
 				"rics:Plans": {
 					"anyOf": [
 						{
@@ -60524,6 +61597,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:ValueType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Zones": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:ZoneType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:ZoneType"
 							},
 							"type": "array"
 						}
@@ -62684,13 +63770,13 @@
 			"type": "string"
 		}
 	},
-	"description": "JSON Schema generated by XMLSpy v2022 (http://www.altova.com)",
+	"description": "RICS Data Standard (RDS)\rThis is an XML schema (XSD) for the RICS Data Standard (RDS) incorporating ICMS, ILMS, IPMS, IVS, and IBOS using address formats from buildingSMART IFC, and Oasis xAL.\rCopyright(c) 2017-2022 RICS [http://www.rics.org]\rPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\rThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\rTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\rContact: RICS http://www.rics.org\rFor help and support, enhancement requests, etc., please email: datastandards@rics.org\rVersion: 3.3.2\rLast Updated: 17 February 2022\r",
 	"properties": {
 		"@xmlns:ifc": {
 			"default": "http://www.buildingsmart-tech.org/ifc/IFC4x1/final"
 		},
 		"@xmlns:rics": {
-			"default": "urn:xsdschema:rics:3.3.1"
+			"default": "urn:xsdschema:rics:3.3.2"
 		},
 		"@xmlns:xal": {
 			"default": "urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
@@ -62722,11 +63808,17 @@
 		"rics:DigitalTwin": {
 			"$ref": "#/definitions/.rics:DigitalTwin"
 		},
+		"rics:DueDiligence": {
+			"$ref": "#/definitions/.rics:DueDiligence"
+		},
 		"rics:PropertyLogbook": {
 			"$ref": "#/definitions/.rics:PropertyLogbook"
 		},
 		"rics:PropertyPassport": {
 			"$ref": "#/definitions/.rics:PropertyPassport"
+		},
+		"rics:Transaction": {
+			"$ref": "#/definitions/.rics:Transaction"
 		},
 		"xal:AddressDetails": {
 			"$ref": "#/definitions/.xal:AddressDetails"
