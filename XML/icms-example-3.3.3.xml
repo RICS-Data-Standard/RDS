@@ -13,7 +13,7 @@
 			</xal:AddressDetails>
 		</rics:Address>
 	</rics:Property>
-	<rics:CostedProjects title="New Offices and Warehouse" projectType="building" costReportStatus="pre-constructionForecast" reportPriceBasis="fixedUnitRates" projectStatus="initiationAndConceptPhase" description="New 2 storey office block, warehouse, soft landscaping and paving.  Removal of existing buildings in completion">
+	<rics:CostedProjects title="New Offices and Warehouse" projectType="building" costReportStatus="pre-constructionForecast" reportPriceBasis="fixedUnitRates" projectStatus="initiationAndConceptPhase" description="New 2 storey office block, warehouse, soft landscaping and paving.  Removal of existing buildings in completion" projectStage="RIBA:Stage5ManufacturingAndConstruction">
 		<rics:MetaData reportStatus="final" reportRevisionNumber="3">
 			<rics:ReportDate>
 				<rics:Date>2014-05-31</rics:Date>
@@ -37,7 +37,7 @@
 		</rics:ConstructionPeriod>
 		<rics:Site stateOfUse="brownfield" typeOfUse="urban" legalStatus="freehold" siteTopography="principallyFlat" groundConditions="soft" accessProblems="average" extremeClimaticConditions="easy" environmentalConstraints="easy"/>
 		<rics:Procurement funding="private" pricingMethod="lumpSumStipulatedPrice" modeOfProcurement="designBidBuild" isJointVentureForeignConstructor="false" predominantSourceOfConstructors="local"/>
-		<rics:Buildings title="Office and Warehouse" description="ICMS1 Data">
+		<rics:Buildings title="Office and Warehouse" description="ICMS1 Data" element="part" projectStage="RIBA:Stage5ManufacturingAndConstruction">
 			<rics:ProjectCode>
 				<rics:ClassificationStandard code="01.04.02 (Commercial offices - Suburban/Regional B Grade" standard="Building Code of Australia"/>
 			</rics:ProjectCode>

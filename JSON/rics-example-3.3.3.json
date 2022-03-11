@@ -17,6 +17,42 @@
 				]
 			}
 		],
+		"rics:Attestations": [
+			{
+				"@declaration": "true copy of loan agreement provided",
+				"@isAbleToAffirm": true,
+				"@affirmation": true,
+				"rics:Participants": [
+					{
+						"rics:LegalEntity": [
+							{
+								"@name": "Commercial Property Private Funds",
+								"rics:People": [
+									{
+										"@fullname": "Gillian Sarah Sanderson",
+										"@status": "apppointed",
+										"@role": "director",
+										"rics:Related": [
+											{
+												"@isCurrent": true,
+												"@relationshipType": "mother",
+												"rics:Person": {
+													"@fullname": "Laura Sanderson",
+													"@description": "Financial Director at London City Property Holdings"
+												}
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				],
+				"rics:Date": {
+					"rics:Date": "2015-05-31"
+				}
+			}
+		],
 		"rics:Currency": [
 			{
 				"@iso4217Code": "GBP",
@@ -39,6 +75,8 @@
 				"@type": "building",
 				"@description": "CBD multi-tenanted offices",
 				"@isPrimaryProperty": true,
+				"@isIncludedInInspection": true,
+				"@isIncludedInTransaction": true,
 				"rics:GUID": [
 					{
 						"@name": "UPRN",
@@ -62,7 +100,21 @@
 							]
 						}
 					}
-				}
+				},
+				"rics:Taxes": [
+					{
+						"@isCurrent": true,
+						"@perPeriod": "annum",
+						"rics:AssessedValue": {
+							"@iso4217Code": "GBP",
+							"$": 100500
+						},
+						"rics:Actual": {
+							"@iso4217Code": "GBP",
+							"$": 30300
+						}
+					}
+				]
 			}
 		],
 		"rics:Premises": [
@@ -158,6 +210,7 @@
 		"rics:Participants": [
 			{
 				"@isAnti-MoneyLaunderingChecked": true,
+				"@isPrimaryPropertyParticipant": false,
 				"rics:LegalEntity": [
 					{
 						"@name": "City Agents",
@@ -167,21 +220,6 @@
 				"rics:Role": [
 					"agent",
 					"managementCompany"
-				]
-			},
-			{
-				"@isAnti-MoneyLaunderingChecked": false,
-				"rics:LegalEntity": [
-					{
-						"@name": "Commercial Property Private Funds",
-						"@legalStatus": "plc"
-					}
-				],
-				"rics:Role": [
-					"lender"
-				],
-				"rics:ActingFor": [
-					"owner"
 				]
 			}
 		],
@@ -294,6 +332,9 @@
 						"rics:ToDate": "2042-12-31"
 					}
 				},
+				"rics:Remaining": {
+					"rics:DurationAsText": "20 years"
+				},
 				"rics:JurisdictionalLegislation": [
 					{
 						"@legislation": "Landlord and Tenant 1954 Act",
@@ -360,7 +401,11 @@
 							}
 						],
 						"rics:IsHeldForAllObligations": true,
-						"rics:Value": 5000000
+						"rics:Value": {
+							"@iso4217Code": "GBP",
+							"@description": "approximately six month's rent",
+							"$": 5000000
+						}
 					}
 				],
 				"rics:RentPayable": {
@@ -1085,12 +1130,68 @@
 						]
 					}
 				],
+				"rics:WiFi": [
+					{
+						"@isSelfProvided": true,
+						"rics:Coverage": [
+							{
+								"@technologyGeneration": "wi-Fi6:802.11ax",
+								"@summary": "good",
+								"@indoor": "good",
+								"@outdoor": "noSignal"
+							}
+						],
+						"rics:DataSpeeds": [
+							{
+								"@technologyGeneration": "wi-Fi6:802.11ax",
+								"rics:AverageUploadSpeed": {
+									"@unitOfMeasurement": "D36",
+									"$": 19
+								},
+								"rics:AverageDownloadSpeed": {
+									"@unitOfMeasurement": "D36",
+									"$": 40
+								},
+								"rics:Waveband": {
+									"@unitOfMeasurement": "A86",
+									"@description": "2.4GHz",
+									"$": 2.4
+								}
+							},
+							{
+								"@technologyGeneration": "wi-Fi6:802.11ax",
+								"rics:AverageUploadSpeed": {
+									"@unitOfMeasurement": "D36",
+									"$": 19
+								},
+								"rics:AverageDownloadSpeed": {
+									"@unitOfMeasurement": "D36",
+									"$": 70
+								},
+								"rics:Waveband": {
+									"@unitOfMeasurement": "A86",
+									"@description": "5GHz",
+									"$": 5
+								}
+							}
+						],
+						"rics:Security": [
+							{
+								"@level": "WPA2Enterprise",
+								"@technologyGeneration": "wi-Fi6:802.11ax"
+							}
+						]
+					}
+				],
 				"rics:Parking": [
 					{
 						"@availableSpaces": 36,
 						"@availableSpacesInside": 30,
 						"@availableSpacesOutside": 6,
-						"@availableArrangements": "allocatedSpaces"
+						"@availableArrangements": "allocated",
+						"@isPrivateChargingPointAvailable": false,
+						"@isPublicChargingPointAvailable": true,
+						"@publicChargingPoints": 4
 					}
 				]
 			}
@@ -1196,12 +1297,17 @@
 				"@compassPointDirection": "S",
 				"rics:BuiltAge": [
 					{
-						"rics:Year": "1990"
+						"rics:Year": "1980"
 					}
 				],
 				"rics:ConvertedAge": [
 					{
-						"rics:Year": "2017"
+						"rics:Year": "1995"
+					}
+				],
+				"rics:RefittedAge": [
+					{
+						"rics:Year": "2001"
 					}
 				],
 				"rics:Dimensions": {
@@ -1292,10 +1398,13 @@
 						"@material": "block"
 					}
 				],
-				"rics:Heating": {
-					"@isGas": true,
-					"@isSolar": true
-				},
+				"rics:Heating": [
+					{
+						"@isGas": true,
+						"@isSolar": true,
+						"@isGroundSourceHeatPump": true
+					}
+				],
 				"rics:HVAC": [
 					{
 						"@type": "central",
@@ -1435,6 +1544,8 @@
 						"@group": "lift",
 						"@isIncludedInInspection": true,
 						"@subGroup": "passenger lift",
+						"@isInMaintenanceContract": true,
+						"@isInWarrantyPeriod": true,
 						"rics:Issue": [
 							"Equipment nearing the end of its design life so replacement should be budgeted for"
 						],
@@ -1463,7 +1574,18 @@
 						"rics:ReplacementCost": {
 							"@iso4217Code": "GBP",
 							"$": 30000
-						}
+						},
+						"rics:Certificates": [
+							{
+								"@category": "warranty",
+								"rics:Length": {
+									"rics:Duration": "P2Y"
+								},
+								"rics:Remaining": {
+									"rics:Duration": "P1Y"
+								}
+							}
+						]
 					}
 				]
 			}
@@ -1473,6 +1595,11 @@
 				"rics:MetaData": {
 					"rics:InstructionPurpose": [
 						"commercialSecuredLending"
+					],
+					"rics:Methodology": [
+						"inspection",
+						"research",
+						"transactions"
 					],
 					"rics:ReportDate": {
 						"rics:Date": "2020-02-11"
@@ -1506,6 +1633,9 @@
 									}
 								]
 							}
+						],
+						"rics:Process": [
+							"desktop"
 						]
 					},
 					{
@@ -1534,6 +1664,35 @@
 							{
 								"@ranking": 1,
 								"@rationale": "similar office in location albeit of newer build and condition recently let to similar occupier profile",
+								"rics:InformationSources": [
+									{
+										"@isAssured": true,
+										"@isPrivate": true,
+										"@type": "comparableEvidence",
+										"@basis": "open market transactions",
+										"@isVerified": true,
+										"@level": "verifiedDigital",
+										"rics:CollectedDate": {
+											"rics:YearMonth": "2020-01"
+										},
+										"rics:CopyrightHolders": [
+											{
+												"@name": "CRE Market Data Plc"
+											}
+										],
+										"rics:Confidence": {
+											"@isAsymmetrical": false,
+											"rics:Level": 95
+										},
+										"rics:Methodology": [
+											"transactions",
+											"research"
+										],
+										"rics:Sharing": [
+											"none"
+										]
+									}
+								],
 								"rics:Differences": [
 									{
 										"@name": "age",
@@ -1634,6 +1793,8 @@
 				"@scope": "fitout",
 				"@description": "refit for current tenant",
 				"@type": "refit",
+				"@status": "complete",
+				"@projectStage": "RIBA:Stage7Use",
 				"rics:Length": {
 					"rics:BaseDate": {
 						"rics:Date": "2018-09-30"

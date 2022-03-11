@@ -7,13 +7,27 @@
 		<rics:PreparedFor description="Example data for test and development purposes">
 		</rics:PreparedFor>
 	</rics:MetaData>
+	<rics:Attestations declaration="true copy of loan agreement provided" isAbleToAffirm="true" affirmation="true">
+		<rics:Participants>
+			<rics:LegalEntity name="Commercial Property Private Funds">
+				<rics:People fullname="Gillian Sarah Sanderson" status="apppointed" role="director">
+					<rics:Related isCurrent="true" relationshipType="mother">
+						<rics:Person fullname="Laura Sanderson" description="Financial Director at London City Property Holdings"/>
+					</rics:Related>
+				</rics:People>
+			</rics:LegalEntity>
+		</rics:Participants>
+		<rics:Date>
+			<rics:Date>2015-05-31</rics:Date>
+		</rics:Date>
+	</rics:Attestations>
 	<rics:Currency iso4217Code="GBP" isPrimaryCurrency="true"/>
 	<rics:Currency iso4217Code="USD" isPrimaryCurrency="false" exchangeRateToPrimary="1.3383">
 		<rics:ExchangeRateDate>
 			<rics:Date>2020-11-23</rics:Date>
 		</rics:ExchangeRateDate>
 	</rics:Currency>
-	<rics:Property name="The Stockyard" primaryUse="office" purpose="administration" type="building" description="CBD multi-tenanted offices" isPrimaryProperty="true">
+	<rics:Property name="The Stockyard" primaryUse="office" purpose="administration" type="building" description="CBD multi-tenanted offices" isPrimaryProperty="true" isIncludedInInspection="true" isIncludedInTransaction="true">
 		<rics:GUID name="UPRN" id="200001025758"/>
 		<rics:GUID name="TOID" id="osgb1000000285742"/>
 		<rics:Address>
@@ -23,6 +37,10 @@
 				</ifc:AddressLines>
 			</ifc:IfcPostalAddress>
 		</rics:Address>
+		<rics:Taxes isCurrent="true" perPeriod="annum">
+			<rics:AssessedValue iso4217Code="GBP">100500</rics:AssessedValue>
+			<rics:Actual iso4217Code="GBP">30300</rics:Actual>
+		</rics:Taxes>
 	</rics:Property>
 	<rics:Premises description="Summary of scope of The Stockyard">
 		<rics:Area primaryUse="office">
@@ -48,17 +66,11 @@
 			</rics:Spaces>
 		</rics:Space>
 	</rics:Premises>
-	<rics:Participants isAnti-MoneyLaunderingChecked="true">
+	<rics:Participants isAnti-MoneyLaunderingChecked="true" isPrimaryPropertyParticipant="false">
 		<rics:LegalEntity name="City Agents" legalStatus="ltd">
 		</rics:LegalEntity>
 		<rics:Role>agent</rics:Role>
 		<rics:Role>managementCompany</rics:Role>
-	</rics:Participants>
-	<rics:Participants isAnti-MoneyLaunderingChecked="false">
-		<rics:LegalEntity name="Commercial Property Private Funds" legalStatus="plc">
-		</rics:LegalEntity>
-		<rics:Role>lender</rics:Role>
-		<rics:ActingFor>owner</rics:ActingFor>
 	</rics:Participants>
 	<rics:Tenure class="absolute" isDisputed="false" isUnregistered="false" isUnknownOwnership="false" tenure="freehold">
 		<rics:RightsHolders class="absolute" tenure="freehold">
@@ -108,6 +120,9 @@
 				<rics:ToDate>2042-12-31</rics:ToDate>
 			</rics:DateRange>
 		</rics:Length>
+		<rics:Remaining>
+			<rics:DurationAsText>20 years</rics:DurationAsText>
+		</rics:Remaining>
 		<rics:JurisdictionalLegislation legislation="Landlord and Tenant 1954 Act">
 			<rics:Jurisdiction>
 				<rics:Country ISO-Alpha-3-Code="GBR"/>
@@ -149,7 +164,7 @@
 		<rics:Guarantees isCurrent="true">
 			<rics:Guarantors name="CBD Holding Co"/>
 			<rics:IsHeldForAllObligations>true</rics:IsHeldForAllObligations>
-			<rics:Value>5000000</rics:Value>
+			<rics:Value iso4217Code="GBP" description="approximately six month's rent">5000000</rics:Value>
 		</rics:Guarantees>
 		<rics:RentPayable isGroundRent="false" isInAdvance="true" isTaxChargeable="true" perPeriodRent="month" perPeriodRentPayment="quarter" turnoverRentType="baseRentPlusTopUp" perPeriodTurnoverRent="quarter" perPeriodTurnoverRentPayment="annum" turnoverReportingFrequency="month">
 			<rics:TurnoverRentRate>5.5</rics:TurnoverRentRate>
@@ -617,7 +632,21 @@
 				<rics:AverageDownloadSpeed>10</rics:AverageDownloadSpeed>
 			</rics:DataSpeeds>
 		</rics:Internet>
-		<rics:Parking availableSpaces="36" availableSpacesInside="30" availableSpacesOutside="6" availableArrangements="allocatedSpaces">
+		<rics:WiFi isSelfProvided="true">
+			<rics:Coverage technologyGeneration="wi-Fi6:802.11ax" summary="good" indoor="good" outdoor="noSignal"/>
+			<rics:DataSpeeds technologyGeneration="wi-Fi6:802.11ax">
+				<rics:AverageUploadSpeed unitOfMeasurement="D36">19</rics:AverageUploadSpeed>
+				<rics:AverageDownloadSpeed unitOfMeasurement="D36">40</rics:AverageDownloadSpeed>
+				<rics:Waveband unitOfMeasurement="A86" description="2.4GHz">2.4</rics:Waveband>
+			</rics:DataSpeeds> 
+			<rics:DataSpeeds technologyGeneration="wi-Fi6:802.11ax">
+				<rics:AverageUploadSpeed unitOfMeasurement="D36">19</rics:AverageUploadSpeed>
+				<rics:AverageDownloadSpeed unitOfMeasurement="D36">70</rics:AverageDownloadSpeed>
+				<rics:Waveband unitOfMeasurement="A86" description="5GHz">5</rics:Waveband>
+			</rics:DataSpeeds> 
+			<rics:Security level="WPA2Enterprise" technologyGeneration="wi-Fi6:802.11ax"/>
+		</rics:WiFi>
+		<rics:Parking availableSpaces="36" availableSpacesInside="30" availableSpacesOutside="6" availableArrangements="allocated" isPrivateChargingPointAvailable="false" isPublicChargingPointAvailable="true" publicChargingPoints="4">
 		</rics:Parking>
 	</rics:Services>
 	<rics:Sustainability>
@@ -651,11 +680,14 @@
 	</rics:Amenities>
 	<rics:Buildings description="Prime 5 story office block" fitOutStatus="complete" isDilapidated="false" noOfFloors="5" noOfLifts="2" primaryUse="commercial" qualityOfBuilding="excellent" typeOfBuilding="office" compassPointDirection="S">
 		<rics:BuiltAge>
-			<rics:Year>1990</rics:Year>
+			<rics:Year>1980</rics:Year>
 		</rics:BuiltAge>
 		<rics:ConvertedAge>
-			<rics:Year>2017</rics:Year>
+			<rics:Year>1995</rics:Year>
 		</rics:ConvertedAge>
+		<rics:RefittedAge>
+			<rics:Year>2001</rics:Year>
+		</rics:RefittedAge>
 		<rics:Dimensions>
 			<rics:Height unitOfMeasurement="MTR">24</rics:Height>
 		</rics:Dimensions>
@@ -677,7 +709,7 @@
 		<rics:ConstructionType type="frame"/>
 		<rics:ConstructionMaterials material="steel"/>
 		<rics:ConstructionMaterials material="block"/>
-		<rics:Heating isGas="true" isSolar="true"/>
+		<rics:Heating isGas="true" isSolar="true" isGroundSourceHeatPump="true"/>
 		<rics:HVAC type="central" isRecirculating="false" isFiltered="true">
 			<rics:Capacity unitOfMeasurement="BTU">5000000</rics:Capacity>
 			<rics:CleanAirDeliveryRate unitOfMeasurement="2L">90000</rics:CleanAirDeliveryRate>
@@ -720,7 +752,7 @@
 		<rics:Limitations description="Only partial access to some roof spaces"/>
 		<rics:Location description="Well situated in central business district with easy access to public transport and other amenities"/>
 		<rics:Amenities description="Tube station, shops, restaurants, bars etc. all within easy reach with onsite cafe in the lower ground floor for staff"/>
-		<rics:Objects description="lift gear" access="Via service hatch" accessLocation="In roof space above lift on tope floor" category="mechanical" class="equipment" condition="good" countOf="1" group="lift" isIncludedInInspection="true" subGroup="passenger lift">
+		<rics:Objects description="lift gear" access="Via service hatch" accessLocation="In roof space above lift on tope floor" category="mechanical" class="equipment" condition="good" countOf="1" group="lift" isIncludedInInspection="true" subGroup="passenger lift" isInMaintenanceContract="true" isInWarrantyPeriod="true">
 			<rics:Issue>Equipment nearing the end of its design life so replacement should be budgeted for</rics:Issue>
 			<rics:Risk>Use of life outside of design life risks equipment failiure in use</rics:Risk>
 			<rics:Remedy>Overhall or full replacement</rics:Remedy>
@@ -739,11 +771,22 @@
 				</rics:Remaining>
 			</rics:DesignLife>
 			<rics:ReplacementCost iso4217Code="GBP">30000</rics:ReplacementCost>
+			<rics:Certificates category="warranty">
+				<rics:Length>
+					<rics:Duration>P2Y</rics:Duration>
+				</rics:Length>
+				<rics:Remaining>
+					<rics:Duration>P1Y</rics:Duration>
+				</rics:Remaining>
+			</rics:Certificates>
 		</rics:Objects>
 	</rics:Inspections>
 	<rics:Valuations>
 		<rics:MetaData>
 			<rics:InstructionPurpose>commercialSecuredLending</rics:InstructionPurpose>
+			<rics:Methodology>inspection</rics:Methodology>
+			<rics:Methodology>research</rics:Methodology>
+			<rics:Methodology>transactions</rics:Methodology>
 			<rics:ReportDate>
 				<rics:Date>2020-02-11</rics:Date>
 			</rics:ReportDate>
@@ -766,6 +809,7 @@
 			<rics:Approach approach="market">
 				<rics:Methodology methodology="comparableTransactions"/>
 			</rics:Approach>
+			<rics:Process>desktop</rics:Process>
 		</rics:Valuation>
 		<rics:Valuation premiseOfValue="currentExistingUse">
 			<rics:BasisOfValue>marketValue</rics:BasisOfValue>
@@ -782,6 +826,19 @@
 				<rics:Methodology methodology="discountedCashFlow"/>
 			</rics:Approach>
 			<rics:ComparableEvidence ranking="1" rationale="similar office in location albeit of newer build and condition recently let to similar occupier profile">
+				<rics:InformationSources isAssured="true" isPrivate="true" type="comparableEvidence" basis="open market transactions" isVerified="true" level="verifiedDigital">
+					<rics:CollectedDate>
+						<rics:YearMonth>2020-01</rics:YearMonth>
+					</rics:CollectedDate>
+					<rics:CopyrightHolders name="CRE Market Data Plc">
+					</rics:CopyrightHolders>
+					<rics:Confidence isAsymmetrical="false">
+						<rics:Level>95</rics:Level>
+					</rics:Confidence>
+					<rics:Methodology>transactions</rics:Methodology>
+					<rics:Methodology>research</rics:Methodology>
+					<rics:Sharing>none</rics:Sharing>
+				</rics:InformationSources>
 				<rics:Differences name="age">
 					<rics:Date description="newer building">
 						<rics:Year>1990</rics:Year>
@@ -825,15 +882,14 @@
 			<rics:Date>2019-04-01</rics:Date>
 		</rics:IssueDate>
 	</rics:Certificates>
-	<rics:WorksAlterationsChanges isIncomplete="false" scope="fitout" description="refit for current tenant" type="refit">
+	<rics:WorksAlterationsChanges isIncomplete="false" scope="fitout" description="refit for current tenant" type="refit" status="complete" projectStage="RIBA:Stage7Use">
 		<rics:Length>
 			<rics:BaseDate>
 				<rics:Date>2018-09-30</rics:Date>
 			</rics:BaseDate>
 			<rics:Duration>P6M</rics:Duration>
-		</rics:Length>
-		<rics:ConsentApproval obtained="notRequired">
-		</rics:ConsentApproval>
+		</rics:Length>	
+		<rics:ConsentApproval obtained="notRequired"/>
 	</rics:WorksAlterationsChanges>
 	<rics:Targets>
 		<rics:Target isCurrent="true" framework="CRREM"  category="wholeBuildingGHGIntensityPathway" type="intensity" subType="netEnergy" item="carbonDioxide" unitOfMeasurement="KGM" denominatorUnitOfMeasurement="MTK" timeUnitOfMeasurement="ANN" description="kgCO2e/m²/yr">

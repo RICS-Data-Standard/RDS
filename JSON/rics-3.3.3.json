@@ -4293,6 +4293,15 @@
 		},
 		"rics:AttestationType": {
 			"additionalProperties": false,
+			"patternProperties": {
+				"^@\\w+$": {
+					"type": [
+						"string",
+						"number",
+						"boolean"
+					]
+				}
+			},
 			"properties": {
 				"@affirmation": {
 					"$ref": "#/definitions/xs:boolean"
@@ -4303,8 +4312,14 @@
 				"@declaration": {
 					"$ref": "#/definitions/xs:string"
 				},
+				"@description": {
+					"$ref": "#/definitions/xs:string"
+				},
 				"@isAbleToAffirm": {
 					"$ref": "#/definitions/xs:boolean"
+				},
+				"rics:ActiveBetween": {
+					"$ref": "#/definitions/rics:DurationType"
 				},
 				"rics:Date": {
 					"$ref": "#/definitions/rics:DateChoiceType"
@@ -4312,7 +4327,59 @@
 				"rics:DateRange": {
 					"$ref": "#/definitions/rics:DateRangeChoiceType"
 				},
-				"rics:Document": {
+				"rics:GUID": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:GUIDType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:GUIDType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:InformationSources": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:InformationSourceType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:InformationSourceType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Keywords": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/xs:string"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/xs:string"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:OtherData": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:AnythingType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:AnythingType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:OtherDocumentation": {
 					"anyOf": [
 						{
 							"$ref": "#/definitions/rics:AnnotatedDocumentType"
@@ -4320,6 +4387,58 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:AnnotatedDocumentType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Participants": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:PropertyParticipantType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:PropertyParticipantType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Property": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:PropertyType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:PropertyType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Text": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:TextType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:TextType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Values": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:ValueType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:ValueType"
 							},
 							"type": "array"
 						}
@@ -4528,6 +4647,9 @@
 				"@isPoliticallyExposedPerson": {
 					"$ref": "#/definitions/xs:boolean"
 				},
+				"@isPrimaryPropertyParticipant": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@isUnregistered": {
 					"$ref": "#/definitions/xs:boolean"
 				},
@@ -4597,19 +4719,6 @@
 				},
 				"rics:Anti-MoneyLaunderingEvidence": {
 					"$ref": "#/definitions/rics:GenericContentType"
-				},
-				"rics:Attestation": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/rics:AttestationType"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/rics:AttestationType"
-							},
-							"type": "array"
-						}
-					]
 				},
 				"rics:BorrowedBetween": {
 					"$ref": "#/definitions/rics:DateRangeChoiceType"
@@ -5223,6 +5332,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -6133,7 +6245,17 @@
 					]
 				},
 				"rics:Heating": {
-					"$ref": "#/definitions/rics:HeatingType"
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:HeatingType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:HeatingType"
+							},
+							"type": "array"
+						}
+					]
 				},
 				"rics:Income": {
 					"anyOf": [
@@ -7009,7 +7131,17 @@
 					]
 				},
 				"rics:Heating": {
-					"$ref": "#/definitions/rics:HeatingType"
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:HeatingType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:HeatingType"
+							},
+							"type": "array"
+						}
+					]
 				},
 				"rics:Income": {
 					"anyOf": [
@@ -7763,7 +7895,17 @@
 					]
 				},
 				"rics:Heating": {
-					"$ref": "#/definitions/rics:HeatingType"
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:HeatingType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:HeatingType"
+							},
+							"type": "array"
+						}
+					]
 				},
 				"rics:Income": {
 					"anyOf": [
@@ -8323,6 +8465,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -9220,6 +9365,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -12873,6 +13021,9 @@
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
 				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
+				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -13544,6 +13695,9 @@
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
 				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
+				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -14154,6 +14308,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:AreaType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Attestations": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:AttestationType"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:AttestationType"
 							},
 							"type": "array"
 						}
@@ -17432,6 +17599,9 @@
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
 				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
+				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -17716,6 +17886,9 @@
 				"@description": {
 					"$ref": "#/definitions/xs:string"
 				},
+				"@isAirSourceHeatPump": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@isElectric": {
 					"$ref": "#/definitions/xs:boolean"
 				},
@@ -17723,6 +17896,9 @@
 					"$ref": "#/definitions/xs:boolean"
 				},
 				"@isGeothermal": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isGroundSourceHeatPump": {
 					"$ref": "#/definitions/xs:boolean"
 				},
 				"@isHydrogen": {
@@ -17741,6 +17917,9 @@
 					"$ref": "#/definitions/xs:boolean"
 				},
 				"@isSolidFuel": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isWaterSourceHeatPump": {
 					"$ref": "#/definitions/xs:boolean"
 				},
 				"@isWind": {
@@ -25569,7 +25748,8 @@
 				"mechanical",
 				"electrical",
 				"plumbing",
-				"boundary"
+				"boundary",
+				"smartSystem"
 			],
 			"type": "string"
 		},
@@ -25580,13 +25760,18 @@
 				"meters",
 				"valve",
 				"stopcock",
+				"batteries",
 				"fixture",
 				"fitting",
 				"furniture",
 				"equipment",
 				"deadstock",
 				"livestock",
-				"chattel"
+				"chattel",
+				"fabric",
+				"heatingAndPower",
+				"security",
+				"entertainment"
 			],
 			"type": "string"
 		},
@@ -25613,7 +25798,18 @@
 				"fencing",
 				"outbuilding",
 				"extension",
-				"garage"
+				"garage",
+				"remoteControl",
+				"solarPanel",
+				"chargingPoint",
+				"powerStorage",
+				"indoorLighting",
+				"outdoorLighting",
+				"CCTV",
+				"alarm",
+				"barriers",
+				"gates",
+				"audioVisual"
 			],
 			"type": "string"
 		},
@@ -26672,12 +26868,13 @@
 		"rics:KnownParkingEnum": {
 			"enum": [
 				"garage",
-				"allocatedSpaces",
+				"allocated",
 				"driveway",
 				"onStreet",
 				"offStreet",
 				"permit",
 				"metered",
+				"resident",
 				"communal",
 				"shared",
 				"none",
@@ -27535,6 +27732,7 @@
 				"managedFreehold",
 				"leasehold",
 				"commonhold",
+				"sharedOwnership",
 				"informal",
 				"interest",
 				"owned",
@@ -30507,6 +30705,15 @@
 			],
 			"type": "string"
 		},
+		"rics:KnownValuationProcessEnum": {
+			"enum": [
+				"hybrid",
+				"driveBy",
+				"desktop",
+				"AVM"
+			],
+			"type": "string"
+		},
 		"rics:KnownVerificationEnum": {
 			"enum": [
 				"measuredOnSite",
@@ -30630,7 +30837,7 @@
 			],
 			"type": "string"
 		},
-		"rics:KnownWiFiSecurityEnum": {
+		"rics:KnownWiFiSecurityLevelEnum": {
 			"enum": [
 				"open",
 				"WEP",
@@ -30896,6 +31103,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -31647,6 +31857,9 @@
 				"@isPoliticallyExposedPerson": {
 					"$ref": "#/definitions/xs:boolean"
 				},
+				"@isPrimaryPropertyParticipant": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@name": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -31681,19 +31894,6 @@
 				},
 				"rics:Anti-MoneyLaunderingEvidence": {
 					"$ref": "#/definitions/rics:GenericContentType"
-				},
-				"rics:Attestation": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/rics:AttestationType"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/rics:AttestationType"
-							},
-							"type": "array"
-						}
-					]
 				},
 				"rics:DigitalID": {
 					"anyOf": [
@@ -32806,6 +33006,9 @@
 				"@isPoliticallyExposedPerson": {
 					"$ref": "#/definitions/xs:boolean"
 				},
+				"@isPrimaryPropertyParticipant": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@isSecurityAgent": {
 					"$ref": "#/definitions/xs:boolean"
 				},
@@ -32846,19 +33049,6 @@
 				},
 				"rics:Anti-MoneyLaunderingEvidence": {
 					"$ref": "#/definitions/rics:GenericContentType"
-				},
-				"rics:Attestation": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/rics:AttestationType"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/rics:AttestationType"
-							},
-							"type": "array"
-						}
-					]
 				},
 				"rics:DigitalID": {
 					"anyOf": [
@@ -35518,9 +35708,6 @@
 				"@description": {
 					"$ref": "#/definitions/xs:string"
 				},
-				"@methodology": {
-					"$ref": "#/definitions/rics:MethodologyEnum"
-				},
 				"@reference": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -35789,6 +35976,19 @@
 				},
 				"rics:MeasurementDateRange": {
 					"$ref": "#/definitions/rics:DateRangeChoiceType"
+				},
+				"rics:Methodology": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:MethodologyEnum"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:MethodologyEnum"
+							},
+							"type": "array"
+						}
+					]
 				},
 				"rics:Ommissions": {
 					"anyOf": [
@@ -36071,6 +36271,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -37152,6 +37355,9 @@
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
 				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
+				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -37807,7 +38013,8 @@
 						"mechanical",
 						"electrical",
 						"plumbing",
-						"boundary"
+						"boundary",
+						"smartSystem"
 					],
 					"type": "string"
 				},
@@ -37825,13 +38032,18 @@
 						"meters",
 						"valve",
 						"stopcock",
+						"batteries",
 						"fixture",
 						"fitting",
 						"furniture",
 						"equipment",
 						"deadstock",
 						"livestock",
-						"chattel"
+						"chattel",
+						"fabric",
+						"heatingAndPower",
+						"security",
+						"entertainment"
 					],
 					"type": "string"
 				},
@@ -37880,7 +38092,18 @@
 						"fencing",
 						"outbuilding",
 						"extension",
-						"garage"
+						"garage",
+						"remoteControl",
+						"solarPanel",
+						"chargingPoint",
+						"powerStorage",
+						"indoorLighting",
+						"outdoorLighting",
+						"CCTV",
+						"alarm",
+						"barriers",
+						"gates",
+						"audioVisual"
 					],
 					"type": "string"
 				},
@@ -38628,6 +38851,9 @@
 				"@isPoliticallyExposedPerson": {
 					"$ref": "#/definitions/xs:boolean"
 				},
+				"@isPrimaryPropertyParticipant": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@isUnregistered": {
 					"$ref": "#/definitions/xs:boolean"
 				},
@@ -38709,19 +38935,6 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:PropertyAreaType"
-							},
-							"type": "array"
-						}
-					]
-				},
-				"rics:Attestation": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/rics:AttestationType"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/rics:AttestationType"
 							},
 							"type": "array"
 						}
@@ -39009,6 +39222,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -41062,12 +41278,13 @@
 				{
 					"enum": [
 						"garage",
-						"allocatedSpaces",
+						"allocated",
 						"driveway",
 						"onStreet",
 						"offStreet",
 						"permit",
 						"metered",
+						"resident",
 						"communal",
 						"shared",
 						"none",
@@ -41114,8 +41331,20 @@
 				"@isExternallyConnected": {
 					"$ref": "#/definitions/xs:boolean"
 				},
+				"@isPrivateChargingPointAvailable": {
+					"$ref": "#/definitions/xs:boolean"
+				},
+				"@isPublicChargingPointAvailable": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@isSelfProvided": {
 					"$ref": "#/definitions/xs:boolean"
+				},
+				"@privateChargingPoints": {
+					"$ref": "#/definitions/xs:integer"
+				},
+				"@publicChargingPoints": {
+					"$ref": "#/definitions/xs:integer"
 				},
 				"@rating": {
 					"$ref": "#/definitions/rics:InformationQualityEnum"
@@ -41880,6 +42109,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -43028,6 +43260,9 @@
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
 				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
+				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -43559,6 +43794,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -45850,6 +46088,9 @@
 				"@isPoliticallyExposedPerson": {
 					"$ref": "#/definitions/xs:boolean"
 				},
+				"@isPrimaryPropertyParticipant": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@name": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -45884,19 +46125,6 @@
 				},
 				"rics:Anti-MoneyLaunderingEvidence": {
 					"$ref": "#/definitions/rics:GenericContentType"
-				},
-				"rics:Attestation": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/rics:AttestationType"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/rics:AttestationType"
-							},
-							"type": "array"
-						}
-					]
 				},
 				"rics:DigitalID": {
 					"anyOf": [
@@ -46459,6 +46687,9 @@
 				"@isPoliticallyExposedPerson": {
 					"$ref": "#/definitions/xs:boolean"
 				},
+				"@isPrimaryPropertyParticipant": {
+					"$ref": "#/definitions/xs:boolean"
+				},
 				"@isUnregistered": {
 					"$ref": "#/definitions/xs:boolean"
 				},
@@ -46528,19 +46759,6 @@
 				},
 				"rics:Anti-MoneyLaunderingEvidence": {
 					"$ref": "#/definitions/rics:GenericContentType"
-				},
-				"rics:Attestation": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/rics:AttestationType"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/rics:AttestationType"
-							},
-							"type": "array"
-						}
-					]
 				},
 				"rics:Charges": {
 					"anyOf": [
@@ -47319,19 +47537,6 @@
 						}
 					]
 				},
-				"rics:ParcelID": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/rics:GUIDType"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/rics:GUIDType"
-							},
-							"type": "array"
-						}
-					]
-				},
 				"rics:PartOfParcel": {
 					"anyOf": [
 						{
@@ -47340,19 +47545,6 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:ParcelType"
-							},
-							"type": "array"
-						}
-					]
-				},
-				"rics:PartOfParcelID": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/rics:GUIDType"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/rics:GUIDType"
 							},
 							"type": "array"
 						}
@@ -48227,6 +48419,9 @@
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
 				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
+				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -48744,6 +48939,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -50198,6 +50396,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -52365,19 +52566,6 @@
 						}
 					]
 				},
-				"rics:ParcelID": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/rics:GUIDType"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/rics:GUIDType"
-							},
-							"type": "array"
-						}
-					]
-				},
 				"rics:PartOfParcel": {
 					"anyOf": [
 						{
@@ -52386,19 +52574,6 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:ParcelType"
-							},
-							"type": "array"
-						}
-					]
-				},
-				"rics:PartOfParcelID": {
-					"anyOf": [
-						{
-							"$ref": "#/definitions/rics:GUIDType"
-						},
-						{
-							"items": {
-								"$ref": "#/definitions/rics:GUIDType"
 							},
 							"type": "array"
 						}
@@ -55128,6 +55303,9 @@
 						}
 					]
 				},
+				"rics:Remaining": {
+					"$ref": "#/definitions/rics:DurationType"
+				},
 				"rics:Renewal": {
 					"$ref": "#/definitions/rics:RentRenewalType"
 				},
@@ -55657,6 +55835,7 @@
 						"managedFreehold",
 						"leasehold",
 						"commonhold",
+						"sharedOwnership",
 						"informal",
 						"interest",
 						"owned",
@@ -56160,6 +56339,9 @@
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
 				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
+				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -56529,6 +56711,9 @@
 				},
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
+				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
 				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
@@ -60411,6 +60596,22 @@
 			},
 			"type": "object"
 		},
+		"rics:ValuationProcessEnum": {
+			"anyOf": [
+				{
+					"enum": [
+						"hybrid",
+						"driveBy",
+						"desktop",
+						"AVM"
+					],
+					"type": "string"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
 		"rics:ValuationType": {
 			"additionalProperties": false,
 			"patternProperties": {
@@ -60562,6 +60763,19 @@
 						{
 							"items": {
 								"$ref": "#/definitions/rics:AnnotatedDocumentType"
+							},
+							"type": "array"
+						}
+					]
+				},
+				"rics:Process": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/rics:ValuationProcessEnum"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/rics:ValuationProcessEnum"
 							},
 							"type": "array"
 						}
@@ -61068,6 +61282,9 @@
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
 				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
+				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -61563,6 +61780,9 @@
 				"@element": {
 					"$ref": "#/definitions/rics:CostedProjectElementEnum"
 				},
+				"@projectStage": {
+					"$ref": "#/definitions/rics:ProjectStageEnum"
+				},
 				"@title": {
 					"$ref": "#/definitions/xs:string"
 				},
@@ -61908,15 +62128,6 @@
 				}
 			]
 		},
-		"rics:WiFiCoverageType": {
-			"additionalProperties": false,
-			"properties": {
-				"@data": {
-					"$ref": "#/definitions/rics:WiFiCoverageEnum"
-				}
-			},
-			"type": "object"
-		},
 		"rics:WiFiDataSpeedsType": {
 			"additionalProperties": false,
 			"properties": {
@@ -61948,12 +62159,9 @@
 					"$ref": "#/definitions/rics:SimpleMeasurementType"
 				}
 			},
-			"required": [
-				"rics:Waveband"
-			],
 			"type": "object"
 		},
-		"rics:WiFiSecurityEnum": {
+		"rics:WiFiSecurityLevelEnum": {
 			"anyOf": [
 				{
 					"enum": [
@@ -61980,8 +62188,8 @@
 		"rics:WiFiSecurityType": {
 			"additionalProperties": false,
 			"properties": {
-				"@security": {
-					"$ref": "#/definitions/rics:WiFiSecurityEnum"
+				"@level": {
+					"$ref": "#/definitions/rics:WiFiSecurityLevelEnum"
 				},
 				"@technologyGeneration": {
 					"$ref": "#/definitions/rics:WiFiTechnologyGenerationEnum"
@@ -61992,17 +62200,17 @@
 		"rics:WiFiServiceCoverageType": {
 			"additionalProperties": false,
 			"properties": {
+				"@indoor": {
+					"$ref": "#/definitions/rics:WiFiCoverageEnum"
+				},
+				"@outdoor": {
+					"$ref": "#/definitions/rics:WiFiCoverageEnum"
+				},
+				"@summary": {
+					"$ref": "#/definitions/rics:WiFiCoverageEnum"
+				},
 				"@technologyGeneration": {
 					"$ref": "#/definitions/rics:WiFiTechnologyGenerationEnum"
-				},
-				"rics:Indoor": {
-					"$ref": "#/definitions/rics:WiFiCoverageType"
-				},
-				"rics:Outdoor": {
-					"$ref": "#/definitions/rics:WiFiCoverageType"
-				},
-				"rics:Summary": {
-					"$ref": "#/definitions/rics:WiFiCoverageType"
 				}
 			},
 			"type": "object"
@@ -65164,7 +65372,7 @@
 			"type": "string"
 		}
 	},
-	"description": "RICS Data Standard (RDS)\rThis is an XML schema (XSD) for the RICS Data Standard (RDS) incorporating ICMS, ILMS, IPMS, IVS, and IBOS using address formats from buildingSMART IFC, and Oasis xAL.\rCopyright(c) 2017-2022 RICS [http://www.rics.org]\rPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\rThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\rTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\rContact: RICS http://www.rics.org\rFor help and support, enhancement requests, etc., please email: datastandards@rics.org\rVersion: 3.3.3\rLast Updated: 2 March 2022\r",
+	"description": "RICS Data Standard (RDS)\rThis is a JSON schema for the RICS Data Standard (RDS) incorporating ICMS, ILMS, IPMS, IVS, and IBOS using address formats from buildingSMART IFC, and Oasis xAL.\rCopyright(c) 2017-2022 RICS [http://www.rics.org]\rPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\rThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\rTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\rContact: RICS http://www.rics.org\rFor help and support, enhancement requests, etc., please email: datastandards@rics.org\rVersion: 3.3.3\rLast Updated: 11 March 2022\r",
 	"properties": {
 		"@xmlns:ifc": {
 			"default": "http://www.buildingsmart-tech.org/ifc/IFC4x1/final"

@@ -69,16 +69,18 @@
 						"@stateTo": "completionOfCommissioning"
 					}
 				},
-				"rics:Site": {
-					"@stateOfUse": "brownfield",
-					"@typeOfUse": "urban",
-					"@legalStatus": "freehold",
-					"@siteTopography": "principallyFlat",
-					"@groundConditions": "soft",
-					"@accessProblems": "average",
-					"@extremeClimaticConditions": "easy",
-					"@environmentalConstraints": "easy"
-				},
+				"rics:Site": [
+					{
+						"@stateOfUse": "brownfield",
+						"@typeOfUse": "urban",
+						"@legalStatus": "freehold",
+						"@siteTopography": "principallyFlat",
+						"@groundConditions": "soft",
+						"@accessProblems": "average",
+						"@extremeClimaticConditions": "easy",
+						"@environmentalConstraints": "easy"
+					}
+				],
 				"rics:Procurement": {
 					"@funding": "private",
 					"@pricingMethod": "lumpSumStipulatedPrice",
@@ -90,6 +92,7 @@
 					{
 						"@title": "Office and Warehouse",
 						"@description": "ICMS1 Data",
+						"@element": "part",
 						"rics:ProjectCode": {
 							"rics:ClassificationStandard": [
 								{

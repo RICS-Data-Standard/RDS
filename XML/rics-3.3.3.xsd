@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Contact: RICS http://www.rics.org
 For help and support, enhancement requests, etc., please email: datastandards@rics.org
 Version: 3.3.3
-Last Updated: 2 March 2022
+Last Updated: 11 March 2022
 		</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType name="AboveBelowEnum">
@@ -294,17 +294,21 @@ Last Updated: 2 March 2022
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="AttestationType">
-		<xs:sequence>
-			<xs:element name="Document" type="AnnotatedDocumentType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:choice>
-				<xs:element name="Date" type="DateChoiceType" minOccurs="0"/>
-				<xs:element name="DateRange" type="DateRangeChoiceType" minOccurs="0"/>
-			</xs:choice>
-		</xs:sequence>
-		<xs:attribute name="declaration" type="xs:string"/>
-		<xs:attribute name="isAbleToAffirm" type="xs:boolean"/>
-		<xs:attribute name="affirmation" type="xs:boolean"/>
-		<xs:attribute name="comments" type="xs:string"/>
+		<xs:complexContent>
+			<xs:extension base="PropertyContentType">
+				<xs:sequence>
+					<xs:element name="Participants" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:choice>
+						<xs:element name="Date" type="DateChoiceType" minOccurs="0"/>
+						<xs:element name="DateRange" type="DateRangeChoiceType" minOccurs="0"/>
+					</xs:choice>
+				</xs:sequence>
+				<xs:attribute name="declaration" type="xs:string"/>
+				<xs:attribute name="isAbleToAffirm" type="xs:boolean"/>
+				<xs:attribute name="affirmation" type="xs:boolean"/>
+				<xs:attribute name="comments" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="AuthorStatusType">
 		<xs:sequence>
@@ -635,7 +639,7 @@ Last Updated: 2 March 2022
 					<xs:element name="ConstructionType" type="ConstructionType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="ConstructionMaterials" type="ConstructionMaterialType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:choice>
-						<xs:element name="Heating" type="HeatingType" minOccurs="0"/>
+						<xs:element name="Heating" type="HeatingType" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element name="IsUnHeated" type="xs:boolean" minOccurs="0"/>
 					</xs:choice>
 					<xs:element name="HVAC" type="HVACType" minOccurs="0" maxOccurs="unbounded"/>
@@ -1160,6 +1164,7 @@ Last Updated: 2 March 2022
 					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="title" type="xs:string"/>
+				<xs:attribute name="projectStage" type="ProjectStageEnum"/>
 				<xs:attribute name="element" type="CostedProjectElementEnum"/>
 			</xs:extension>
 		</xs:complexContent>
@@ -1401,6 +1406,7 @@ Last Updated: 2 March 2022
 					<xs:element name="GeneratedBy" type="PropertyParticipantType" minOccurs="0"/>
 					<xs:element name="MetaData" type="MetaDataType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="InformationSources" type="InformationSourceType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Attestations" type="AttestationType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Currency" type="CurrencyType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Property" type="PropertyType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Premises" type="PremisesType" minOccurs="0" maxOccurs="unbounded"/>
@@ -1961,6 +1967,9 @@ Last Updated: 2 March 2022
 				<xs:attribute name="isSolar" type="xs:boolean"/>
 				<xs:attribute name="isGeothermal" type="xs:boolean"/>
 				<xs:attribute name="isHydrogen" type="xs:boolean"/>
+				<xs:attribute name="isAirSourceHeatPump" type="xs:boolean"/>
+				<xs:attribute name="isGroundSourceHeatPump" type="xs:boolean"/>
+				<xs:attribute name="isWaterSourceHeatPump" type="xs:boolean"/>
 				<xs:attribute name="isOther" type="xs:boolean"/>
 			</xs:extension>
 		</xs:complexContent>
@@ -14636,6 +14645,7 @@ Last Updated: 2 March 2022
 			<xs:enumeration value="electrical"/>
 			<xs:enumeration value="plumbing"/>
 			<xs:enumeration value="boundary"/>
+			<xs:enumeration value="smartSystem"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownObjectClassEnum">
@@ -14645,6 +14655,7 @@ Last Updated: 2 March 2022
 			<xs:enumeration value="meters"/>
 			<xs:enumeration value="valve"/>
 			<xs:enumeration value="stopcock"/>
+			<xs:enumeration value="batteries"/>
 			<xs:enumeration value="fixture"/>
 			<xs:enumeration value="fitting"/>
 			<xs:enumeration value="furniture"/>
@@ -14652,6 +14663,10 @@ Last Updated: 2 March 2022
 			<xs:enumeration value="deadstock"/>
 			<xs:enumeration value="livestock"/>
 			<xs:enumeration value="chattel"/>
+			<xs:enumeration value="fabric"/>
+			<xs:enumeration value="heatingAndPower"/>
+			<xs:enumeration value="security"/>
+			<xs:enumeration value="entertainment"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownObjectGroupEnum">
@@ -14678,6 +14693,17 @@ Last Updated: 2 March 2022
 			<xs:enumeration value="outbuilding"/>
 			<xs:enumeration value="extension"/>
 			<xs:enumeration value="garage"/>
+			<xs:enumeration value="remoteControl"/>
+			<xs:enumeration value="solarPanel"/>
+			<xs:enumeration value="chargingPoint"/>
+			<xs:enumeration value="powerStorage"/>
+			<xs:enumeration value="indoorLighting"/>
+			<xs:enumeration value="outdoorLighting"/>
+			<xs:enumeration value="CCTV"/>
+			<xs:enumeration value="alarm"/>
+			<xs:enumeration value="barriers"/>
+			<xs:enumeration value="gates"/>
+			<xs:enumeration value="audioVisual"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="KnownObjectLocationEnum">
@@ -19563,12 +19589,13 @@ Last Updated: 2 March 2022
 	<xs:simpleType name="KnownParkingEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="garage"/>
-			<xs:enumeration value="allocatedSpaces"/>
+			<xs:enumeration value="allocated"/>
 			<xs:enumeration value="driveway"/>
 			<xs:enumeration value="onStreet"/>
 			<xs:enumeration value="offStreet"/>
 			<xs:enumeration value="permit"/>
 			<xs:enumeration value="metered"/>
+			<xs:enumeration value="resident"/>
 			<xs:enumeration value="communal"/>
 			<xs:enumeration value="shared"/>
 			<xs:enumeration value="none"/>
@@ -20363,6 +20390,7 @@ Last Updated: 2 March 2022
 			<xs:enumeration value="managedFreehold"/>
 			<xs:enumeration value="leasehold"/>
 			<xs:enumeration value="commonhold"/>
+			<xs:enumeration value="sharedOwnership"/>
 			<xs:enumeration value="informal"/>
 			<xs:enumeration value="interest"/>
 			<xs:enumeration value="owned"/>
@@ -34631,6 +34659,14 @@ Last Updated: 2 March 2022
 			<xs:enumeration value="replacementCost"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="KnownValuationProcessEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="hybrid"/>
+			<xs:enumeration value="driveBy"/>
+			<xs:enumeration value="desktop"/>
+			<xs:enumeration value="AVM"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="KnownVerificationEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="measuredOnSite"/>
@@ -34744,7 +34780,7 @@ Last Updated: 2 March 2022
 			<xs:enumeration value="wi-Fi6E:802.11ax"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="KnownWiFiSecurityEnum">
+	<xs:simpleType name="KnownWiFiSecurityLevelEnum">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="open"/>
 			<xs:enumeration value="WEP"/>
@@ -35659,6 +35695,7 @@ Last Updated: 2 March 2022
 					<xs:element name="OtherIntendedUsers" type="PropertyParticipantType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="MaterialConnection" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="MaterialAssistance" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Methodology" type="MethodologyEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="LimitationsRestrictions" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Compliance" type="ComplianceType" minOccurs="0"/>
 					<xs:choice>
@@ -35693,7 +35730,6 @@ Last Updated: 2 March 2022
 				<xs:attribute name="brief" type="xs:string"/>
 				<xs:attribute name="scopeOfWork" type="xs:string"/>
 				<xs:attribute name="termsOfEngagement" type="xs:string"/>
-				<xs:attribute name="methodology" type="MethodologyEnum"/>
 				<xs:attribute name="verification" type="VerificationEnum"/>
 			</xs:extension>
 		</xs:complexContent>
@@ -36057,8 +36093,8 @@ Last Updated: 2 March 2022
 				<xs:attribute name="isSensor" type="xs:boolean"/>
 				<xs:attribute name="isIoT" type="xs:boolean"/>
 				<xs:attribute name="countOf" type="xs:integer"/>
-				<xs:attribute name="class" type="ObjectClassEnum"/>
 				<xs:attribute name="category" type="ObjectCategoryEnum"/>
+				<xs:attribute name="class" type="ObjectClassEnum"/>
 				<xs:attribute name="group" type="ObjectGroupEnum"/>
 				<xs:attribute name="subgroup" type="xs:string"/>
 				<xs:attribute name="size" type="xs:string"/>
@@ -36255,6 +36291,10 @@ Last Updated: 2 March 2022
 				<xs:attribute name="availableSpaces" type="xs:integer"/>
 				<xs:attribute name="availableSpacesInside" type="xs:integer"/>
 				<xs:attribute name="availableSpacesOutside" type="xs:integer"/>
+				<xs:attribute name="isPrivateChargingPointAvailable" type="xs:boolean"/>
+				<xs:attribute name="isPublicChargingPointAvailable" type="xs:boolean"/>
+				<xs:attribute name="privateChargingPoints" type="xs:integer"/>
+				<xs:attribute name="publicChargingPoints" type="xs:integer"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -36901,11 +36941,11 @@ Last Updated: 2 March 2022
 					<xs:element name="Qualifications" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="DigitalID" type="GUIDType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Anti-MoneyLaunderingEvidence" type="GenericContentType" minOccurs="0"/>
-					<xs:element name="Attestation" type="AttestationType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
-				<xs:attribute name="name" type="xs:string"/>
+				<xs:attribute name="isPrimaryPropertyParticipant" type="xs:boolean"/>
 				<xs:attribute name="isAnti-MoneyLaunderingChecked" type="xs:boolean"/>
 				<xs:attribute name="isPoliticallyExposedPerson" type="xs:boolean"/>
+				<xs:attribute name="name" type="xs:string"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -37056,9 +37096,7 @@ Last Updated: 2 March 2022
 		<xs:complexContent>
 			<xs:extension base="GenericContentType">
 				<xs:sequence>
-					<xs:element name="ParcelID" type="GUIDType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Parcel" type="ParcelType" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="PartOfParcelID" type="GUIDType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="PartOfParcel" type="ParcelType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Centroid" type="CentroidType" minOccurs="0"/>
 					<xs:element name="Address" type="AddressType" minOccurs="0"/>
@@ -37807,7 +37845,7 @@ Last Updated: 2 March 2022
 					<xs:element name="Zones" type="ZoneType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Floors" type="FloorType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Spaces" type="SpaceType" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="Rooms" type="RoomType" minOccurs="0" maxOccurs="unbounded"/>				
+					<xs:element name="Rooms" type="RoomType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -37906,9 +37944,7 @@ Last Updated: 2 March 2022
 		<xs:complexContent>
 			<xs:extension base="PropertyContentType">
 				<xs:sequence>
-					<xs:element name="ParcelID" type="GUIDType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Parcel" type="ParcelType" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="PartOfParcelID" type="GUIDType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="PartOfParcel" type="ParcelType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Services" type="ServicesType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Dimensions" type="DimensionType" minOccurs="0"/>
@@ -38330,6 +38366,7 @@ Last Updated: 2 March 2022
 					<xs:element name="Premises" type="PremisesType" minOccurs="0"/>
 					<xs:element name="SpecialRights" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Length" type="DurationType" minOccurs="0"/>
+					<xs:element name="Remaining" type="DurationType" minOccurs="0"/>
 					<xs:element name="Jurisdiction" type="JurisdictionType" minOccurs="0"/>
 					<xs:element name="JurisdictionalLegislation" type="JurisdictionalLegislationType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Renewal" type="RentRenewalType" minOccurs="0"/>
@@ -38758,6 +38795,9 @@ Last Updated: 2 March 2022
 		<xs:attribute name="methodology" type="ValuationMethodologyEnum"/>
 		<xs:attribute name="explanation" type="xs:string"/>
 	</xs:complexType>
+	<xs:simpleType name="ValuationProcessEnum">
+		<xs:union memberTypes="KnownValuationProcessEnum xs:string"/>
+	</xs:simpleType>
 	<xs:complexType name="ValuationType">
 		<xs:complexContent>
 			<xs:extension base="GenericContentType">
@@ -38779,6 +38819,7 @@ Last Updated: 2 March 2022
 					<xs:element name="NetYields" type="YieldType" minOccurs="0"/>
 					<xs:element name="Explanation" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Approach" type="ValuationApproachType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Process" type="ValuationProcessEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="ComparableEvidence" type="ComparableEvidenceType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Statistics" type="StatisticsType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
@@ -39010,33 +39051,28 @@ Last Updated: 2 March 2022
 	<xs:simpleType name="WiFiCoverageEnum">
 		<xs:union memberTypes="KnownWiFiCoverageEnum xs:string"/>
 	</xs:simpleType>
-	<xs:complexType name="WiFiCoverageType">
-		<xs:attribute name="data" type="WiFiCoverageEnum"/>
-	</xs:complexType>
 	<xs:complexType name="WiFiDataSpeedsType">
 		<xs:complexContent>
 			<xs:extension base="DataSpeedsType">
 				<xs:sequence>
-					<xs:element name="Waveband" type="SimpleMeasurementType"/>
+					<xs:element name="Waveband" type="SimpleMeasurementType" minOccurs="0"/>
 				</xs:sequence>
 				<xs:attribute name="technologyGeneration" type="WiFiTechnologyGenerationEnum"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:simpleType name="WiFiSecurityEnum">
-		<xs:union memberTypes="KnownWiFiSecurityEnum xs:string"/>
+	<xs:simpleType name="WiFiSecurityLevelEnum">
+		<xs:union memberTypes="KnownWiFiSecurityLevelEnum xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="WiFiSecurityType">
 		<xs:attribute name="technologyGeneration" type="WiFiTechnologyGenerationEnum"/>
-		<xs:attribute name="security" type="WiFiSecurityEnum"/>
+		<xs:attribute name="level" type="WiFiSecurityLevelEnum"/>
 	</xs:complexType>
 	<xs:complexType name="WiFiServiceCoverageType">
-		<xs:sequence>
-			<xs:element name="Summary" type="WiFiCoverageType" minOccurs="0"/>
-			<xs:element name="Indoor" type="WiFiCoverageType" minOccurs="0"/>
-			<xs:element name="Outdoor" type="WiFiCoverageType" minOccurs="0"/>
-		</xs:sequence>
 		<xs:attribute name="technologyGeneration" type="WiFiTechnologyGenerationEnum"/>
+		<xs:attribute name="summary" type="WiFiCoverageEnum"/>
+		<xs:attribute name="indoor" type="WiFiCoverageEnum"/>
+		<xs:attribute name="outdoor" type="WiFiCoverageEnum"/>
 	</xs:complexType>
 	<xs:complexType name="WiFiServicesType">
 		<xs:complexContent>
