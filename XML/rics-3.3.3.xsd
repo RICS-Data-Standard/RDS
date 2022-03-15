@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Contact: RICS http://www.rics.org
 For help and support, enhancement requests, etc., please email: datastandards@rics.org
 Version: 3.3.3
-Last Updated: 11 March 2022
+Last Updated: 15 March 2022
 		</xs:documentation>
 	</xs:annotation>
 	<xs:simpleType name="AboveBelowEnum">
@@ -1839,6 +1839,7 @@ Last Updated: 11 March 2022
 					<xs:element name="MeasuredComponents" type="ComponentMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="InternalHeight" type="SimpleMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="ClearHeight" type="SimpleMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="RightsHolders" type="PropertyRightsHolderType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="SecondaryUse" type="PropertyUseEnum" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="HVAC" type="HVACType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Services" type="ServicesType" minOccurs="0" maxOccurs="unbounded"/>
@@ -37946,6 +37947,7 @@ Last Updated: 11 March 2022
 				<xs:sequence>
 					<xs:element name="Parcel" type="ParcelType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="PartOfParcel" type="ParcelType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="RightsHolders" type="PropertyRightsHolderType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Services" type="ServicesType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Dimensions" type="DimensionType" minOccurs="0"/>
 					<xs:element name="Indicator" type="ComplexMeasurementType" minOccurs="0" maxOccurs="unbounded"/>
@@ -39105,6 +39107,7 @@ Last Updated: 11 March 2022
 					<xs:element name="ConsentApproval" type="ConsentApprovalType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Costs" type="CostsType" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Emissions" type="EmissionsType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Income" type="IncomeType" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 				<xs:attribute name="status" type="WorksStatusEnum"/>
 				<xs:attribute name="projectStage" type="ProjectStageEnum"/>
