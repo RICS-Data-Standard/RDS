@@ -1,0 +1,1319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rics:DataTransfer xmlns:rics="urn:xsdschema:rics:3.3.2" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:xsdschema:rics:3.3.2 rics-3.3.2.xsd">
+	<rics:GeneratedBy name="Andrew Knight"/>
+	<rics:Currency iso4217Code="AUD" isPrimaryCurrency="true"/>
+	<rics:Property primaryUse="MixedUse" reference="1001" description="New 2 storey office block, warehouse, soft landscaping and paving.  Removal of existing buildings in completion" isPrimaryProperty="true">
+		<rics:Address>
+			<xal:AddressDetails>
+				<xal:AddressLines>
+					<xal:AddressLine>Canberra</xal:AddressLine>
+					<xal:AddressLine>Australian Capital Territory</xal:AddressLine>
+					<xal:AddressLine>Australia</xal:AddressLine>
+				</xal:AddressLines>
+			</xal:AddressDetails>
+		</rics:Address>
+	</rics:Property>
+	<rics:CostedProjects title="New Offices and Warehouse" projectType="building" costReportStatus="pre-constructionForecast" reportPriceBasis="fixedUnitRates" projectStatus="initiationAndConceptPhase" description="New 2 storey office block, warehouse, soft landscaping and paving.  Removal of existing buildings in completion">
+		<rics:MetaData reportStatus="final" reportRevisionNumber="3">
+			<rics:ReportDate>
+				<rics:Date>2014-05-31</rics:Date>
+			</rics:ReportDate>
+		</rics:MetaData>
+		<rics:Location>
+			<xal:AddressDetails>
+				<xal:AddressLines>
+					<xal:AddressLine>Canberra</xal:AddressLine>
+					<xal:AddressLine>Australian Capital Territory</xal:AddressLine>
+					<xal:AddressLine>Australia</xal:AddressLine>
+				</xal:AddressLines>
+			</xal:AddressDetails>
+		</rics:Location>
+		<rics:ConstructionPeriod>
+			<rics:Length>
+				<rics:Duration>P15M</rics:Duration>
+			</rics:Length>
+			<rics:DateFrom definedBy="startOfDemolitionAndSitePreparation"/>
+			<rics:DateTo stateTo="completionOfCommissioning"/>
+		</rics:ConstructionPeriod>
+		<rics:Site stateOfUse="brownfield" typeOfUse="urban" legalStatus="freehold" siteTopography="principallyFlat" groundConditions="soft" accessProblems="average" extremeClimaticConditions="easy" environmentalConstraints="easy"/>
+		<rics:Procurement funding="private" pricingMethod="lumpSumStipulatedPrice" modeOfProcurement="designBidBuild" isJointVentureForeignConstructor="false" predominantSourceOfConstructors="local"/>
+		<rics:Buildings title="Office and Warehouse" description="ICMS1 Data">
+			<rics:ProjectCode>
+				<rics:ClassificationStandard code="01.04.02 (Commercial offices - Suburban/Regional B Grade" standard="Building Code of Australia"/>
+			</rics:ProjectCode>
+			<rics:Costs category="capitalConstructionCosts" group="demolitionSitePreparationAndFormation" code="1.01" subcode="050" isCivilEngineeringWorks="false" isExcluded="false" description="Demolition of existing buildings">
+				<rics:Total>600000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="demolitionSitePreparationAndFormation" code="1.01" subcode="060" isCivilEngineeringWorks="false" isExcluded="false" description="Site surface clearance">
+				<rics:Total>300000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="demolitionSitePreparationAndFormation" code="1.01" subcode="080" isCivilEngineeringWorks="false" isExcluded="false" description="Site formation">
+				<rics:Total>320000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="substructure" code="1.02" subcode="020" isCivilEngineeringWorks="false" isExcluded="false" description="Foundations up to top of lowest floor slab">
+				<rics:Total>1086000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="structure" code="1.03" subcode="030.010" isCivilEngineeringWorks="false" isExcluded="false" description="Structural wall and columns">
+				<rics:Total>285000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="structure" code="1.03" subcode="030.020" isCivilEngineeringWorks="false" isExcluded="false" description="Upper floors and beams">
+				<rics:Total>951000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="structure" code="1.03" subcode="030.030" isCivilEngineeringWorks="false" isExcluded="false" description="Roof beams and slabs">
+				<rics:Total>1056000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="structure" code="1.03" subcode="030.040" isCivilEngineeringWorks="false" isExcluded="false" description="Staircases">
+				<rics:Total>72000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="020.010" isCivilEngineeringWorks="false" isExcluded="false" description="Non-structural external walls">
+				<rics:Total>1957500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="020.050" isCivilEngineeringWorks="false" isExcluded="false" description="External doors">
+				<rics:Total>108800</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="030.010" isCivilEngineeringWorks="false" isExcluded="false" description="Roof finishes">
+				<rics:Total>560000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="040.010" isCivilEngineeringWorks="false" isExcluded="false" description="Non-structural internal walls and partitions">
+				<rics:Total>658700</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="040.060" isCivilEngineeringWorks="false" isExcluded="false" description="Internal doors">
+				<rics:Total>141000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="040.070" isCivilEngineeringWorks="false" isExcluded="false" description="Internal windows">
+				<rics:Total>131000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="050" isCivilEngineeringWorks="false" isExcluded="false" description="Fittings and sundries">
+				<rics:Total>180000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="060.010" isCivilEngineeringWorks="false" isExcluded="false" description="Floor finishes">
+				<rics:Total>501000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="060.020" isCivilEngineeringWorks="false" isExcluded="false" description="Internal wall finishes">
+				<rics:Total>258300</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="060.030" isCivilEngineeringWorks="false" isExcluded="false" description="Ceiling finishes">
+				<rics:Total>380700</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="architecturalWorks-NonStructuralWorks" code="1.04" subcode="070" isCivilEngineeringWorks="false" isExcluded="false" description="Builder's work in connection with services">
+				<rics:Total>181500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="servicesAndEquipment" code="1.05" subcode="010.080" isCivilEngineeringWorks="false" isExcluded="false" description="Air handling and distribution system">
+				<rics:Total>2273500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="servicesAndEquipment" code="1.05" subcode="020" isCivilEngineeringWorks="false" isExcluded="false" description="Electrical services">
+				<rics:Total>1553000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="servicesAndEquipment" code="1.05" subcode="040.010" isCivilEngineeringWorks="false" isExcluded="false" description="Communications">
+				<rics:Total>728000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="servicesAndEquipment" code="1.05" subcode="050" isCivilEngineeringWorks="false" isExcluded="false" description="Water supply and above ground drainage">
+				<rics:Total>788700</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="servicesAndEquipment" code="1.05" subcode="080" isCivilEngineeringWorks="false" isExcluded="false" description="Fire services">
+				<rics:Total>266700</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="servicesAndEquipment" code="1.05" subcode="100" isCivilEngineeringWorks="false" isExcluded="false" description="Movement systems">
+				<rics:Total>247000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="servicesAndEquipment" code="1.05" subcode="250" isCivilEngineeringWorks="false" isExcluded="false" description="Other specialist services">
+				<rics:Total>267500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="surfaceAndUndergroundDrainage" code="1.06" isCivilEngineeringWorks="false" isExcluded="false" description="Surface and underground drainage">
+				<rics:Total>165000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="externalAndAncillaryWorks" code="1.07" isCivilEngineeringWorks="false" isExcluded="false" description="External and ancillary works">
+				<rics:Total>1138000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="preliminariesConstructors-SiteOverheads-GeneralRequirements" code="1.08" isCivilEngineeringWorks="false" isExcluded="false" description="Preliminaries, Contractor's site overheads, general requirements">
+				<rics:Total>2653000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="riskAllowances" code="1.09" isCivilEngineeringWorks="false" isExcluded="false" description="Risk Allowances">
+				<rics:Total>2438000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="capitalConstructionCosts" group="taxesAndLevies" code="1.10" isCivilEngineeringWorks="false" isExcluded="true" description="Taxes and Levies">
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="associatedCapitalCosts" group="workAndUtilitiesOffsite" code="2.01" isCivilEngineeringWorks="false" isExcluded="false" description="Work and utilities off-site">
+				<rics:Total>290000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="associatedCapitalCosts" group="postCompletionLooseFurnitureFittingsAndEquipment" code="2.02" isCivilEngineeringWorks="false" isExcluded="false" description="Post-completion loose furniture, fittings and equipment">
+				<rics:Total>2605600</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="associatedCapitalCosts" group="constructionRelatedConsultantsAndSupervision" code="2.03" isCivilEngineeringWorks="false" isExcluded="false" description="Construction-related consultancies and supervision">
+				<rics:Total>1380300</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="associatedCapitalCosts" group="riskAllowances" code="2.04" isCivilEngineeringWorks="false" isExcluded="false" description="Risk Allowances">
+				<rics:Total>177000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="siteAcquisitionAndClientsOtherCosts" group="siteAcquisition" code="3.01" isCivilEngineeringWorks="false" isExcluded="true" description="Site acquisition">
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category="siteAcquisitionAndClientsOtherCosts" group="administrativeFinanceLegalAndMarketingExpenses" code="3.02" isCivilEngineeringWorks="false" isExcluded="false" description="Administrative, finance, legal and marketing expenses">
+				<rics:Total>671850</rics:Total>
+			</rics:Costs>
+			<rics:Works function="commercial" nature="newBuild" grade="mediumQuality" designLifeInYears="40">
+				<rics:EnvironmentalGrade grade="Four Star" status="targeted" standard="NABERS (National Australian Built Environment Rating System)"/>
+				<rics:DesignFeatures structure="steel" externalWalls="Tilt-up (precast) concrete panels" environmentalControl="airConditioning" prefabricationDegree="upTo50%"/>
+				<rics:Complexity shapeOnPlan="squareRectangularOrSimilar" design="simple" methodOfWorking="Existing buildings on site will remain operational during the construction. Staff will move to new buildings. Old buildings demolished on completion of new 40 to 50 years"/>
+				<rics:AverageHeightToSeaLevel unitOfMeasurement="MTR" location="above">577</rics:AverageHeightToSeaLevel>
+				<rics:Dimensions unitOfMeasurement="MTR" description="Metres">
+					<rics:Width>37.640</rics:Width>
+					<rics:Length>64.85</rics:Length>
+					<rics:Height>6.20</rics:Height>
+				</rics:Dimensions>
+				<rics:StoreyInformation storeyCountAboveGround="3" storeyCountBelowGround="0">
+					<rics:StoreyHeight unitOfMeasurement="MTR" id="0">3</rics:StoreyHeight>
+					<rics:TypicalStoreyHeight unitOfMeasurement="MTR">3</rics:TypicalStoreyHeight>
+				</rics:StoreyInformation>
+			</rics:Works>
+			<rics:Quantities>
+				<rics:SiteArea unitOfMeasurement="MTK">50000</rics:SiteArea>
+				<rics:CoveredAreaOnPlan unitOfMeasurement="MTK">7550</rics:CoveredAreaOnPlan>
+				<rics:InternalFloorAreaAsIpms2 unitOfMeasurement="MTK">4770</rics:InternalFloorAreaAsIpms2>
+			</rics:Quantities>
+		</rics:Buildings>
+		<rics:Bridges description="ICMS2 Data">
+			<rics:Costs category=" Acquisition Costs (AC)" group="Site acquisition" subgroup="Costs and premium required to procure site" code="02.1.01" subcode="010.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Site acquisition" subgroup="Compensation to existing occupiers" code="02.1.01" subcode="020.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Site acquisition" subgroup="Demolition, removal and modification of existing properties by way of payment to existing owners instead of carrying out physical work" code="02.1.01" subcode="030.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Site acquisition" subgroup="Contributions for the preservation of heritage, culture and environment" code="02.1.01" subcode="040.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Site acquisition" subgroup="Related fees to agents, lawyers, and the like" code="02.1.01" subcode="050.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Site acquisition" subgroup="Related taxes and statutory charges" code="02.1.01" subcode="060.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Client’s general office overheads" code="02.1.02" subcode="010.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Client’s project-specific administrative expenses" code="02.1.02" subcode="020.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Client’s project-specific administrative expenses" code="02.1.02" subcode="020.010"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Client’s project-specific administrative expenses" code="02.1.02" subcode="020.020"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Client’s project-specific administrative expenses" code="02.1.02" subcode="020.030"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Client’s project-specific administrative expenses" code="02.1.02" subcode="020.040"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Client’s project-specific administrative expenses" code="02.1.02" subcode="020.050"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Client’s project-specific administrative expenses" code="02.1.02" subcode="020.060"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Client’s project-specific administrative expenses" code="02.1.02" subcode="020.070"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Interest and finance costs" code="02.1.02" subcode="030.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Legal expenses" code="02.1.02" subcode="040.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Accounting expenses" code="02.1.02" subcode="050.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Sales, leasing, marketing, advertising and promotional expenses" code="02.1.02" subcode="060.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="Taxes and statutory charges related to sales and lease" code="02.1.02" subcode="070.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Acquisition Costs (AC)" group="Administrative, finance, legal and marketing expenses" subgroup="License and permit charges for operation and use" code="02.1.02" subcode="080.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Site survey and ground investigation" code="02.2.01" subcode="010.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Environmental treatment" code="02.2.01" subcode="020.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Sampling of hazardous or useful materials or conditions" code="02.2.01" subcode="030.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Temporary fencing" code="02.2.01" subcode="040.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Demolition of existing structures and support to adjacent structures" code="02.2.01" subcode="050.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Demolition of existing structures and support to adjacent structures" code="02.2.01" subcode="060.000" description="Allowance for traffic control" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">7236</rics:Quantity>
+				<rics:Rate>25</rics:Rate>
+				<rics:Total>180900</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Demolition of existing structures and support to adjacent structures" code="02.2.01" subcode="060.000" description="Water removal, pumps, fuel, filters, Allowance for water removal, pumps, fuel, filters" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>2</rics:Quantity>
+				<rics:Rate>15000</rics:Rate>
+				<rics:Total>30000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Tree transplant" code="02.2.01" subcode="070.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="General site formation and slope treatment" code="02.2.01" subcode="080.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Temporary surface drainage and dewatering" code="02.2.01" subcode="090.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Temporary access roads and storage areas (provided under an advance contract)" code="02.2.01" subcode="100.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Temporary protection, diversion and relocation of public utilities" code="02.2.01" subcode="110.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Demolition, site preparation and formation" subgroup="Erosion control" code="02.2.02" subcode="120.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Embankments/cuttings" code="02.2.02" subcode="010.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Embankments/cuttings" code="02.2.02" subcode="020.000" description="Excavation to abutments, allowance, Bulk excavation for removals and new construction, removal from site" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">8964</rics:Quantity>
+				<rics:Rate>45</rics:Rate>
+				<rics:Total>403380</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Embankments/cuttings" code="02.2.02" subcode="020.000" description="Excavation to abutments, allowance, Shale bedrock excavation for new construction, removal from site" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">4038</rics:Quantity>
+				<rics:Rate>110</rics:Rate>
+				<rics:Total>444180</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Embankments/cuttings" code="02.2.02" subcode="020.000" description="Excavation to pier pads in river bed, Bulk excavation for removals and new construction, removal from site" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">600</rics:Quantity>
+				<rics:Rate>45</rics:Rate>
+				<rics:Total>27000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Embankments/cuttings" code="02.2.02" subcode="020.000" description="Excavation to pier pads in river bed, Rock excavation for removals and new construction, removal from site" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">9000</rics:Quantity>
+				<rics:Rate>120</rics:Rate>
+				<rics:Total>1080000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Trenching" code="02.2.02" subcode="030.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="040.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="050.000" description="Caissons to above, 14 piers per pad, 1800mm diameter, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">688</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>151360</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="050.000" description="Caissons to above, 14 piers per pad, 1800mm diameter, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">688</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>34400</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="050.000" description="Caissons to above, 14 piers per pad, 1800mm diameter, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">56000</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>224000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="050.000" description="Caissons to above, 14 piers per pad, 1800mm diameter, Steel liner" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">15900</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>63600</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="050.000" description="Caissons to above, 14 piers per pad, 1800mm diameter, Allowance for drilling" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">688</rics:Quantity>
+				<rics:Rate>1300</rics:Rate>
+				<rics:Total>894400</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="060.000" description="Backfill to abutments, allowance, Backfill with engineered fill, compacted" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">6090</rics:Quantity>
+				<rics:Rate>75</rics:Rate>
+				<rics:Total>456750</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="060.000" description="Backfill to abutments, allowance, Clear granular material at drains, etc.," isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">3</rics:Quantity>
+				<rics:Rate>120</rics:Rate>
+				<rics:Total>360</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="060.000" description="Backfill to pier pads in river bed, Backfill with rock material" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">1980</rics:Quantity>
+				<rics:Rate>75</rics:Rate>
+				<rics:Total>148500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="070.000" description="Coffered dams to river bed at piers, Allowance for coffer dams" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">3200</rics:Quantity>
+				<rics:Rate>450</rics:Rate>
+				<rics:Total>1440000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">467</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>102740</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">467</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>23350</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">42500</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>170000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">0</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">178</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>39160</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wall pad footings, 1300mm thick, 6500 x 27600mm, Screed" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">359</rics:Quantity>
+				<rics:Rate>10</rics:Rate>
+				<rics:Total>3590</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wing walls, 475mm, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">29</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>6380</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wing walls, 475mm, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">29</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>1450</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wing walls, 475mm, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">2330</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>9320</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wing walls, 475mm, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">0</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="080.000" description="Abutment wing walls, 475mm, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">133</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>29260</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">1432</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>315040</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">1432</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>71600</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">38000</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>152000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">0</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">404</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>88880</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Pier pad footings, 2400mm thick, 33140 x 9000mm wide, Screed" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">596</rics:Quantity>
+				<rics:Rate>10</rics:Rate>
+				<rics:Total>5960</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Abutment walls, bridge support, 360m2, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">242</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>53240</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Abutment walls, bridge support, 360m2, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">242</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>12100</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Abutment walls, bridge support, 360m2, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">0</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Abutment walls, bridge support, 360m2, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">3600</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>43200</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Drilling/boring" code="02.2.02" subcode="090.000" description="Abutment walls, bridge support, 360m2, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">751</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>165220</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="100.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="110.000" description="Extra over to above for mass concrete working slab, 100mm thick, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">36</rics:Quantity>
+				<rics:Rate>190</rics:Rate>
+				<rics:Total>6840</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="110.000" description="Extra over to above for mass concrete working slab, 100mm thick, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">36</rics:Quantity>
+				<rics:Rate>40</rics:Rate>
+				<rics:Total>1440</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="110.000" description="Extra over to above for mass concrete working slab, 100mm thick, Rebar, not required" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="110.000" description="Extra over to above for mass concrete working slab, 100mm thick, Screed" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">359</rics:Quantity>
+				<rics:Rate>10</rics:Rate>
+				<rics:Total>3590</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="110.000" description="Allowance for light pole base, as per drawing sheet 611, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">5</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>1100</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="110.000" description="Allowance for light pole base, as per drawing sheet 611, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">5</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>250</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="110.000" description="Allowance for light pole base, as per drawing sheet 611, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">1000</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>12000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="110.000" description="Allowance for light pole base, as per drawing sheet 611, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">23</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>5060</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="110.000" description="Allowance for light pole base, as per drawing sheet 611, Screed" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">5</rics:Quantity>
+				<rics:Rate>25</rics:Rate>
+				<rics:Total>125</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Sub-base to pavements and rail track structures" code="02.2.02" subcode="110.000" description="Allowance for light pole base, as per drawing sheet 611, Allowance for cast-in lighting mount" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>5</rics:Quantity>
+				<rics:Rate>300</rics:Rate>
+				<rics:Total>1500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Substructure" subgroup="Beds and surrounds to underground pipes" code="02.2.02" subcode="120.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Piers, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">1393</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>306460</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Piers, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">1393</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>69650</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Piers, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">101600</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>406400</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Piers, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">0</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Piers, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">1200</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>264000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Abutment walls, pier section, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">290</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>63800</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Abutment walls, pier section, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">290</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>14500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Abutment walls, pier section, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">8400</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>33600</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Abutment walls, pier section, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">11800</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>141600</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Abutment walls, pier section, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">264</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>58080</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Beds and surrounds to underground pipes" code="02.2.03" subcode="010.000" description="Abutment walls, pier section, Screed" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">73</rics:Quantity>
+				<rics:Rate>10</rics:Rate>
+				<rics:Total>730</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="020.000" description="Abutment walls, pier section" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="030.000" description="250mm concrete deck, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">115</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>25300</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="030.000" description="250mm concrete deck, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">115</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>5750</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="030.000" description="250mm concrete deck, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">7060</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>28240</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="030.000" description="250mm concrete deck, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">424</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>5088</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="030.000" description="250mm concrete deck, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">10</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>2200</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="030.000" description="250mm concrete deck, Screed/cure" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">460</rics:Quantity>
+				<rics:Rate>15</rics:Rate>
+				<rics:Total>6900</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="040.000" description="Bearings, 1800 x 1800mm, Fixed" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>2</rics:Quantity>
+				<rics:Rate>3500</rics:Rate>
+				<rics:Total>7000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="040.000" description="Bearings, 1800 x 1800mm, Uni-directional" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>8</rics:Quantity>
+				<rics:Rate>3800</rics:Rate>
+				<rics:Total>30400</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="040.000" description="Bearings, 1800 x 1800mm, Multi-directional" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>6</rics:Quantity>
+				<rics:Rate>4000</rics:Rate>
+				<rics:Total>24000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="040.000" description="Bearings, 1800 x 1800mm, Allowance for materials for destructive testing" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>2000</rics:Rate>
+				<rics:Total>2000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Suspension system" code="02.2.03" subcode="040.000" description="5mm elastomer at approach slab" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">240</rics:Quantity>
+				<rics:Rate>55</rics:Rate>
+				<rics:Total>13200</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Tunnel lining" code="02.2.03" subcode="050.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Road/track base" code="02.2.03" subcode="060.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Road/track base" code="02.2.03" subcode="070.000" description="Overpass finishes, 90mm asphalt topping" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">610</rics:Quantity>
+				<rics:Rate>200</rics:Rate>
+				<rics:Total>122000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Road/track base" code="02.2.03" subcode="070.000" description="Overpass finishes, Waterproof membrane" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">6777</rics:Quantity>
+				<rics:Rate>45</rics:Rate>
+				<rics:Total>304965</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Road/track base" code="02.2.03" subcode="070.000" description="Overpass finishes, Form and gill grooves" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">1017</rics:Quantity>
+				<rics:Rate>7</rics:Rate>
+				<rics:Total>7119</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Road/track base" code="02.2.03" subcode="070.000" description="Overpass finishes, Allowance for demarkation, lines, symbols, etc.," isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">6777</rics:Quantity>
+				<rics:Rate>6</rics:Rate>
+				<rics:Total>40662</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Road/track base" code="02.2.03" subcode="070.000" description="Approach slab finishes, 90mm asphalt topping" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">41</rics:Quantity>
+				<rics:Rate>200</rics:Rate>
+				<rics:Total>8200</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Road/track base" code="02.2.03" subcode="070.000" description="Approach slab finishes, Waterproof membrane" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">459</rics:Quantity>
+				<rics:Rate>45</rics:Rate>
+				<rics:Total>20655</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Road/track base" code="02.2.03" subcode="070.000" description="Approach slab finishes, Form and gill grooves" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">69</rics:Quantity>
+				<rics:Rate>7</rics:Rate>
+				<rics:Total>483</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Road/track base" code="02.2.03" subcode="070.000" description="Approach slab finishes, Allowance for demarkation, lines, symbols, etc.," isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">459</rics:Quantity>
+				<rics:Rate>6</rics:Rate>
+				<rics:Total>2754</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Road/track base" code="02.2.03" subcode="070.000" description="Approach slab finishes, Allowance for saw cutting and joint compound" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">54</rics:Quantity>
+				<rics:Rate>35</rics:Rate>
+				<rics:Total>1890</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="080.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="090.000" description="Expansion joints" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">54</rics:Quantity>
+				<rics:Rate>1460</rics:Rate>
+				<rics:Total>78840</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over falsework, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">3400</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>748000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over falsework, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">3400</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>170000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over falsework, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">532500</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>2130000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over falsework, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">317500</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>3810000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over falsework, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">7392</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>1626240</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over falsework, Screeded/cure" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">3628</rics:Quantity>
+				<rics:Rate>15</rics:Rate>
+				<rics:Total>54420</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over falsework, Falsework framing support" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">3630</rics:Quantity>
+				<rics:Rate>100</rics:Rate>
+				<rics:Total>363000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over falsework, Allowance for post tensioning" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">136</rics:Quantity>
+				<rics:Rate>700</rics:Rate>
+				<rics:Total>95200</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over form travellers, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">3750</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>825000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over form travellers, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">3750</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>187500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over form travellers, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">662500</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>2650000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over form travellers, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">275000</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>3300000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over form travellers, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">6640</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>1460800</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over form travellers, Screeded/cure" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">3148</rics:Quantity>
+				<rics:Rate>15</rics:Rate>
+				<rics:Total>47220</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over form travellers, Falsework framing support" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">3148</rics:Quantity>
+				<rics:Rate>100</rics:Rate>
+				<rics:Total>314800</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Box girder diaphragm sections over form travellers, Allowance for post tensioning" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">118</rics:Quantity>
+				<rics:Rate>700</rics:Rate>
+				<rics:Total>82600</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Service roads and approaches" code="02.2.03" subcode="100.000" description="Allowance for sealant to interior surfaces, Interior surface area, confined space" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">9384</rics:Quantity>
+				<rics:Rate>65</rics:Rate>
+				<rics:Total>609960</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Tanks, rigs, storage containers and the like" code="02.2.03" subcode="110.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Tanks, rigs, storage containers and the like" code="02.2.03" subcode="120.000" description="Clevis pipe hanger with 25mm GI threaded rod, 1m high" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>150</rics:Quantity>
+				<rics:Rate>450</rics:Rate>
+				<rics:Total>67500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Tanks, rigs, storage containers and the like" code="02.2.03" subcode="130.000" description="150mm dia. perforated drain at abutments" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">120</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>6000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Tanks, rigs, storage containers and the like" code="02.2.03" subcode="130.000" description="Provide new deck drain, 1000x230mm (catch basin detail OPSD 3340.150)" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>8</rics:Quantity>
+				<rics:Rate>1200</rics:Rate>
+				<rics:Total>9600</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Tanks, rigs, storage containers and the like" code="02.2.03" subcode="130.000" description="200mm ASTM-A53 GI down pipe" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">15</rics:Quantity>
+				<rics:Rate>300</rics:Rate>
+				<rics:Total>4500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Tanks, rigs, storage containers and the like" code="02.2.03" subcode="130.000" description="300mm dia. PVC collection pipe hung under bridge deck" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">450</rics:Quantity>
+				<rics:Rate>340</rics:Rate>
+				<rics:Total>153000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Tanks, rigs, storage containers and the like" code="02.2.03" subcode="130.000" description="300mm dia. cleanout" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>2</rics:Quantity>
+				<rics:Rate>800</rics:Rate>
+				<rics:Total>1600</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Tanks, rigs, storage containers and the like" code="02.2.03" subcode="130.000" description="300mm dia. pipe expansion joint" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>2</rics:Quantity>
+				<rics:Rate>1200</rics:Rate>
+				<rics:Total>2400</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Structure" subgroup="Valves and fittings" code="02.2.03" subcode="140.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Non-structural removal and alterations" code="02.2.04" subcode="010.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Non-structural construction" code="02.2.04" subcode="020.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Running surface" code="02.2.04" subcode="030.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Signage, markings and the like" code="02.2.04" subcode="040.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Gantries and the like" code="02.2.04" subcode="050.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="060.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Barrier wall, Concrete supply" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">244</rics:Quantity>
+				<rics:Rate>220</rics:Rate>
+				<rics:Total>53680</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Barrier wall, Concrete placement" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTQ">244</rics:Quantity>
+				<rics:Rate>50</rics:Rate>
+				<rics:Total>12200</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Barrier wall, Rebar" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">0</rics:Quantity>
+				<rics:Rate>4</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Barrier wall, Rebar, stainless steel" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">19727</rics:Quantity>
+				<rics:Rate>12</rics:Rate>
+				<rics:Total>236724</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Barrier wall, Formwork" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">1216</rics:Quantity>
+				<rics:Rate>150</rics:Rate>
+				<rics:Total>182400</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Barrier wall, Screed" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">543</rics:Quantity>
+				<rics:Rate>25</rics:Rate>
+				<rics:Total>13575</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Barrier wall, Control joints" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTR">543</rics:Quantity>
+				<rics:Rate>10</rics:Rate>
+				<rics:Total>5430</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Barrier wall, Expansion joints" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>4</rics:Quantity>
+				<rics:Rate>1200</rics:Rate>
+				<rics:Total>4800</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Sound barrier wall, mounted on barrier wall, Paraglass" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">1016</rics:Quantity>
+				<rics:Rate>2000</rics:Rate>
+				<rics:Total>2032000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Sound barrier wall, mounted on barrier wall, Non-Paraglass" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">84</rics:Quantity>
+				<rics:Rate>2000</rics:Rate>
+				<rics:Total>168000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Sound barrier wall, mounted on barrier wall, Galvanized steel framing system" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">34940</rics:Quantity>
+				<rics:Rate>15</rics:Rate>
+				<rics:Total>524100</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Sound barrier wall, mounted on barrier wall, Clips and anchors" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="KGM">1900</rics:Quantity>
+				<rics:Rate>25</rics:Rate>
+				<rics:Total>47500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Sound barrier wall, mounted on barrier wall, Anchors" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>416</rics:Quantity>
+				<rics:Rate>80</rics:Rate>
+				<rics:Total>33280</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Safety facilities" code="02.2.04" subcode="070.000" description="Sound barrier wall, mounted on barrier wall, Installation" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity unitOfMeasurement="MTK">1100</rics:Quantity>
+				<rics:Rate>575</rics:Rate>
+				<rics:Total>632500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Special equipment and fittings" code="02.2.04" subcode="080.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Interior landscaping" code="02.2.04" subcode="090.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Non-structural works" subgroup="Builders’ work in connection with services" code="02.2.04" subcode="100.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Mechanical systems" code="02.2.05" subcode="010.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Mechanical systems" code="02.2.05" subcode="020.000" description="Electrical work, Pick up from storage and re-install ex. pole mounted heritage light fixture" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>5</rics:Quantity>
+				<rics:Rate>2000</rics:Rate>
+				<rics:Total>10000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Mechanical systems" code="02.2.05" subcode="020.000" description="Electrical work, Concrete base for above" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>5</rics:Quantity>
+				<rics:Rate>2000</rics:Rate>
+				<rics:Total>10000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Mechanical systems" code="02.2.05" subcode="020.000" description="Electrical work, Embedded 1x50mm + 1x75mm RPVC duct in barrier walls, 538m" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>50000</rics:Rate>
+				<rics:Total>50000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Mechanical systems" code="02.2.05" subcode="020.000" description="Electrical work, Extend embedded 1x50mm + 1x75mm RPVC ducts up to next handhole" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>15000</rics:Rate>
+				<rics:Total>15000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Mechanical systems" code="02.2.05" subcode="020.000" description="Electrical work, Electrical misc. - drawings, manuals, permits, fees and inspection, mobilization etc." isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>15000</rics:Rate>
+				<rics:Total>15000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Illuminations" code="02.2.05" subcode="030.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Low-voltage power supply" code="02.2.05" subcode="040.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="High-voltage power supply" code="02.2.05" subcode="050.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Cables/cable trays" code="02.2.05" subcode="060.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Other electrical services" code="02.2.05" subcode="070.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Control systems and instrumentation" code="02.2.05" subcode="080.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Pipe racks/supports" code="02.2.05" subcode="090.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Water supply and drainage above ground or inside underground construction" code="02.2.05" subcode="100.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Fire services" code="02.2.05" subcode="110.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Services and equipment" subgroup="Movement systems: lifts/ elevators/ conveyors" code="02.2.05" subcode="120.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Surface and underground drainage" subgroup="Surface water drainage" code="02.2.06" subcode="010.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Surface and underground drainage" subgroup="Storm water drainage" code="02.2.06" subcode="020.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Surface and underground drainage" subgroup="Foul and waste water drainage" code="02.2.06" subcode="030.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Surface and underground drainage" subgroup="Pumping systems" code="02.2.06" subcode="040.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Surface and underground drainage" subgroup="Drainage connections" code="02.2.06" subcode="050.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="External and ancillary works" subgroup="Site enclosures and divisions" code="02.2.07" subcode="010.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="External and ancillary works" subgroup="Ancillary structures" code="02.2.07" subcode="020.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="External and ancillary works" subgroup="Roads and paving (not amounting to a Sub- Project)" code="02.2.07" subcode="030.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="External and ancillary works" subgroup="Roads and paving (not amounting to a Sub- Project)" code="02.2.07" subcode="040.000" description="Allowance for hydronic seeding and shrub planting" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>4000</rics:Rate>
+				<rics:Total>4000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="External and ancillary works" subgroup="Fittings and equipment" code="02.2.07" subcode="050.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Fittings and equipment" code="02.2.08" subcode="000.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>6765200</rics:Rate>
+				<rics:Total>6765200</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Fittings and equipment" code="02.2.08" subcode="010.000" description="Administrative Requirements (6%)" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>1906700</rics:Rate>
+				<rics:Total>1906700</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Fittings and equipment" code="02.2.08" subcode="020.000" description="Allowance for clearing shrubs and planting adjacement to abutements" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>4</rics:Quantity>
+				<rics:Rate>2000</rics:Rate>
+				<rics:Total>8000</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Temporary site fencing and securities" code="02.2.08" subcode="030.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Commonly shared construction plant" code="02.2.08" subcode="040.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Commonly shared scaffolding" code="02.2.08" subcode="050.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Commonly shared scaffolding" code="02.2.08" subcode="060.000" description="Temporary Facilities and Controls (4%)" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>1482100</rics:Rate>
+				<rics:Total>1482100</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Commonly shared scaffolding" code="02.2.08" subcode="060.000" description="Procedural Requirements (10%)" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>3368400</rics:Rate>
+				<rics:Total>3368400</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Technology and communication: telephone, broadband, hardware, software" code="02.2.08" subcode="070.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Constructor’s submissions, reports and as-built documentation" code="02.2.08" subcode="080.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Quality monitoring, recording and inspections" code="02.2.08" subcode="090.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Safety, health and environmental management" code="02.2.08" subcode="100.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Insurances, bonds, guarantees and warranties" code="02.2.08" subcode="110.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Constructor’s statutory fees and charges" code="02.2.08" subcode="120.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Preliminaries | Constructors’ site overheads | general requirements" subgroup="Testing and commissioning" code="02.2.08" subcode="130.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Risk Allowances" subgroup="Testing and commissioning" code="02.2.09" subcode="010.000" description="Design and Pricing Contingency (2%)" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>801500</rics:Rate>
+				<rics:Total>801500</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Risk Allowances" subgroup="Testing and commissioning" code="02.2.09" subcode="020.000" description="Construction Contingency (10%)" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>4312600</rics:Rate>
+				<rics:Total>4312600</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Risk Allowances" subgroup="Testing and commissioning" code="02.2.09" subcode="030.000" description="Escalation Contingency (5.5%)" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>2248300</rics:Rate>
+				<rics:Total>2248300</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Risk Allowances" subgroup="Testing and commissioning" code="02.2.09" subcode="030.000" description="Bidding Requirements Conditions (4%)" isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>1</rics:Quantity>
+				<rics:Rate>1541400</rics:Rate>
+				<rics:Total>1541400</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Risk Allowances" subgroup="Exchange rate fluctuation adjustments" code="02.2.09" subcode="040.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Taxes and Levies" subgroup="Exchange rate fluctuation adjustments" code="02.2.10" subcode="000.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Taxes and Levies" subgroup="Paid by the Constructors" code="02.2.10" subcode="010.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Taxes and Levies" subgroup="Paid by the Client in relation to the construction contract payments" code="02.2.10" subcode="020.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Work and utilities off-site (including related risk allowances, taxes and levies)" subgroup="Paid by the Client in relation to the construction contract payments" code="02.2.11" subcode="000.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Work and utilities off-site (including related risk allowances, taxes and levies)" subgroup="Connections to, diversion of and capacity enhancement of public utility mains or sources off-site up to mains connections on-site" code="02.2.11" subcode="010.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Work and utilities off-site (including related risk allowances, taxes and levies)" subgroup="Connections to, diversion of and capacity enhancement of public utility mains or sources off-site up to mains connections on-site" code="02.2.11" subcode="010.010"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Work and utilities off-site (including related risk allowances, taxes and levies)" subgroup="Connections to, diversion of and capacity enhancement of public utility mains or sources off-site up to mains connections on-site" code="02.2.11" subcode="010.020"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Work and utilities off-site (including related risk allowances, taxes and levies)" subgroup="Connections to, diversion of and capacity enhancement of public utility mains or sources off-site up to mains connections on-site" code="02.2.11" subcode="010.030"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Work and utilities off-site (including related risk allowances, taxes and levies)" subgroup="Connections to, diversion of and capacity enhancement of public utility mains or sources off-site up to mains connections on-site" code="02.2.11" subcode="010.040"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Work and utilities off-site (including related risk allowances, taxes and levies)" subgroup="Connections to, diversion of and capacity enhancement of public utility mains or sources off-site up to mains connections on-site" code="02.2.11" subcode="010.050"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Work and utilities off-site (including related risk allowances, taxes and levies)" subgroup="Connections to, diversion of and capacity enhancement of public utility mains or sources off-site up to mains connections on-site" code="02.2.11" subcode="010.060"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Work and utilities off-site (including related risk allowances, taxes and levies)" subgroup="Public access roads and footpaths" code="02.2.11" subcode="020.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+			<rics:Costs category=" Construction Costs" group="Post-completion loose furniture, fittings and equipment (including related risk allowances, taxes and levies)" subgroup="Public access roads and footpaths" code="02.2.12" subcode="000.000"  isCivilEngineeringWorks="true" isExcluded="false">
+				<rics:Quantity>0</rics:Quantity>
+				<rics:Rate>0</rics:Rate>
+				<rics:Total>0</rics:Total>
+			</rics:Costs>
+		</rics:Bridges>
+	</rics:CostedProjects>
+</rics:DataTransfer>
