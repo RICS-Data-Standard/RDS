@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rics:DataTransfer xmlns:rics="urn:xsdschema:rics:3.3.4" xmlns:ifc="http://www.buildingsmart-tech.org/ifc/IFC4x1/final" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:xsdschema:rics:3.3.4 rics-3.3.4.xsd">
+	<rics:GeneratedBy name="Andrew Knight"/>
+	<rics:Property primaryUse="Office" description="Aura House" isPrimaryProperty="true">
+		<rics:Address>
+			<xal:AddressDetails>
+				<xal:AddressLines>
+					<xal:AddressLine>1 High Street</xal:AddressLine>
+				</xal:AddressLines>
+			</xal:AddressDetails>
+		</rics:Address>
+	</rics:Property>
+	<rics:Measurements primaryUse="Office">
+		<rics:MetaData reportStatus="Final" reportRevisionNumber="1" methodology="Laser" verification="measuredOnSite">
+			<rics:PreparedFor name="Aura House Investments"/>
+			<rics:Compliance>
+				<rics:PreparedBy name="Andrew Knight"/>
+				<rics:CertifiedBy name="Andrew Knight"/>
+			</rics:Compliance>
+			<rics:ReportDate>
+				<rics:Date>2018-08-28</rics:Date>
+			</rics:ReportDate>
+			<rics:AreaUnitOfMeasure scaleFactor="1" isPrimaryUnitMeasurement="true">MTK</rics:AreaUnitOfMeasure>
+			<rics:Tolerance>
+				<rics:Percentage>2</rics:Percentage>
+			</rics:Tolerance>
+			<rics:Accuracy description="interior">
+				<rics:Value valueAsText="5mm" unitOfMeasurement="MMT">5</rics:Value>
+			</rics:Accuracy>
+			<rics:Accuracy description="exterior">
+				<rics:Value valueAsText="50mm" unitOfMeasurement="MMT">50</rics:Value>
+			</rics:Accuracy>
+			<rics:MeasuredBy name="Andrew Knight"/>
+			<rics:InstructedMeasurementDate>
+				<rics:Date>2018-08-01</rics:Date>
+			</rics:InstructedMeasurementDate>
+			<rics:MeasurementDate>
+				<rics:Date>2018-08-10</rics:Date>
+			</rics:MeasurementDate>
+		</rics:MetaData>
+		<rics:Floors id="0" primaryUse="Office" description="Office space">
+			<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS1">
+				<rics:MeasurementValue>52</rics:MeasurementValue>
+			</rics:Measurement>
+			<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS2">
+				<rics:MeasurementValue>50</rics:MeasurementValue>
+			</rics:Measurement>
+			<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS3">
+				<rics:MeasurementValue>50</rics:MeasurementValue>
+				<rics:Occupier name="Aura House Investments">
+					<rics:Share>100</rics:Share>
+				</rics:Occupier>
+			</rics:Measurement>
+			<rics:MeasuredComponents reference="Open plan office" uniclassCategory="Co_20_15_58" componentArea="G" componentUsage="Private" description="Ground floor office">
+				<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS2">
+					<rics:MeasurementValue>50</rics:MeasurementValue>
+				</rics:Measurement>
+			</rics:MeasuredComponents>
+		</rics:Floors>
+		<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS1">
+			<rics:MeasurementValue>52</rics:MeasurementValue>
+		</rics:Measurement>
+		<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS2">
+			<rics:MeasurementValue>50</rics:MeasurementValue>
+		</rics:Measurement>
+		<rics:Measurement measurementStandard="IPMS" measurementBasis="IPMS3">
+			<rics:MeasurementValue>50</rics:MeasurementValue>
+			<rics:Occupier name="Aura House Investments">
+				<rics:Share>100</rics:Share>
+			</rics:Occupier>
+		</rics:Measurement>
+	</rics:Measurements>
+</rics:DataTransfer>
