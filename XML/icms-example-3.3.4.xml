@@ -16,7 +16,7 @@
 	<rics:CostedProjects title="New Offices and Warehouse" projectType="building" costReportStatus="pre-constructionForecast" reportPriceBasis="fixedUnitRates" projectStatus="initiationAndConceptPhase" description="New 2 storey office block, warehouse, soft landscaping and paving.  Removal of existing buildings in completion" projectStage="RIBA:Stage5ManufacturingAndConstruction">
 		<rics:GUID name="ICMS" id="35504290"/>
 		<rics:OtherDocumentation description="OC4IDSProjectData">
-			<rics:GUID name="OC4IDS" id="67345"/>
+			<rics:GUID name="OC4IDS" id="oc4ids-bu3kcz-m75-junctions-4-to-5-smart-motorway"/>
 			<rics:File>
 				<rics:ExternalFile category="oc4ids" url="https://standard.open-contracting.org/infrastructure/latest/en/_downloads/f30c76a1a987c4856576ff6ef3cf1c31/example.json"/> 
 			</rics:File>
